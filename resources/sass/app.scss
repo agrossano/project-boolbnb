@@ -1,1 +1,48 @@
-//
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    line-height: 1.7;
+    font-size: 2rem;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 7rem;
+    background-color: bisque;
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+}
+
+.main {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    border: black 0.1rem;
+    background-color: azure;
+}
