@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Home</title>
 
+  <!-- My script -->
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+
   <link rel="stylesheet" href="/css/app.css">
   <script src="/js/app.js"></script>
 

@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 
-//window.Vue = require('vue');
+window.Vue = require('vue');
 
 $(function () {
   $(window).on('scroll', function () {
@@ -19,7 +19,12 @@ $(function () {
 });
 
 
-console.log('hello')
+  var placesAutocomplete = places({
+    appId: 'pl7KVNEOQLI5',
+    apiKey: '04969e61c66943063b00e3f3195c4424',
+    container: document.querySelector('#address-input')
+  });
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -43,4 +48,3 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 // const app = new Vue({
 //   el: '#app',
 // });
-
