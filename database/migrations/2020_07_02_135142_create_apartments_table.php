@@ -21,7 +21,6 @@ class CreateApartmentsTable extends Migration
             $table->string('toilets_number');
             $table->string('beds_number');
             $table->string('square_metres');
-            $table->integer('views');
             $table->integer('price_per_day');
             $table->string('image');
             $table->bigInteger('user_id')-> unsigned()-> index();

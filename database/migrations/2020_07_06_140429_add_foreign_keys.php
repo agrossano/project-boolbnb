@@ -19,7 +19,7 @@ class AddForeignKeys extends Migration
             -> references('id')
             -> on('users')
             -> onDelete('cascade');
-            
+
               // relazione apartment location 1 -> N
             $table->foreign('location_id', 'location')
             -> references('id')
@@ -53,6 +53,12 @@ class AddForeignKeys extends Migration
             -> on('services')
             -> onDelete('cascade');
         });
+        Schema::table('sessions', function (Blueprint $table) {
+            $table -> foreign('apartment_id', 'apartment_session')
+            -> references('id')
+            -> on('apartments')
+            -> onDelete('cascade');
+        });
 
     }
 
@@ -77,6 +83,9 @@ class AddForeignKeys extends Migration
         Schema::table('apartment_service', function (Blueprint $table) {
             $table -> dropForeign('apartment_service');
             $table -> dropForeign('service_apartment');
+        });
+        Schema::table('sessions', function (Blueprint $table){
+            $table ->dropForeign('apartment_session');
         });
 
     }
