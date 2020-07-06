@@ -1,4 +1,12 @@
+<<<<<<< Updated upstream
 @extends('layouts.app')
+=======
+@extends('layouts.main_layout')
+@section('main')
+
+
+
+>>>>>>> Stashed changes
 
 @section('content')
 <div class="container">

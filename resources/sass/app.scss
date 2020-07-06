@@ -4,5 +4,146 @@
 // Variables
 @import 'variables';
 
+<<<<<<< Updated upstream
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+=======
+html {
+    font-size: 62.5%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-size: 38px;
+    color: #222222;
+    font-weight: 700;
+    font-family: "Arvo", serif;
+}
+
+a {
+    transition: all 0.2s linear;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a a:focus {
+    outline: none;
+}
+
+p {
+    font-weight: 400;
+    font-family: "Open Sans", sans-serif;
+    margin: 0px;
+    font-size: 14px;
+}
+
+ul,
+ol {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li,
+ol li {
+    list-style: none;
+}
+
+body {
+    min-height: 110vh;
+}
+
+.navbar {
+    transition: all 0.4s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    height: 7rem;
+}
+
+.logo {
+    width: 9rem;
+    height: auto;
+}
+
+.navbar .nav-link {
+    color: #fff;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+.navbar.active {
+    background: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.active .nav-link {
+    color: #555;
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #555;
+}
+
+header {
+    position: relative;
+    background-color: black;
+    height: 56rem;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+video {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 80%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+    position: relative;
+    z-index: 2;
+}
+
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
+    opacity: 0.4;
+    z-index: 1;
+}
+
+svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    fill: #fff;
+}
+>>>>>>> Stashed changes
