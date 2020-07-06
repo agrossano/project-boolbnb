@@ -5,7 +5,6 @@
 @section('main')
 
 
-
 >>>>>>> Stashed changes
 
 @section('content')
