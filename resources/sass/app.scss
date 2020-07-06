@@ -100,16 +100,16 @@ body {
 }
 
 header {
-    position: relative;
+    position: absolute;
     background-color: black;
-    height: 450px;
+    height: 56rem;
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
 }
 
 video {
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     min-width: 100%;
