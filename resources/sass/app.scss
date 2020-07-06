@@ -1,13 +1,11 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
-<<<<<<< Updated upstream
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
-=======
+@import "~bootstrap/scss/bootstrap";
 html {
     font-size: 62.5%;
 }
@@ -146,4 +144,3 @@ svg {
     z-index: 2;
     fill: #fff;
 }
->>>>>>> Stashed changes

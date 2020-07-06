@@ -8,6 +8,19 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+$(function () {
+  $(window).on('scroll', function () {
+    if ($(window).scrollTop() > 10) {
+      $('.navbar').addClass('active');
+    } else {
+      $('.navbar').removeClass('active');
+    }
+  });
+});
+
+
+console.log('hello')
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -27,6 +40,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+// const app = new Vue({
+//   el: '#app',
+// });
+
