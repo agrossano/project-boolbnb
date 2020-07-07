@@ -8,6 +8,5 @@
                 Text: {{$message->text}}
             </li><br><br>
         @endforeach
-    </ul>
-
+        <a href="{{route('createMessage',$message->apartment_id)}}">Ask informations</a>
 @endsection
