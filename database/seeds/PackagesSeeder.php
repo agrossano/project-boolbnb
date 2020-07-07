@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Package;
 
-class PackageSeeder extends Seeder
+class PackagesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +12,6 @@ class PackageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Package::class, 3) -> create();
     }
 }

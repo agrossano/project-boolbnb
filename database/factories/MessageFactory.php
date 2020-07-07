@@ -1,0 +1,14 @@
+<?php
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Message;
+use Faker\Generator as Faker;
+
+$factory->define(Message::class, function (Faker $faker) {
+    return [
+      'text' => $faker -> text(),
+      'email' => $faker -> email(),
+      'is_read' => $faker -> boolean()
+    ];
+});
