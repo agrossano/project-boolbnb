@@ -14,6 +14,7 @@ $factory->define(Apartment::class, function (Faker $faker) {
       'beds_number' => $faker -> numberBetween($min = 1, $max = 20),
       'square_metres' => $faker -> numberBetween($min = 10, $max = 600),
       'price_per_day' => $faker -> numberBetween($min = 50, $max = 900),
-      'image' => $faker -> imageUrl($width = 640, $height = 480)
+      'image' => $faker -> imageUrl($width = 640, $height = 480),
+      'is_visible' => $faker ->  boolean()
     ];
 });

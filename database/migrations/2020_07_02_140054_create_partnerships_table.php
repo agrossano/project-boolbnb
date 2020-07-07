@@ -17,7 +17,7 @@ class CreatePartnershipsTable extends Migration
             $table->id();
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->string('status');
+            $table->boolean('is_active');
             $table->bigInteger('apartment_id')-> unsigned()-> index();
             $table->bigInteger('package_id')-> unsigned()-> index();
             $table->timestamps();
