@@ -14,7 +14,7 @@
 
 
     <div class="text">
-      <h1 class="">Non devi andare lontano per trovare <br> ciò che conta.</h1>
+      <h1 class="">Non devi andare lontano <br> per trovare ciò che conta.</h1>
     </div>
 
     <div class="ae">
@@ -30,13 +30,205 @@
 <div class="main-search">
 
   <form  class="search-form">
-    <label for="from">
-      <i class="ion-location"></i>
-    </label>
     <input type="search" placeholder="Dove vuoi andare?">
-    <input type="submit" value="Search">
+    <input type="submit" value="Cerca">
   </form>
 
+</div>
+
+
+<h1 class="sponsored wow fadeInDown animated">Appartamenti in evidenza</h1>
+
+<div class="shape wow fadeInDown animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;"></div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="r_card wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="r_card_header">
+			</div>
+			<div class="r_card_content">
+				<div class="adress">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+					Torino
+				</div>
+				<div class="text_info">
+          E' un monolocale di circa 35 mq che consente un comfort speciale dato dall'intimità dell'alloggio e dalle curate rifiniture dello spazio; comodo ed elegante e continuamente in evoluzione per venire incontro a tutte le esigenze degli ospiti. A vostra disposizione (macchina del caffè - the , tisane ...) e set di igiene per il corpo monodose, contribuiscono a rendere esclusivo l'appartamento e il vostro soggiorno.
+					<div class="text_info_shade"></div>
+				</div>
+			</div>
+			<div class="price_info">
+				<span class="price_w">Prezzo:</span>
+				<span class="price_v">€ 80</span>
+			</div>
+			<div class="r_card_footer">
+				<div class="icon area">
+					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
+				</div>
+				<div class="icon room">
+					<i class="fa fa-bed" aria-hidden="true"></i>4
+				</div>
+				<div class="icon bath">
+					<i class="fa fa-bath" aria-hidden="true"></i>1
+				</div>
+			</div>
+    
+    </div>
+
+    <div class="r_card wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="r_card_header">
+			</div>
+			<div class="r_card_content">
+				<div class="adress">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+					Torino
+				</div>
+				<div class="text_info">
+          E' un monolocale di circa 35 mq che consente un comfort speciale dato dall'intimità dell'alloggio e dalle curate rifiniture dello spazio; comodo ed elegante e continuamente in evoluzione per venire incontro a tutte le esigenze degli ospiti. A vostra disposizione (macchina del caffè - the , tisane ...) e set di igiene per il corpo monodose, contribuiscono a rendere esclusivo l'appartamento e il vostro soggiorno.
+					<div class="text_info_shade"></div>
+				</div>
+			</div>
+			<div class="price_info">
+				<span class="price_w">Prezzo:</span>
+				<span class="price_v">€ 80</span>
+			</div>
+			<div class="r_card_footer">
+				<div class="icon area">
+					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
+				</div>
+				<div class="icon room">
+					<i class="fa fa-bed" aria-hidden="true"></i>4
+				</div>
+				<div class="icon bath">
+					<i class="fa fa-bath" aria-hidden="true"></i>1
+				</div>
+			</div>
+    
+    </div>
+
+    <div class="r_card wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="r_card_header">
+			</div>
+			<div class="r_card_content">
+				<div class="adress">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+					Torino
+				</div>
+				<div class="text_info">
+					E' un monolocale di circa 35 mq che consente un comfort speciale dato dall'intimità dell'alloggio e dalle curate rifiniture dello spazio; comodo ed elegante e continuamente in evoluzione per venire incontro a tutte le esigenze degli ospiti. A vostra disposizione (macchina del caffè - the , tisane ...) e set di igiene per il corpo monodose, contribuiscono a rendere esclusivo l'appartamento e il vostro soggiorno.
+					<div class="text_info_shade"></div>
+				</div>
+			</div>
+			<div class="price_info">
+				<span class="price_w">Prezzo:</span>
+				<span class="price_v">€ 80</span>
+			</div>
+			<div class="r_card_footer">
+				<div class="icon area">
+					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
+				</div>
+				<div class="icon room">
+					<i class="fa fa-bed" aria-hidden="true"></i>4
+				</div>
+				<div class="icon bath">
+					<i class="fa fa-bath" aria-hidden="true"></i>1
+				</div>
+			</div>
+    
+    </div>
+
+    <div class="r_card wow fadeInRight animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="r_card_header">
+			</div>
+			<div class="r_card_content">
+				<div class="adress">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+					Torino
+				</div>
+				<div class="text_info">
+					E' un monolocale di circa 35 mq che consente un comfort speciale dato dall'intimità dell'alloggio e dalle curate rifiniture dello spazio; comodo ed elegante e continuamente in evoluzione per venire incontro a tutte le esigenze degli ospiti. A vostra disposizione (macchina del caffè - the , tisane ...) e set di igiene per il corpo monodose, contribuiscono a rendere esclusivo l'appartamento e il vostro soggiorno.
+					<div class="text_info_shade"></div>
+				</div>
+			</div>
+			<div class="price_info">
+				<span class="price_w">Prezzo:</span>
+				<span class="price_v">€ 80</span>
+			</div>
+			<div class="r_card_footer">
+				<div class="icon area">
+					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
+				</div>
+				<div class="icon room">
+					<i class="fa fa-bed" aria-hidden="true"></i>4
+				</div>
+				<div class="icon bath">
+					<i class="fa fa-bath" aria-hidden="true"></i>1
+				</div>
+			</div>
+    
+    </div>
+
+    <div class="r_card wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="r_card_header">
+			</div>
+			<div class="r_card_content">
+				<div class="adress">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+					Torino
+				</div>
+				<div class="text_info">
+					E' un monolocale di circa 35 mq che consente un comfort speciale dato dall'intimità dell'alloggio e dalle curate rifiniture dello spazio; comodo ed elegante e continuamente in evoluzione per venire incontro a tutte le esigenze degli ospiti. A vostra disposizione (macchina del caffè - the , tisane ...) e set di igiene per il corpo monodose, contribuiscono a rendere esclusivo l'appartamento e il vostro soggiorno.
+					<div class="text_info_shade"></div>
+				</div>
+			</div>
+			<div class="price_info">
+				<span class="price_w">Prezzo:</span>
+				<span class="price_v">€ 80</span>
+			</div>
+			<div class="r_card_footer">
+				<div class="icon area">
+					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
+				</div>
+				<div class="icon room">
+					<i class="fa fa-bed" aria-hidden="true"></i>4
+				</div>
+				<div class="icon bath">
+					<i class="fa fa-bath" aria-hidden="true"></i>1
+				</div>
+			</div> 
+    </div>
+
+    <div class="r_card wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="r_card_header">
+			</div>
+			<div class="r_card_content">
+				<div class="adress">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+					Torino
+				</div>
+				<div class="text_info">
+					E' un monolocale di circa 35 mq che consente un comfort speciale dato dall'intimità dell'alloggio e dalle curate rifiniture dello spazio; comodo ed elegante e continuamente in evoluzione per venire incontro a tutte le esigenze degli ospiti. A vostra disposizione (macchina del caffè - the , tisane ...) e set di igiene per il corpo monodose, contribuiscono a rendere esclusivo l'appartamento e il vostro soggiorno. 
+					<div class="text_info_shade"></div>
+				</div>
+			</div>
+			<div class="price_info">
+				<span class="price_w">Prezzo:</span>
+				<span class="price_v">€ 80</span>
+			</div>
+			<div class="r_card_footer">
+				<div class="icon area">
+					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
+				</div>
+				<div class="icon room">
+					<i class="fa fa-bed" aria-hidden="true"></i>4
+				</div>
+				<div class="icon bath">
+					<i class="fa fa-bath" aria-hidden="true"></i>1
+				</div>
+			</div>
+    
+    </div>
+    
+	</div>
 </div>
 
 

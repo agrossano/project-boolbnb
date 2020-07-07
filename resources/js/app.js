@@ -8,18 +8,35 @@ require('./bootstrap');
 
 //window.Vue = require('vue');
 
-$(function () {
-  $(window).on('scroll', function () {
-    if ($(window).scrollTop() > 10) {
-      $('.navbar').addClass('active');
-    } else {
-      $('.navbar').removeClass('active');
-    }
+//cambio header on scroll 
+
+
+$(document).ready(function () {
+  //espansione card
+  $('.r_card').click(function () {
+    $(this).find('.text_info').toggleClass('active_card');
+    $(this).find('.text_info_shade').toggleClass('active_shade');
   });
+
+
+
+  $(function () {
+    $(window).on('scroll', function () {
+      if ($(window).scrollTop() > 10) {
+        $('.navbar').addClass('active');
+      } else {
+        $('.navbar').removeClass('active');
+      }
+    });
+  });
+
 });
 
 
-console.log('hello')
+
+
+
+
 
 /**
  * The following block of code may be used to automatically register your
