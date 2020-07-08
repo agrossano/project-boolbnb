@@ -6,39 +6,44 @@ use App\Message;
 use Illuminate\Http\Request;
 
 class MessagesController extends Controller
+
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+//---Visualizzazione Msg relativi all'appartamento------------------------------
     public function showMessages($id)
     {
         $messages = Message::where('apartment_id', $id)->get();
-        return view('MessagesViews.showMessages', compact('messages'));
+        return view('Messages.showMessages', compact('messages'));
     }
 
+//---Creazione nuovo msg relativo all'appartamento------------------------------
     public function createMessage($id)
     {
         $apartment_id = $id;
-        return view('MessagesViews.createMessage', compact('apartment_id'));
+        return view('Messages.createMessage', compact('apartment_id'));
     }
 
     public function storeMessage(Request $request, $id)
     {
         $validateData = $request->validate(
             [
-                'apartment_id' => 'required|integer',
                 'text' => 'required',
-                'email' => 'required|email|unique',
-                'is_read' => 'false'
+                'email' => 'required|email'
             ]
         );
         $message = new Message();
 
         $message->text = $validateData['text'];
         $message->email = $validateData['email'];
-        $message->is_read = $validateData['is_read'];
-        $message->apartment_id = $validateData['apartment_id'];
+        $message->is_read = 0;
+        $message->apartment_id = $id;
 
         $message->save();
 
-        return redirect()->route('showMessages')->withSuccess('Message Send');
-
+        return redirect()->route('createMessage', $id)->withSuccess('Message Send');
     }
 }
