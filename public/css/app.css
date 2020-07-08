@@ -14145,6 +14145,10 @@ header .container {
   transition: all 0.2s;
 }
 
+.search-form input[type=submit] #user_id {
+  display: none;
+}
+
 .search-form input[type=submit]:hover {
   background: #d73851;
   border: 1px solid #d73851;
