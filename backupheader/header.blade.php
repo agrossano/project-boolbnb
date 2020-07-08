@@ -221,6 +221,7 @@
           </div>
       </div>
   </nav>
+<<<<<<< HEAD
 
   @section('scripts')
   @parent
@@ -259,3 +260,5 @@
 
 
 
+=======
+>>>>>>> crud
