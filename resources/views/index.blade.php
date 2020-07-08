@@ -3,6 +3,7 @@
 
 <div class="home">
 
+
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
       <source src="/assets/video/cover.mp4" type="video/mp4">
     </video>
