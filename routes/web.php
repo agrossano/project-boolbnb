@@ -25,3 +25,6 @@ Route::get('/home', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/Messages/showMessages{id}', 'MessagesController@showMessages')->name('showMessages');
+Route::get('/Messages/createMessage{id}', 'MessagesController@createMessage')->name('createMessage');
+Route::post('/Messages/storeMessage{id}', 'MessagesController@storeMessage')->name('storeMessage');
