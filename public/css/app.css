@@ -14218,7 +14218,7 @@ input[type=search] {
 }
 
 .r_card .r_card_header {
-  background: url("https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg") 50% 0% no-repeat;
+  background: url("/assets/images/placeholderapt.jpeg") 50% 0% no-repeat;
   opacity: 0.9;
   height: 190px;
   background-size: contain;

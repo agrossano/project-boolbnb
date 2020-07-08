@@ -20,7 +20,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-
+  @include('components.login')
+  @include('components.register')
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -42,12 +43,19 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                              <a class="nav-link" 
+                                style="cursor: pointer" 
+                                data-toggle="modal" 
+                                data-target="#loginModal">{{ __('Login') }}
+                              </a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-
+                                  <a class="nav-link" 
+                                    style="cursor: pointer"
+                                    data-toggle="modal" 
+                                    data-target="#registerModal">{{ __('Register') }}
+                                  </a>
 
                                 </li>
                             @endif

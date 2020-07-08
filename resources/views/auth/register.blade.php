@@ -34,7 +34,7 @@
                   @enderror
               </div>
           </div>
-
+          
           <div class="form-group row">
               <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Data di nascita') }}</label>
               <div class="col-md-6">
@@ -94,7 +94,6 @@
       </form>
   </div>
 </div>
-@endsection
 
 
 
