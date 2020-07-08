@@ -169,6 +169,10 @@ header .container {
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     transition: all 0.2s;
+    // rendo il campo con l'utente id invisibile
+    #user_id {
+      display:none;
+    }
 }
 
 .search-form input[type="submit"]:hover {

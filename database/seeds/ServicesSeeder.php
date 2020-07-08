@@ -17,7 +17,7 @@ class ServicesSeeder extends Seeder
               -> create()
               -> each(function($service){
                 $apartment = Apartment::inRandomOrder() -> take(rand(1,5)) -> get();
-                $service -> apartments() -> attach($service);
+                $service -> apartments() -> attach($apartment);
               });
     }
 }

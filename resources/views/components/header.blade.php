@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid"><img class="logo" src="/assets/images/logo.png" alt="">
           <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
-          
+
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item active"><a href="#" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
@@ -23,6 +23,9 @@
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
+                            {{-- metto ul link al profilo --}}
+                            <a href="{{route('show_profile')}}">My profile</a>
+
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                   onclick="event.preventDefault();
@@ -37,13 +40,8 @@
                         </li>
                     @endguest
                 </ul>
-                  
+
               </ul>
           </div>
       </div>
   </nav>
-
-
-
-
-

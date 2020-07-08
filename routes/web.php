@@ -25,3 +25,9 @@ Route::get('/home', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profile', 'UserController@show_profile')->name('show_profile');
+Route::get('/apartment/create', 'UserController@create_apartment')->name('create_apartment');
+Route::post('/apartment/store', 'UserController@store_apartment')->name('store_apartment');
+Route::get('/apartment/edit/{id}', 'UserController@edit_apartment')->name('edit_apartment');
+Route::post('/apartment/update/{id}', 'UserController@update_apartment')->name('update_apartment');
