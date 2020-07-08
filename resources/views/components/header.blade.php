@@ -120,9 +120,6 @@
                   </div>
               </div>
 
-
-
-
               <div class="form-group row">
                   <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -171,7 +168,6 @@
   </div>
 </div>
 </div>
-
   
   <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid"><img class="logo" src="/assets/images/logo.png" alt="">
