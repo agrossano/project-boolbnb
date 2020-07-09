@@ -22,7 +22,6 @@
 <body>
   @include('components.login')
   @include('components.register')
-
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -45,16 +44,19 @@
                         @guest
                             <li class="nav-item">
                               <a class="nav-link" 
-                              style="cursor: pointer" 
-                              data-toggle="modal" 
-                              data-target="#loginModal">{{ __('Login') }}</a>
+                                style="cursor: pointer" 
+                                data-toggle="modal" 
+                                data-target="#loginModal">{{ __('Login') }}
+                              </a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                   <a class="nav-link" 
-                                  style="cursor: pointer"
-                                  data-toggle="modal" 
-                                  data-target="#registerModal">{{ __('Register') }}</a>
+                                    style="cursor: pointer"
+                                    data-toggle="modal" 
+                                    data-target="#registerModal">{{ __('Register') }}
+                                  </a>
+
                                 </li>
                             @endif
                         @else
@@ -85,5 +87,6 @@
             @yield('content')
         </main>
     </div>
+    @yield('scripts')
 </body>
 </html>
