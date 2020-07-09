@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+@section('main')
 
   <div class="form">
 
@@ -18,36 +18,36 @@
       @method('POST')
 
       <label for="title">TITOLO</label>
-      <input type="text" name="title" value="{{$apartment -> title}}">
+      <input type="text" name="title" value="{{$apartment -> title}}"> <br>
 
       <label for="description">DESCRIZIONE</label>
-      <input type="text" name="description" value="{{$apartment -> description}}">
+      <input type="text" name="description" value="{{$apartment -> description}}"><br>
 
       <label for="rooms_number">NUMERO DI STANZE</label>
-      <input type="text" name="rooms_number" value="{{$apartment -> rooms_number}}">
+      <input type="text" name="rooms_number" value="{{$apartment -> rooms_number}}"><br>
 
       <label for="toilets_number">NUMERO DI BAGNI</label>
-      <input type="text" name="toilets_number" value="{{$apartment -> toilets_number}}">
+      <input type="text" name="toilets_number" value="{{$apartment -> toilets_number}}"><br>
 
       <label for="beds_number">NUMERO DI LETTI</label>
-      <input type="text" name="beds_number" value="{{$apartment -> beds_number}}">
+      <input type="text" name="beds_number" value="{{$apartment -> beds_number}}"><br>
 
       <label for="square_metres">METRI QUADRATI</label>
-      <input type="text" name="square_metres" value="{{$apartment -> square_metres}}">
+      <input type="text" name="square_metres" value="{{$apartment -> square_metres}}"><br>
 
       <label for="price_per_day">PREZZO</label>
-      <input type="text" name="price_per_day" value="{{$apartment -> price_per_day}}">
+      <input type="text" name="price_per_day" value="{{$apartment -> price_per_day}}"><br>
 
       <label for="location_id">INDIRIZZO</label>
-      <input type="text" name="location_id" value="{{20}}">
+      <input type="text" name="location_id" value="{{20}}"><br>
 
       <label for="user_id">USER</label>
-      <input type="text" name="user_id" value="{{$user['id']}}">
+      <input type="text" name="user_id" value="{{$user['id']}}"><br>
 
       <label for="image">Select image:</label>
-      <input type="file" id="img" name="image" accept="image/*">
+      <input type="file" id="img" name="image" accept="image/*"><br>
 
-      <label for="services">SERVIZI</label>
+      <label for="services">SERVIZI</label><br>
 
       @foreach ($services as $service)
         <input type="checkbox" name="services[]" value="{{$service['id']}}"

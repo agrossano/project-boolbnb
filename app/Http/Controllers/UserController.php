@@ -20,9 +20,9 @@ class UserController extends Controller
 
   public function show_profile(){
 
-   $apartments = Apartment::with(['services']) -> get();
-   $user = Auth::user();
-   return view('user_profile', compact('user', 'apartments'));
+  $apartments = Apartment::with(['services']) -> get();
+  $user = Auth::user();
+  return view('user_profile', compact('user', 'apartments'));
   }
 
   public function create_apartment(){
@@ -50,7 +50,7 @@ class UserController extends Controller
 
     $apartment = new Apartment;
 
-   $apartment -> title =$validateData['title'];
+    $apartment -> title =$validateData['title'];
     $apartment -> description =$validateData['description'];
     $apartment -> rooms_number =$validateData['rooms_number'];
     $apartment -> toilets_number =$validateData['toilets_number'];
