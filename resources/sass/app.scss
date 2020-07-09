@@ -96,6 +96,31 @@ body {
     height: 7rem;
 }
 
+.btn-primary {
+    background: #ef3f5a;
+    border: 1px solid #ef3f5a;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background: #d73851;
+    border: 1px solid #d73851;
+}
+
+.btn-link {
+    color: #d73851;
+    font-size: 14px;
+}
+
+.form-check-input {
+    position: absolute;
+    margin-top: 1.3rem;
+    margin-left: -2.25rem;
+}
+
 .logo {
     width: 9rem;
     height: auto;

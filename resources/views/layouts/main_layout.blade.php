@@ -8,11 +8,14 @@
   
   <link rel="stylesheet" href="/css/app.css">
   <link rel="stylesheet" href="/css/animate.css">
+  <link rel="shortcut icon" href="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Airbnb-512.png">
+
   
   <script src="/js/app.js"></script>
 
 </head>
 <body>
+
   <header class="header">
     @include('components.header')
   </header>
