@@ -23,7 +23,7 @@ class CreateApartmentsTable extends Migration
             $table->string('square_metres');
             $table->integer('price_per_day');
             $table->string('image');
-            $table->boolean('is_visible');
+            $table->boolean('is_visible')-> default('1');
             $table->bigInteger('user_id')-> unsigned()-> index();
             $table->bigInteger('location_id')-> unsigned()-> index();
             $table->timestamps();

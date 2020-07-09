@@ -293,6 +293,7 @@ input[type="search"] {
 }
 
 .card_apt {
+    display: block;
     min-height: 430px;
     height: 100%;
     width: 500px;
@@ -303,11 +304,12 @@ input[type="search"] {
     position: relative;
     overflow: hidden;
     font-family: "Roboto", sans-serif;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s;
 }
 .card_apt:hover {
     cursor: pointer;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transform: translate3d(0, -6px, 0);
 }
 .card_apt:hover .text_info {
     opacity: 1 !important;
