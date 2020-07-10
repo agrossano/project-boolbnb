@@ -37233,7 +37233,7 @@ function expandCard() {
     $(this).find('.text_info').toggleClass('active_card');
     $(this).find('.text_info_shade').toggleClass('active_shd');
   });
-} //cambio header on scroll 
+} //cambio header on scroll
 
 
 $(function () {
@@ -37248,8 +37248,79 @@ $(function () {
 
 function init() {
   expandCard();
+  keyUpQuery();
+  addressClick();
+} // ---------------------------- inizio codice ricerca località sul form ------------------>
+
+
+function ajaxCall(query) {
+  $.ajax({
+    url: "https://api.tomtom.com/search/2/geocode/" + query + ".json",
+    method: "GET",
+    data: {
+      countrySet: "IT",
+      extendedPostalCodesFor: "Addr",
+      key: "k1RGzu2BVnevz10AcJPx4YynmWzDDGGk"
+    },
+    success: function success(data) {
+      var lat = data["results"][0]["position"]["lat"];
+      var lon = data["results"][0]["position"]["lon"];
+      console.log(lat); // <------questo mostra la latitudine
+
+      console.log(lon); // <------questo mostra la longitudine
+
+      console.log(data["results"]); // <------questo mostra l'oggettone data results
+    } // -----------------------fine della success data -----------------
+
+  }); // ------------------fine della chiamata ajax------------------------
+} // ----------------------------fine della function AjaxCall(query)-----------
+
+
+function addressClick() {
+  $("#indirizzo").on("click", function () {
+    $("#latitude").val($(this).data("lat"));
+    $("#longitude").val($(this).data("lon"));
+    $("#indirizzo").val($(this).text());
+  });
 }
 
+function keyUpQuery() {
+  function delay(callback, ms) {
+    var timer = 0;
+    return function () {
+      var context = this,
+          args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        callback.apply(context, args);
+      }, ms || 0);
+    };
+  } // Example usage:
+
+
+  $("#indirizzo").keyup(delay(function () {
+    var query = $(this).val();
+
+    if (query != "") {
+      console.log(query); // <-- mostra il nome della località cercata nella input form
+
+      ajaxCall(query);
+    }
+  }, 500));
+} // ---------------------> FINE FUNZIONE keyUpQuery() <-------------------------
+// <----------------------- inizio codice mappe TOMTOM -------------------------->
+
+
+var GOLDEN_GATE_BRIDGE = {
+  lng: -122.47483,
+  lat: 37.80776
+};
+var map = tt.map({
+  key: "k1RGzu2BVnevz10AcJPx4YynmWzDDGGk",
+  container: 'map-div',
+  center: GOLDEN_GATE_BRIDGE,
+  zoom: 12
+});
 $(document).ready(init);
 
 /***/ }),
@@ -37317,8 +37388,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/asaac/Documents/project-boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/asaac/Documents/project-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Huawey\Desktop\Boolean Course Projects\project-boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Huawey\Desktop\Boolean Course Projects\project-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

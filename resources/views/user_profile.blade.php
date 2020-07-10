@@ -33,9 +33,9 @@
         </ul>
       </div>
 
-      
+
         <div class="view light bordered">
-                                            
+
           <div class="row list-separated user-stat">
               <div class="col-md-6 col-sm-6 col-xs-6">
                   <div class="uppercase user-stat-title"> 3 </div>
@@ -62,9 +62,9 @@
                   <i class="fa fa-facebook"></i>
                   <a href="https://www.facebook.com/">Ale G.</a>
               </div>
-            </div>    
-        </div>                   
-                                  
+            </div>
+        </div>
+
     </div>
   </div>
   <div class="col-md-9">
@@ -75,23 +75,23 @@
       <div class="card_apt card_apt_panel wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
         <div class="card_apt_content">
           <div class="adress">
-            
+
             <div class="imgpanel">
               <img class="img_panel" src="{{asset($apartment -> image)}}" alt="">
             </div>
             <br>
-            
+
             TITOLO:  {{$apartment['title']}}  <br>
             STANZE:  {{$apartment['rooms_number']}} <br>
             INDIRIZZO:  {{$apartment['location_id']}} <br>
             SERVIZI: <br>
-            
-  
+
+
               @foreach ($apartment -> services as $apartment_service)
                 {{$apartment_service -> type}}
               @endforeach
               <a href="{{route('edit_apartment', $apartment['id'])}}">Modifica appartamento</a>
-          
+
           </div>
           <div class="text_info">
             {{$apartment['description']}}
@@ -112,13 +112,16 @@
           <div class="icon bath">
             <i class="fa fa-bath" aria-hidden="true"></i>{{$apartment['toilets_number']}}
           </div>
-        </div> 
+        </div>
       </div>
 
       @endif
       @endforeach
     </div>
     @endauth
+
+   <div id="map-div"></div>  {{--INSERIMENTO DIV CHE VISUALIZZA LE MAPPE TOMTOM --}}
+
   </div>
 </div>
 </div>
