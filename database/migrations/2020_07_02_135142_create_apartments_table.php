@@ -17,15 +17,17 @@ class CreateApartmentsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('rooms_number');
-            $table->string('toilets_number');
-            $table->string('beds_number');
-            $table->string('square_metres');
-            $table->integer('price_per_day');
+            $table->integer('rooms_number')-> unsigned();
+            $table->integer('toilets_number')-> unsigned();
+            $table->integer('beds_number')-> unsigned();
+            $table->integer('square_metres')-> unsigned();
+            $table->string('price_per_day');
             $table->string('image');
-            $table->boolean('is_visible');
+            $table->string('address');
+            $table->double('lat');
+            $table->double('lon');
+            $table->boolean('is_visible')-> default('1');
             $table->bigInteger('user_id')-> unsigned()-> index();
-            $table->bigInteger('location_id')-> unsigned()-> index();
             $table->timestamps();
         });
     }

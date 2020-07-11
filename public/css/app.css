@@ -14247,7 +14247,8 @@ input[type=search] {
   background-color: #f63854;
 }
 
-.r_card {
+.card_apt {
+  display: block;
   min-height: 430px;
   height: 100%;
   width: 500px;
@@ -14258,19 +14259,20 @@ input[type=search] {
   position: relative;
   overflow: hidden;
   font-family: "Roboto", sans-serif;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s;
 }
 
-.r_card:hover {
+.card_apt:hover {
   cursor: pointer;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: translate3d(0, -6px, 0);
 }
 
-.r_card:hover .text_info {
+.card_apt:hover .text_info {
   opacity: 1 !important;
 }
 
-.r_card .r_card_header {
+.card_apt .card_apt_header {
   background: url("/assets/images/placeholderapt.jpeg") 50% 0% no-repeat;
   opacity: 0.9;
   height: 190px;
@@ -14282,12 +14284,12 @@ input[type=search] {
   border-top-right-radius: 5px;
 }
 
-.r_card .r_card_header:hover {
+.card_apt .card_apt_header:hover {
   opacity: 1;
   background-size: 102%;
 }
 
-.r_card .r_card_header a img {
+.card_apt .card_apt_header a img {
   opacity: 0.9;
   height: 190px;
   position: absolute;
@@ -14299,23 +14301,23 @@ input[type=search] {
   border-top-right-radius: 5px;
 }
 
-.r_card .r_card_content {
+.card_apt .card_apt_content {
   width: 100%;
   height: 40%;
   padding: 20px 20px 0px;
 }
 
-.r_card .r_card_content i {
+.card_apt .card_apt_content i {
   color: #333;
   margin-right: 5px;
 }
 
-.r_card .r_card_content .adress {
+.card_apt .card_apt_content .adress {
   font-size: 15px;
   font-weight: 500;
 }
 
-.r_card .r_card_content .text_info {
+.card_apt .card_apt_content .text_info {
   height: 55px;
   width: 100%;
   overflow: hidden;
@@ -14326,7 +14328,7 @@ input[type=search] {
   position: relative;
 }
 
-.r_card .r_card_content .text_info .text_info_shade {
+.card_apt .card_apt_content .text_info .text_info_shade {
   content: "";
   position: absolute;
   height: 19px;
@@ -14337,14 +14339,14 @@ input[type=search] {
   z-index: 2;
 }
 
-.r_card .price_info {
+.card_apt .price_info {
   position: relative;
   height: 56px;
   border-top: 1px solid #ddd;
   font-size: 18px;
 }
 
-.r_card .price_info .price_w {
+.card_apt .price_info .price_w {
   width: 50%;
   height: 20px;
   position: absolute;
@@ -14355,7 +14357,7 @@ input[type=search] {
   font-weight: 600;
 }
 
-.r_card .price_info .price_v {
+.card_apt .price_info .price_v {
   width: 50%;
   height: 20px;
   position: absolute;
@@ -14366,22 +14368,22 @@ input[type=search] {
   font-weight: 600;
 }
 
-.r_card .r_card_footer {
+.card_apt .card_apt_footer {
   background-color: #ff052bb7;
   padding: 0 20px;
 }
 
-.r_card .r_card_footer i {
+.card_apt .card_apt_footer i {
   color: #aaa;
   display: inline-block;
   margin-right: 5px;
 }
 
-.r_card .r_card_footer .icon {
+.card_apt .card_apt_footer .icon {
   margin: 10px auto;
 }
 
-.r_card .r_card_footer .area {
+.card_apt .card_apt_footer .area {
   width: calc(30% - 2px);
   color: white;
   font-weight: 600;
@@ -14389,7 +14391,7 @@ input[type=search] {
   text-align: left;
 }
 
-.r_card .r_card_footer .room {
+.card_apt .card_apt_footer .room {
   width: calc(30% - 2px);
   color: white;
   font-weight: 600;
@@ -14397,7 +14399,7 @@ input[type=search] {
   text-align: center;
 }
 
-.r_card .r_card_footer .bath {
+.card_apt .card_apt_footer .bath {
   width: calc(30% - 2px);
   color: white;
   font-weight: 600;
@@ -14411,7 +14413,7 @@ input[type=search] {
   font-size: 13px !important;
 }
 
-.active_shade {
+.active_shd {
   background: none !important;
 }
 
@@ -14612,7 +14614,11 @@ input[type=search] {
   width: 100%;
 }
 
-.r_card_panel {
+.card_apt_panel {
   width: 300px;
+}
+
+.user_hide {
+  display: none;
 }
 

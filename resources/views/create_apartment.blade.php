@@ -40,9 +40,12 @@
 
       <label for="location_id">INDIRIZZO</label>
       <input type="text" name="location_id" value="{{20}}"><br>
-
-      <label id="user_input"for="user_id">USER</label>
-      <input type="text" name="user_id" value="{{$user['id']}}"><br>
+      
+      <div class="user_hide">
+        <label id="user_input"for="user_id">USER</label>
+        <input type="text" name="user_id" value="{{$user['id']}}"><br>
+      </div>
+   
 
       <label for="image">Select image:</label>
       <input id="image" type="file" name="image" accept="image/*"> <br>

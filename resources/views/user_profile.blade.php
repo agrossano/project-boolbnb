@@ -72,8 +72,8 @@
       @auth
       @foreach ($apartments as $apartment)
             @if ($user['id'] == $apartment['user_id'])
-      <div class="r_card r_card_panel wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
-        <div class="r_card_content">
+      <div class="card_apt card_apt_panel wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+        <div class="card_apt_content">
           <div class="adress">
             
             <div class="imgpanel">
@@ -102,7 +102,7 @@
           <span class="price_w">Prezzo:</span>
           <span class="price_v">€ {{$apartment['price_per_day']}}</span>
         </div>
-        <div class="r_card_footer">
+        <div class="card_apt_footer">
           <div class="icon area">
             <i class="fa fa-home" aria-hidden="true"></i>{{$apartment['square_metres']}}<sup>2</sup>
           </div>

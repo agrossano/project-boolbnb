@@ -42,10 +42,10 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="r_card wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
-			<div class="r_card_header">
+		<div class="card_apt wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="card_apt_header">
 			</div>
-			<div class="r_card_content">
+			<div class="card_apt_content">
 				<div class="adress">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
 					Torino
@@ -59,7 +59,7 @@
 				<span class="price_w">Prezzo:</span>
 				<span class="price_v">€ 80</span>
 			</div>
-			<div class="r_card_footer">
+			<div class="card_apt_footer">
 				<div class="icon area">
 					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
 				</div>
@@ -73,10 +73,10 @@
     
     </div>
 
-    <div class="r_card wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
-			<div class="r_card_header">
+    <div class="card_apt wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="card_apt_header">
 			</div>
-			<div class="r_card_content">
+			<div class="card_apt_content">
 				<div class="adress">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
 					Torino
@@ -90,7 +90,7 @@
 				<span class="price_w">Prezzo:</span>
 				<span class="price_v">€ 80</span>
 			</div>
-			<div class="r_card_footer">
+			<div class="card_apt_footer">
 				<div class="icon area">
 					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
 				</div>
@@ -104,10 +104,10 @@
     
     </div>
 
-    <div class="r_card wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
-			<div class="r_card_header">
+    <div class="card_apt wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="card_apt_header">
 			</div>
-			<div class="r_card_content">
+			<div class="card_apt_content">
 				<div class="adress">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
 					Torino
@@ -121,7 +121,7 @@
 				<span class="price_w">Prezzo:</span>
 				<span class="price_v">€ 80</span>
 			</div>
-			<div class="r_card_footer">
+			<div class="card_apt_footer">
 				<div class="icon area">
 					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
 				</div>
@@ -135,10 +135,10 @@
     
     </div>
 
-    <div class="r_card wow fadeInRight animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
-			<div class="r_card_header">
+    <div class="card_apt wow fadeInRight animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="card_apt_header">
 			</div>
-			<div class="r_card_content">
+			<div class="card_apt_content">
 				<div class="adress">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
 					Torino
@@ -152,7 +152,7 @@
 				<span class="price_w">Prezzo:</span>
 				<span class="price_v">€ 80</span>
 			</div>
-			<div class="r_card_footer">
+			<div class="card_apt_footer">
 				<div class="icon area">
 					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
 				</div>
@@ -166,10 +166,10 @@
     
     </div>
 
-    <div class="r_card wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
-			<div class="r_card_header">
+    <div class="card_apt wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="card_apt_header">
 			</div>
-			<div class="r_card_content">
+			<div class="card_apt_content">
 				<div class="adress">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
 					Torino
@@ -183,7 +183,7 @@
 				<span class="price_w">Prezzo:</span>
 				<span class="price_v">€ 80</span>
 			</div>
-			<div class="r_card_footer">
+			<div class="card_apt_footer">
 				<div class="icon area">
 					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
 				</div>
@@ -196,10 +196,10 @@
 			</div> 
     </div>
 
-    <div class="r_card wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
-			<div class="r_card_header">
+    <div class="card_apt wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+			<div class="card_apt_header">
 			</div>
-			<div class="r_card_content">
+			<div class="card_apt_content">
 				<div class="adress">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
 					Torino
@@ -213,7 +213,7 @@
 				<span class="price_w">Prezzo:</span>
 				<span class="price_v">€ 80</span>
 			</div>
-			<div class="r_card_footer">
+			<div class="card_apt_footer">
 				<div class="icon area">
 					<i class="fa fa-home" aria-hidden="true"></i>95m<sup>2</sup>
 				</div>
