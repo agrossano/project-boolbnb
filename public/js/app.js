@@ -37258,15 +37258,21 @@ function ajaxCall(query) {
     method: "GET",
     data: {
       countrySet: "IT",
-      extendedPostalCodesFor: "Addr",
+      // extendedPostalCodesFor: "Addr",
       key: "k1RGzu2BVnevz10AcJPx4YynmWzDDGGk"
     },
     success: function success(data) {
       var lat = data["results"][0]["position"]["lat"];
       var lon = data["results"][0]["position"]["lon"];
+      var city = data["results"][0]["address"]["municipality"];
+      var address = data["results"][0]["address"]["streetName"];
       console.log(lat); // <------questo mostra la latitudine
 
       console.log(lon); // <------questo mostra la longitudine
+
+      console.log(city); // <------questo mostra il primo risultato come località restituita dalla chiamata
+
+      console.log(address); // <------questo mostra il primo risultato dell'indirizzo della località restituita dalla chiamata
 
       console.log(data["results"]); // <------questo mostra l'oggettone data results
     } // -----------------------fine della success data -----------------
@@ -37287,9 +37293,9 @@ function addressClick() {
 } //  funzione che attiva il monitoraggio al click del pulsante Cerca
 
 
-function sendSearch() {
+function sendSearch(query) {
   $("#pulsanteCerca").on("click", function () {
-    console.log("maccio-capatosta");
+    ajaxCall(query);
   });
 }
 
@@ -37311,7 +37317,8 @@ function keyUpQuery() {
     var query = $(this).val();
 
     if (query !== null) {
-      console.log(query); // <-- mostra il nome della località cercata nella input form
+      // console.log(query); // <-- monitora i tasti premuti nella input form
+      sendSearch(query);
     }
   }, 500));
 } // ---------------------> FINE FUNZIONE keyUpQuery() <-------------------------
