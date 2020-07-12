@@ -4680,8 +4680,8 @@ module.exports = {
     for (var i = 0, len = elements.length; i < len; i++) {
       var _ret = _loop(i);
 
-      if (_ret === "continue") continue;
-    }
+      if (_ret === "continue")
+          }
 
     return createdDocument.body.innerHTML;
   }
@@ -9364,7 +9364,7 @@ function nodeName( elem, name ) {
 
   return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-};
+}
 var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 
 
@@ -37225,25 +37225,25 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //espansione card
+            __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //espansione card
 
 
-function expandCard() {
-  $('.card_apt').click(function () {
-    $(this).find('.text_info').toggleClass('active_card');
-    $(this).find('.text_info_shade').toggleClass('active_shd');
-  });
-} //cambio header on scroll 
+            function expandCard() {
+                $('.card_apt').click(function () {
+                    $(this).find('.text_info').toggleClass('active_card');
+                    $(this).find('.text_info_shade').toggleClass('active_shd');
+                });
+            } //cambio header on scroll
 
 
-$(function () {
-  $(window).on('scroll', function () {
-    if ($(window).scrollTop() > 10) {
-      $('.navbar').addClass('active');
-    } else {
-      $('.navbar').removeClass('active');
-    }
-  });
+            $(function () {
+                $(window).on('scroll', function () {
+                    if ($(window).scrollTop() > 10) {
+                        $('.navbar').addClass('active');
+                    } else {
+                        $('.navbar').removeClass('active');
+                    }
+                });
 });
 
 function init() {
@@ -37317,10 +37317,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Camus\Desktop\boolean\project-boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Camus\Desktop\boolean\project-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+            __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\js\app.js */"./resources/js/app.js");
+            module.exports = __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
-/***/ })
+            /***/
+        })
 
 /******/ });
