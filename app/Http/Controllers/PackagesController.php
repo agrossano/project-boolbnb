@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Package;
+use App\Partnership;
 use Braintree;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class PackagesController extends Controller
 {
@@ -54,13 +56,31 @@ class PackagesController extends Controller
             'paymentMethodNonce' => $nonce,
             'options' => ['submitForSettlement' => true]
         ]);
-        if ($result->success) {
 
-            $message = "Esecuzione ok";
+        if ($result->success) {
+            $message = "Transazione eseguita con successo";
+
+            $transaction = new Partnership();
+
+            $transaction->package_id = $id;
+            //salvo l'id dell'appartamento
+            $transaction->apartment_id = 34;
+
+            $transaction->transaction_id = $result->transaction->id;
+            //salvo la data con Carbon::now()
+            $transaction->start_date = Carbon::now();// poi
+            // aggiungo ->addHours(24); x la data di scadenza
+            $transaction->end_date = Carbon::now()->addHours($package->number_of_hours);
+            //imposto is_active a 1
+            $transaction->is_active = 1;
+
+            $transaction->save();
+
+
         } else {
             $message = "Esecuzione errata";
         }
-        return view('Packages.ok', compact('message', 'transazione'));
+        return view('Packages.ok', compact('message'));
     }
 }
 

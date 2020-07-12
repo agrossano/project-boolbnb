@@ -46,44 +46,42 @@
     <div class="container-fluid">
         <div class="row">
             @foreach($sponsored_apartments as $apartment_selected)
-                @foreach($apartments as $apartment)
-                    @if ($apartment_selected->id===$apartment->id)
-                        <div class="card_apt wow fadeInLeft animated" data-wow-delay="0.3s"
-                             style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
-                            <div class="card_apt_header">
+                <div class="card_apt wow fadeInLeft animated" data-wow-delay="0.3s"
+                     style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+                    <div class="card_apt_header">
 
-                                <!--IMMAGINE DI SFONDO-->
+                        <!--IMMAGINE DI SFONDO-->
 
-                            </div>
-                            <div class="card_apt_content">
-                                <div class="address">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    {{$apartment->address}}
-                                </div>
-                                <div class="text_info">
-                                    {{$apartment->description}}
-                                    <div class="text_info_shade"></div>
-                                </div>
-                            </div>
-                            <div class="price_info">
-                                <span class="price_w">Prezzo:</span>
-                                <span class="price_v">€ {{$apartment->price_per_day}}</span>
-                            </div>
-                            <div class="card_apt_footer">
-                                <div class="icon area">
-                                    <i class="fa fa-home" aria-hidden="true"></i>{{$apartment->square_metres}}
-                                    <sup>2</sup>
-                                </div>
-                                <div class="icon room">
-                                    <i class="fa fa-bed" aria-hidden="true"></i>{{$apartment->beds_number}}
-                                </div>
-                                <div class="icon bath">
-                                    <i class="fa fa-bath" aria-hidden="true"></i>{{$apartment->toilets_number}}
-                                </div>
-                            </div>
+                    </div>
+                    <div class="card_apt_content">
+                        <div class="address">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            {{$apartment_selected->apartment->address}}
                         </div>
-                    @endif
-                @endforeach
+                        <div class="text_info">
+                            {{$apartment_selected->apartment->description}}
+                            <div class="text_info_shade"></div>
+                        </div>
+                    </div>
+                    <div class="price_info">
+                        <span class="price_w">Prezzo:</span>
+                        <span class="price_v">€ {{$apartment_selected->apartment->price_per_day}}</span>
+                    </div>
+                    <div class="card_apt_footer">
+                        <div class="icon area">
+                            <i class="fa fa-home"
+                               aria-hidden="true"></i>{{$apartment_selected->apartment->square_metres}}
+                            <sup>2</sup>
+                        </div>
+                        <div class="icon room">
+                            <i class="fa fa-bed" aria-hidden="true"></i>{{$apartment_selected->apartment->beds_number}}
+                        </div>
+                        <div class="icon bath">
+                            <i class="fa fa-bath"
+                               aria-hidden="true"></i>{{$apartment_selected->apartment->toilets_number}}
+                        </div>
+                    </div>
+                </div>
             @endforeach
         </div>
 
