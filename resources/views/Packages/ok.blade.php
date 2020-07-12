@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('main')
-
-
-    ciao
+    {{$message}}
+    {{$transazione}}
 @endsection

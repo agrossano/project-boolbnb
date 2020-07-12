@@ -2,17 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('index');
 });
@@ -36,4 +25,6 @@ Route::post('/apartment/store', 'UserController@store_apartment')->name('store_a
 Route::get('/apartment/edit/{id}', 'UserController@edit_apartment')->name('edit_apartment');
 Route::post('/apartment/update/{id}', 'UserController@update_apartment')->name('update_apartment');
 //Rotte Pacchetti------------------
-Route::get('/packages', 'PackagesController@showPackages')->name('showPackages');
+Route::get('/Packages/showPackages', 'PackagesController@showPackages')->name('showPackages');
+Route::get('/Packages/detailsPackage/{id}', 'PackagesController@detailsPackage')->name('detailsPackage');
+Route::get('/Packages/buyPackage/{id}', 'PackagesController@buyPackage')->name('buyPackage');
