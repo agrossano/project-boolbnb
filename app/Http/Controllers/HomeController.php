@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Partnership;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $sponsored_apartments = Partnership::with('apartment')->where('is_active', '1')->get();
+        $now = Carbon::now()->toDateTimeString();
+        $sponsored_apartments = Partnership::with('apartment')->where('end_date', '>', $now)->get();
         return view('index', compact('sponsored_apartments'));
     }
 

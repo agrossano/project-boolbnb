@@ -46,6 +46,7 @@
     <div class="container-fluid">
         <div class="row">
             @foreach($sponsored_apartments as $apartment_selected)
+
                 <div class="card_apt wow fadeInLeft animated" data-wow-delay="0.3s"
                      style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
                     <div class="card_apt_header">
@@ -55,8 +56,9 @@
                     </div>
                     <div class="card_apt_content">
                         <div class="address">
+                            {{$apartment_selected->apartment->id}}
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            {{$apartment_selected->apartment->address}}
+                            {{$apartment_selected->apartment->title}}
                         </div>
                         <div class="text_info">
                             {{$apartment_selected->apartment->description}}
