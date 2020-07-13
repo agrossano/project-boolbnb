@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         $now = Carbon::now()->toDateTimeString();
-        $sponsored_apartments = Partnership::with('apartment')->where('end_date', '>', $now)->get();
+        $sponsored_apartments = Partnership::with('apartment')->inRandomOrder()->where('end_date', '>', $now)->get();
         return view('index', compact('sponsored_apartments'));
     }
 

@@ -50,8 +50,7 @@
         <div class="row">
             @foreach($sponsored_apartments->take(9) as $apartment_selected)
 
-                <div class="card_apt wow fadeInLeft animated" data-wow-delay="0.3s"
-                     style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
+                <div class="card_apt">
                     <div class="card_apt_header">
 
                         <!--IMMAGINE DI SFONDO-->

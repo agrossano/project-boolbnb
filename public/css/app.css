@@ -14442,7 +14442,7 @@ footer .quick-links {
   background-color: white;
   margin: 40px auto;
   box-shadow: 0 10px 22px 10px rgba(27, 38, 49, 0.1);
-  border-radius: 27px;
+  border-radius: 6px;
   position: relative;
   overflow: hidden;
   font-family: "Roboto", sans-serif;
