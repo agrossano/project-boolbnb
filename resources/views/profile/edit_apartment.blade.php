@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('main')
+@section('panel_main')
 
-  <div class="form">
+  <div class="form col-md-12">
 
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -17,60 +17,106 @@
       @csrf
       @method('POST')
 
-      <label for="title">TITOLO</label>
-      <input type="text" name="title" value="{{$apartment -> title}}"> <br>
 
-      <label for="description">DESCRIZIONE</label>
-      <input type="text" name="description" value="{{$apartment -> description}}"><br>
+      <div class="form-group">
 
-      <label for="rooms_number">NUMERO DI STANZE</label>
-      <input type="text" name="rooms_number" value="{{$apartment -> rooms_number}}"><br>
+        <label for="title">TITOLO</label>
+        <input type="text" class="form-control" name="title" value="{{$apartment -> title}}">
 
-      <label for="toilets_number">NUMERO DI BAGNI</label>
-      <input type="text" name="toilets_number" value="{{$apartment -> toilets_number}}"><br>
+      </div>
 
-      <label for="beds_number">NUMERO DI LETTI</label>
-      <input type="text" name="beds_number" value="{{$apartment -> beds_number}}"><br>
+      <div class="form-group">
 
-      <label for="square_metres">METRI QUADRATI</label>
-      <input type="text" name="square_metres" value="{{$apartment -> square_metres}}"><br>
+        <label for="description">DESCRIZIONE</label>
+        <textarea class="form-control" rows="4" name="description">{{$apartment -> description}}</textarea>
 
-      <label for="price_per_day">PREZZO</label>
-      <input type="text" name="price_per_day" value="{{$apartment -> price_per_day}}"><br>
+      </div>
 
-      <label for="address">ADDRESS</label>
-      <input type="text" name="address" value="{{$apartment -> address}}"><br>
+      <div class="form-group">
+        
+        <label for="rooms_number">NUMERO DI STANZE</label>
+        <input type="text" class="form-control" name="rooms_number" value="{{$apartment -> rooms_number}}">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="toilets_number">NUMERO DI BAGNI</label>
+        <input type="text" class="form-control" name="toilets_number" value="{{$apartment -> toilets_number}}">
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="beds_number">NUMERO DI LETTI</label>
+        <input type="text" class="form-control" name="beds_number" value="{{$apartment -> beds_number}}">
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="square_metres">METRI QUADRATI</label>
+        <input type="text" class="form-control" name="square_metres" value="{{$apartment -> square_metres}}">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="price_per_day">PREZZO</label>
+        <input type="text" class="form-control" name="price_per_day" value="{{$apartment -> price_per_day}}">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="address">INDIRIZZO</label>
+        <input type="text" class="form-control" name="address" value="{{$apartment -> address}}"">
+
+      </div>
 
       <label for="lat"></label>
-        <input type="hidden" name="lat" value="10000"><br>
+        <input type="hidden" name="lat" value="10000">
 
       <label for="lon"></label>
-      <input type="hidden" name="lon" value="20000"><br>
+      <input type="hidden" name="lon" value="20000">
 
       <div class="user_hide">
         <label for="user_id">USER</label>
-        <input type="text" name="user_id" value="{{$user['id']}}"><br>
+        <input type="text" class="form-control" name="user_id" value="{{$user['id']}}">
       </div>
 
-      <img src="{{$apartment -> image}}" alt=""> <br>
-      <label for="image">MODIFICA IMMAGINE</label>
-      <input type="file" name="image" accept="image/*"> <br>
+      <div class="form-group">
 
-       <label for="services">SERVIZI</label> <br>
+        <img class="edit-image" src="{{$apartment -> image}}" alt=""> <br>
+        <label for="image">Modifica Immagine</label>
+        <input type="file" id="image" name="image" accept="image/*"> <br>
+
+      </div>
+    
+      <label for="services">SERVIZI</label><br>
+      <div class="form-check">
       @foreach ($services as $service)
-        <input type="checkbox" name="services[]" value="{{$service -> id}}"
+      <input type="checkbox" class="form-check-input" name="services[]" value="{{$service -> id}}"
         @foreach ($apartment -> services as $apartment_service)
-          @if ($service -> id == $apartment_service -> id)
+          @if ($service -> id == $apartment_service -> id) 
             checked
           @endif
-        @endforeach
-        >  {{$service['type']}} <br>
+        @endforeach   
+        >
+        {{$service['type']}} <br> 
       @endforeach
+    </div>
 
-      <select name="is_visible">
-        <option value="1">APPARTAMENTO VISIBILE</option>
-        <option value="0">APPARTAMENTO NON VISIBILE</option>
-      </select>
+    <select class="custom-select custom-select-lg mb-5 mt-5" name="is_visible">
+      <label for="services">SERVIZI</label><br>
+      <option selected>Seleziona la visibilità dell'annuncio</option>
+      <option value="1">APPARTAMENTO VISIBILE</option>
+      <option value="0">APPARTAMENTO NON VISIBILE</option>
+    </select>
+
       <input type="submit" name="submit" value="MODIFICA">
 
     </form>

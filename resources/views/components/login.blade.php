@@ -70,7 +70,7 @@
     </div>
 </div>
 
-{{-- script errore sulla modale senza redirect --}}
+{{-- script che mostra modale in caso di errore sul login  --}}
 @section('scripts')
 @parent
 
