@@ -34,3 +34,4 @@ Route::get('/apartment/create', 'UserController@create_apartment')->name('create
 Route::post('/apartment/store', 'UserController@store_apartment')->name('store_apartment');
 Route::get('/apartment/edit/{id}', 'UserController@edit_apartment')->name('edit_apartment');
 Route::post('/apartment/update/{id}', 'UserController@update_apartment')->name('update_apartment');
+Route::get('/apartment/delete/{id}', 'UserController@delete_apartment')->name('delete_apartment');

@@ -38,31 +38,39 @@
       <label for="price_per_day">PREZZO</label>
       <input type="text" name="price_per_day" value="{{$apartment -> price_per_day}}"><br>
 
-      <label for="location_id">INDIRIZZO</label>
-      <input type="text" name="location_id" value="{{20}}"><br>
+      <label for="address">ADDRESS</label>
+      <input type="text" name="address" value="{{$apartment -> address}}"><br>
+
+      <label for="lat"></label>
+        <input type="hidden" name="lat" value="10000"><br>
+
+      <label for="lon"></label>
+      <input type="hidden" name="lon" value="20000"><br>
 
       <div class="user_hide">
         <label for="user_id">USER</label>
         <input type="text" name="user_id" value="{{$user['id']}}"><br>
       </div>
-     
 
-      <label for="image">Select image:</label>
-      <input type="file" id="img" name="image" accept="image/*"><br>
+      <img src="{{$apartment -> image}}" alt=""> <br>
+      <label for="image">MODIFICA IMMAGINE</label>
+      <input type="file" name="image" accept="image/*"> <br>
 
-      <label for="services">SERVIZI</label><br>
-
+       <label for="services">SERVIZI</label> <br>
       @foreach ($services as $service)
-        <input type="checkbox" name="services[]" value="{{$service['id']}}"
+        <input type="checkbox" name="services[]" value="{{$service -> id}}"
         @foreach ($apartment -> services as $apartment_service)
           @if ($service -> id == $apartment_service -> id)
             checked
           @endif
         @endforeach
-        >
-        {{$service['type']}}
+        >  {{$service['type']}} <br>
       @endforeach
 
+      <select name="is_visible">
+        <option value="1">APPARTAMENTO VISIBILE</option>
+        <option value="0">APPARTAMENTO NON VISIBILE</option>
+      </select>
       <input type="submit" name="submit" value="MODIFICA">
 
     </form>

@@ -19,12 +19,6 @@ class AddForeignKeys extends Migration
             -> references('id')
             -> on('users')
             -> onDelete('cascade');
-
-              // relazione apartment location 1 -> N
-            $table->foreign('location_id', 'location')
-            -> references('id')
-            -> on('locations')
-            -> onDelete('cascade');
         });
         // relazione user message, 1 -> N
         Schema::table('messages', function (Blueprint $table){
@@ -71,7 +65,6 @@ class AddForeignKeys extends Migration
     {
         Schema::table('apartments', function (Blueprint $table){
             $table ->dropForeign('user');
-            $table ->dropForeign('location');
         });
         Schema::table('messages', function (Blueprint $table){
             $table ->dropForeign('aparment_message');
