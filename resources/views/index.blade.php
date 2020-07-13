@@ -13,7 +13,7 @@
 
 
     <div class="text">
-      <h1 class="">Non devi andare lontano <br> per trovare ciò che conta.</h1>
+      <h1 id="bottoneInvio">Non devi andare lontano <br> per trovare ciò che conta.</h1>
     </div>
 
     <div class="ae">
@@ -30,7 +30,7 @@
 
   <form  class="search-form">
     <input type="search" id="indirizzo" placeholder="Dove vuoi andare?">
-    <input type="submit" id="bottoneInvio" value="Cerca">
+    <input type="submit"  value="Cerca">
   </form>
 
 </div>
