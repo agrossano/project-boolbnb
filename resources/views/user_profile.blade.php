@@ -18,25 +18,25 @@
 
       </div>
 
-        <div class="user-usermenu">
-            <ul class="nav">
-                <li class="active">
-                    <a href="{{route('create_apartment')}}">
-                        <i class="glyphicon glyphicon-home"></i>
-                        Inserisci nuovo appartamento </a>
-                </li>
-                <li>
-                    <a href="{{route('showPackages')}}">
-                        <i class="glyphicon glyphicon-user"></i>
-                        Promuovi un appartamento</a>
-                </li>
-            </ul>
-        </div>
+      <div class="user-usermenu">
+        <ul class="nav">
+          <li class="active">
+            <a href="{{route('create_apartment')}}">
+            <i class="glyphicon glyphicon-home"></i>
+            Inserisci nuovo appartamento </a>
+          </li>
+          <li>
+            <a href="#">
+            <i class="glyphicon glyphicon-user"></i>
+            Promuovi un appartamento</a>
+          </li>
+        </ul>
+      </div>
 
 
         <div class="view light bordered">
 
-            <div class="row list-separated user-stat">
+          <div class="row list-separated user-stat">
               <div class="col-md-6 col-sm-6 col-xs-6">
                   <div class="uppercase user-stat-title"> 3 </div>
                   <div class="uppercase user-stat-text"> Appartamenti </div>
@@ -54,22 +54,22 @@
                   <i class="fa fa-globe"></i>
                   <a href="#">alegro.com</a>
               </div>
-                <div class="margin-top-20 user-desc-link">
-                    <i class="fa fa-twitter"></i>
-                    <a href="https://www.twitter.com/">@twitterprofilo</a>
-                </div>
-                <div class="margin-top-20 user-desc-link">
-                    <i class="fa fa-facebook"></i>
-                    <a href="https://www.facebook.com/">Ale G.</a>
-                </div>
+              <div class="margin-top-20 user-desc-link">
+                  <i class="fa fa-twitter"></i>
+                  <a href="https://www.twitter.com/">@twitterprofilo</a>
+              </div>
+              <div class="margin-top-20 user-desc-link">
+                  <i class="fa fa-facebook"></i>
+                  <a href="https://www.facebook.com/">Ale G.</a>
+              </div>
             </div>
         </div>
 
     </div>
   </div>
-      <div class="col-md-9">
-          <div class="user-apartment">
-              @auth
+  <div class="col-md-9">
+    <div class="user-apartment">
+      @auth
       @foreach ($apartments as $apartment)
             @if ($user['id'] == $apartment['user_id'])
       <div class="card_apt card_apt_panel wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible;-webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;">
@@ -84,7 +84,7 @@
             TITOLO:  {{$apartment['title']}}  <br>
             STANZE:  {{$apartment['rooms_number']}} <br>
             INDIRIZZO:  {{$apartment['location_id']}} <br>
-              SERVIZI: <br>
+            SERVIZI: <br>
 
 
               @foreach ($apartment -> services as $apartment_service)
@@ -115,7 +115,7 @@
         </div>
       </div>
 
-                      @endif
+      @endif
       @endforeach
     </div>
     @endauth

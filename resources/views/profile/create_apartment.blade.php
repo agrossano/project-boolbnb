@@ -38,14 +38,18 @@
       <label for="price_per_day">PREZZO</label>
       <input type="text" name="price_per_day" value=""><br>
 
-      <label for="location_id">INDIRIZZO</label>
-      <input type="text" name="location_id" value="{{20}}"><br>
-      
+      <label for="address">ADDRESS</label>
+      <input type="text" name="address" value=""><br>
+
+      <input type="hidden" name="lat" value="10000"><br>
+      <input type="hidden" name="lon" value="20000"><br>
+
+
       <div class="user_hide">
         <label id="user_input"for="user_id">USER</label>
         <input type="text" name="user_id" value="{{$user['id']}}"><br>
       </div>
-   
+
 
       <label for="image">Select image:</label>
       <input id="image" type="file" name="image" accept="image/*"> <br>
@@ -55,6 +59,13 @@
         <input type="checkbox" name="services[]" value="{{$service -> id}}">
         {{$service -> type}} <br>
       @endforeach
+
+      <select name="is_visible">
+        <label for="is_visible">SCEGLI SE RENDERE VISIBILE L'APPARTAMENTO</label>
+        <option value="1">APPARTAMENTO VISIBILE</option>
+        <option value="0">APPARTAMENTO NON VISIBILE</option>
+      </select>
+
 
       <input type="submit" name="submit" value="CREA">
 
