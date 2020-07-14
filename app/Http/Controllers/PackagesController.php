@@ -17,6 +17,7 @@ class PackagesController extends Controller
 
     }
 
+    // Ciao Alessandro!Spero funzioni tutto!!!!!!!
     public function showPackages($id)
     {
         $id_apartment = $id;
