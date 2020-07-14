@@ -13,7 +13,7 @@
 
 
     <div class="text">
-      <h1 id="bottoneInvio">Non devi andare lontano <br> per trovare ciò che conta.</h1>
+      <h1>Non devi andare lontano <br> per trovare ciò che conta.</h1>
     </div>
 
     <div class="ae">
@@ -28,9 +28,13 @@
 
 <div class="main-search">
 
-    <form  class="search-form">
-        <input type="search" id="indirizzo" placeholder="Dove vuoi andare?">
-        <input type="submit"  value="Cerca">
+    <form  class="search-form" method="post" action="{{route('apartment_search_byUser')}}">
+      @csrf
+      @method('POST')
+        <input type="search" id="indirizzo" name="address" placeholder="Dove vuoi andare?">
+        <input type="hidden" name="lat" value="">
+        <input type="hidden" name="lon" value="">
+        <input type="submit" id="bottoneInvio" value="Cerca">
     </form>
 
 </div>

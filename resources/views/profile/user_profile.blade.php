@@ -124,6 +124,7 @@
                             @endif
                         @endforeach
                 </div>
+                <div id="map-div"></div>
                 @endauth
             </div>
         </div>
