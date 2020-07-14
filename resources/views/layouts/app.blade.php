@@ -32,7 +32,7 @@
       <div class="container">
         <div class="row user">
           @include('components.left_panel')
-          <div class="col-md-6">
+          <div class="col-md-9">
             <div class="user-apartment">
               <div class="row">
                 @yield('panel_main') 

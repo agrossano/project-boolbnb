@@ -14058,6 +14058,7 @@ body {
   font-size: 18px;
   cursor: pointer;
   transition: all 0.2s;
+  margin: 2px;
 }
 
 .btn-primary:hover {
@@ -14283,6 +14284,7 @@ input[type=search] {
   background: #fff;
   min-height: 100%;
   min-width: 100%;
+  overflow: hidden;
   background-size: cover;
   padding-top: 88px;
 }
@@ -14300,7 +14302,7 @@ a {
 }
 
 a:hover {
-  color: #fec503;
+  color: #d93853;
   text-decoration: none;
 }
 
@@ -14377,7 +14379,7 @@ ul.social-buttons li a {
   color: #fff;
   border-radius: 100%;
   outline: 0;
-  background-color: #1a1d20;
+  background-color: #535557;
 }
 
 footer .quick-links {
@@ -14386,6 +14388,10 @@ footer .quick-links {
   margin-bottom: 0;
   text-transform: none;
   font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.nav-link i {
+  padding-right: 5px;
 }
 
 .copyright {
@@ -14457,6 +14463,7 @@ footer .quick-links {
   min-height: 0;
   box-shadow: none;
   margin: 0 auto;
+  width: 90%;
 }
 
 .card_apt_content_user {
@@ -14511,7 +14518,7 @@ footer .quick-links {
 }
 
 .card_apt .user_modifier {
-  padding: 20px 0 0;
+  padding: 10px 0 0;
 }
 
 .card_apt .card_apt_content i {
@@ -14530,7 +14537,6 @@ footer .quick-links {
   overflow: hidden;
   opacity: 0.7;
   font-size: 12px;
-  margin: 15px 0;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -14657,14 +14663,13 @@ footer .quick-links {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  width: 55%;
+  width: 45%;
   height: 55%;
   border-radius: 100% !important;
 }
 
 .user-usertitle {
   text-align: center;
-  margin-top: 20px;
 }
 
 .user-usertitle-name {
@@ -14832,17 +14837,16 @@ footer .quick-links {
 
 .img_panel {
   width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 1px 1px 15px -5px #333;
+  background-size: contain;
+  background-size: 100%;
 }
 
 .imgpanel {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.card_apt_panel {
-  width: 300px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
 }
 
 .user_hide {
@@ -14968,7 +14972,7 @@ footer .quick-links {
 }
 
 .card-title {
-  border-bottom: 1px solid #f63854;
+  color: #484848;
 }
 
 .card {
