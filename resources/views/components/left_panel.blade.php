@@ -22,20 +22,15 @@
         <li>
           <a href="#">
           <i class="glyphicon glyphicon-user"></i>
-          Promuovi un appartamento</a>
-        </li>
-        <li>
-          <a href="#">
-          <i class="glyphicon glyphicon-user"></i>
           Leggi messaggi</a>
         </li>
       </ul>
     </div>
 
-    
+
       <div class="view light bordered">
-                                          
-        <div class="row list-separated user-stat">
+
+          <div class="row list-separated user-stat">
             <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="uppercase user-stat-title"> 3 </div>
                 <div class="uppercase user-stat-text"> Appartamenti </div>
@@ -53,17 +48,17 @@
                 <i class="fa fa-globe"></i>
                 <a href="#">alegro.com</a>
             </div>
-            <div class="margin-top-20 user-desc-link">
-                <i class="fa fa-twitter"></i>
-                <a href="https://www.twitter.com/">@twitterprofilo</a>
-            </div>
-            <div class="margin-top-20 user-desc-link">
-                <i class="fa fa-facebook"></i>
-                <a href="https://www.facebook.com/">Ale G.</a>
-            </div>
-          </div>    
-      </div>                   
-                                
+              <div class="margin-top-20 user-desc-link">
+                  <i class="fa fa-twitter"></i>
+                  <a href="https://www.twitter.com/">@twitterprofilo</a>
+              </div>
+              <div class="margin-top-20 user-desc-link">
+                  <i class="fa fa-facebook"></i>
+                  <a href="https://www.facebook.com/">Ale G.</a>
+              </div>
+          </div>
+      </div>
+
   </div>
 </div>
 

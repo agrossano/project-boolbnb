@@ -32,7 +32,7 @@ Route::get('/apartment/edit/{id}', 'UserController@edit_apartment')->name('edit_
 Route::post('/apartment/update/{id}', 'UserController@update_apartment')->name('update_apartment');
 Route::get('/apartment/delete/{id}', 'UserController@delete_apartment')->name('delete_apartment');
 //Rotte Pacchetti------------------
-Route::get('/Packages/showPackages', 'PackagesController@showPackages')->name('showPackages');
-Route::get('/Packages/detailsPackage/{id}', 'PackagesController@detailsPackage')->name('detailsPackage');
-Route::get('/Packages/buyPackage/{id}', 'PackagesController@buyPackage')->name('buyPackage');
+Route::get('/Packages/showPackages/{id}', 'PackagesController@showPackages')->name('showPackages');
+Route::get('/Packages/detailsPackage/{id}/{id_apartment}', 'PackagesController@detailsPackage')->name('detailsPackage');
+Route::get('/Packages/buyPackage/{id}/{id_apartment}', 'PackagesController@buyPackage')->name('buyPackage');
 

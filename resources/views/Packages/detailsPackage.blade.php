@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('main')
+@section('panel_main')
 
     <ul>
         <li>Tipo: {{$package->name}}</li>

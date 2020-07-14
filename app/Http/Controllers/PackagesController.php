@@ -7,24 +7,29 @@ use App\Partnership;
 use Braintree;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PackagesController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
-    public function showPackages()
+    public function showPackages($id)
     {
+        $id_apartment = $id;
+        $user = Auth::user();
         $packages = Package::all();
 
-        return view('Packages.showPackages', compact('packages'));
+        return view('Packages.showPackages', compact('packages', 'id_apartment', 'user'));
     }
 
-    public function detailsPackage($id)
+    public function detailsPackage($id, $id_apartment)
     {
         $package = Package::findOrFail($id);
+        $user = Auth::user();
         $gateway = new Braintree\Gateway([
             'environment' => env('BRAINTREE_ENVIRONMENT'),
             'merchantId' => env('BRAINTREE_MERCHANT_ID'),
@@ -33,14 +38,15 @@ class PackagesController extends Controller
         ]);
 
         $clientToken = $gateway->clientToken()->generate();
-        $url = route('buyPackage', ['id' => $id]);
-        return view('Packages.detailsPackage', compact('package', 'clientToken', 'url'));
+        $url = route('buyPackage', ['id' => $id, 'id_apartment' => $id_apartment]);
+        return view('Packages.detailsPackage', compact('package', 'clientToken', 'url', 'user'));
     }
 
 
     //Instanzio connessione con Braintree
-    public function buyPackage(Request $request, $id)
+    public function buyPackage(Request $request, $id, $id_apartment)
     {
+        $user = Auth::user();
         $gateway = new Braintree\Gateway([
             'environment' => env('BRAINTREE_ENVIRONMENT'),
             'merchantId' => env('BRAINTREE_MERCHANT_ID'),
@@ -56,16 +62,13 @@ class PackagesController extends Controller
             'paymentMethodNonce' => $nonce,
             'options' => ['submitForSettlement' => true]
         ]);
-
         if ($result->success) {
             $message = "Transazione eseguita con successo";
 
             $transaction = new Partnership();
-
             $transaction->package_id = $id;
             //salvo l'id dell'appartamento
-            $transaction->apartment_id = 34;
-
+            $transaction->apartment_id = $id_apartment;
             $transaction->transaction_id = $result->transaction->id;
             //salvo la data con Carbon::now()
             $transaction->start_date = Carbon::now();// poi
@@ -76,11 +79,10 @@ class PackagesController extends Controller
 
             $transaction->save();
 
-
         } else {
             $message = "Esecuzione errata";
         }
-        return view('Packages.ok', compact('message'));
+        return view('Packages.ok', compact('message', 'user'));
     }
 }
 
