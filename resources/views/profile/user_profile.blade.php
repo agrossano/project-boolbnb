@@ -11,7 +11,7 @@
           <div class="imgpanel">
             <img class="img_panel" src="{{asset($apartment -> image)}}" alt="">
           </div>
-          <h4 class="card-title">{{$apartment['title']}}</h4>
+          <h4 class="card-title text-center">{{$apartment['title']}}</h4>
 
           <div class="card_apt card_apt_panel">
               <div class="card_apt_content user_modifier card_apt_content_user">

@@ -102,7 +102,6 @@ body {
     font-size: 18px;
     cursor: pointer;
     transition: all 0.2s;
-    margin: 2px;
 }
 
 .btn-primary:hover {
@@ -332,7 +331,6 @@ input[type="search"] {
     background: #fff;
     min-height: 100%;
     min-width: 100%;
-    overflow: hidden;
     background-size: cover;
     padding-top: 88px;
 }
@@ -362,7 +360,7 @@ a {
     color: $link-light-grey;
 }
 a:hover {
-    color: #d93853;
+    color: $primary-orange;
     text-decoration: none;
 }
 
@@ -437,7 +435,7 @@ ul.social-buttons li a {
     color: #fff;
     border-radius: 100%;
     outline: 0;
-    background-color: #535557;
+    background-color: $footer-background-grey;
 }
 
 footer .quick-links {
@@ -446,10 +444,6 @@ footer .quick-links {
     margin-bottom: 0;
     text-transform: none;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.nav-link i {
-    padding-right: 5px;
 }
 
 .copyright {
@@ -522,7 +516,6 @@ footer .quick-links {
     min-height: 0;
     box-shadow: none;
     margin: 0 auto;
-    width: 90%;
 }
 
 .card_apt_content_user {
@@ -572,7 +565,7 @@ footer .quick-links {
 }
 
 .card_apt .user_modifier {
-    padding: 10px 0 0;
+    padding: 20px 0 0;
 }
 
 .card_apt .card_apt_content i {
@@ -589,7 +582,7 @@ footer .quick-links {
     overflow: hidden;
     opacity: 0.7;
     font-size: 12px;
-    //margin: 15px 0;
+    margin: 15px 0;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -705,7 +698,7 @@ footer .quick-links {
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    width: 45%;
+    width: 55%;
     height: 55%;
     -webkit-border-radius: 50% !important;
     -moz-border-radius: 50% !important;
@@ -714,7 +707,7 @@ footer .quick-links {
 
 .user-usertitle {
     text-align: center;
-    //margin-top: 20px;
+    margin-top: 20px;
 }
 
 .user-usertitle-name {
@@ -873,18 +866,16 @@ footer .quick-links {
 
 .img_panel {
     width: 100%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    box-shadow: 1px 1px 15px -5px #333;
-    background-size: contain;
-    background-size: 100%;
 }
 
 .imgpanel {
-    opacity: 0.9;
-    //height: 190px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    transition: all 0.3s ease;
+.card_apt_panel {
+    width: 90%;
 }
 
 //nasconde visibilità user campo modifica apt
@@ -1013,8 +1004,7 @@ footer .quick-links {
 }
 
 .card-title {
-    color: #484848;
-    //border-bottom: 1px solid #f63854;
+    border-bottom: 1px solid #f63854;
 }
 
 .card {

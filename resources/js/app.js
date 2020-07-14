@@ -5,6 +5,7 @@ function init() {
   expandCard();
   keyUpQuery();
   addressClick();
+  $(document).on("click", ".remove", rimuoviEl);
 }
 
 //espansione card
@@ -86,6 +87,19 @@ $(window).scroll(function () {
     width: (100 + scroll / 5) + "%"
   })
 }).scroll();
+
+
+// rimuovi elemento animaz
+function rimuoviEl() {
+  console.log('ca');
+  var element = $(this).closest(".card")
+  element.animate({ opacity: '0' }, 150, function () {
+    element.animate({ height: '0px' }, 150, function () {
+      element.remove();
+    });
+  });
+}
+
 
 
 // ---------------------------- inizio codice ricerca località sul form ------------------>
