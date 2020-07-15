@@ -100,14 +100,6 @@ function rimuoviEl() {
   });
 }
 
-// funzione aggiunta coordinate agli input
-// function addCoordinates(){
-//
-//   var lat = results[0]["position"]["lat"];
-//   var lon = results[0]["position"]["lon"];
-//   $("input[name=lat]").val(lat);
-//   $("input[name=lon]").val(lon);
-// }
 
 // funzione ricerca coordinate appartamento
 function apartmentCoordinates() {
@@ -153,18 +145,6 @@ function searchApartment() {
 
   });
 }
-
-
-// const GOLDEN_GATE_BRIDGE = {lng: -122.47483, lat: 37.80776};
-//  var map = tt.map({
-//    key: "k1RGzu2BVnevz10AcJPx4YynmWzDDGGk",
-//    container: 'map-div',
-//    center: GOLDEN_GATE_BRIDGE,
-//    zoom: 12
-//  });
-
-
-// <----------------------- fine codice mappe TOMTOM -------------------------->
 
 
 $(document).ready(init);
