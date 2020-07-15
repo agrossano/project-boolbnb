@@ -1,15 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Str;
-use App\User;
 use App\Apartment;
 use App\Service;
-use App\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
+use Str;
 
 
 class UserController extends Controller
@@ -21,12 +17,10 @@ class UserController extends Controller
 
   public function show_profile(){
 
-  $apartments = Apartment::with(['services']) -> get();
   $user = Auth::user();
   $apartments = Apartment::with(['services']) -> get();
   $services = Service::all();
-  $messages = Message::all();
-  return view('profile.user_profile', compact('user', 'apartments', 'services', 'messages'));
+      return view('profile.user_profile', compact('user', 'apartments', 'services'));
   }
 
   public function create_apartment(){
@@ -94,17 +88,17 @@ class UserController extends Controller
   public function update_apartment(Request $request, $id){
 
     $validateData = $request -> validate([
-      'title' => 'required|alpha',
-      'description' => 'required',
-      'rooms_number'=>'required|integer',
-      'toilets_number' => 'required|integer',
-      'beds_number' => 'required|integer',
-      'square_metres' => 'required|integer',
-      'price_per_day' => 'required|integer',
-      'user_id' => 'required',
-      'address' => 'required',
-      'lat' => 'required',
-      'lon' => 'required',
+        'title' => 'required',
+        'description' => 'required',
+        'rooms_number' => 'required|integer',
+        'toilets_number' => 'required|integer',
+        'beds_number' => 'required|integer',
+        'square_metres' => 'required|integer',
+        'price_per_day' => 'required|integer',
+        'user_id' => 'required',
+        'address' => 'required',
+        'lat' => 'required',
+        'lon' => 'required',
       'image' => 'required|mimes:jpg,jpeg,png,bmp,tiff |max:4096',
       'services' => 'required',
       'is_visible' => 'required|boolean'

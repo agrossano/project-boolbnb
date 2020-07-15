@@ -31,8 +31,9 @@
             </div>
             <a href="{{route('edit_apartment', $apartment['id'])}}" class="btn btn-primary">Modifica appartamento</a>
             <a href="{{route('delete_apartment', $apartment['id'])}}" class="btn btn-primary">Elimina appartamento</a>
-        </div>
 
+        </div>
+        <a href="{{route('createMessage', $apartment['id'])}}" class="btn btn-primary">Invia un messaggio</a>
     </div>
 
 

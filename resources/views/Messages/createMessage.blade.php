@@ -1,13 +1,9 @@
 @extends('layouts.main_layout')
-
 @section('main')
 
-    @if(session('success'))
-        <h2>{{session('success')}}</h2>
-    @endif
-
-    <div style="margin-top: 100px"><!-- stile impovvisato!-->
-        <form action="{{route('storeMessage',$apartment_id)}}" method="post">
+    <div style="margin-top: 100px">
+        <li>Invia Messaggio a: {{$apartment->title}}</li><!-- stile impovvisato!-->
+        <form action="{{route('storeMessage',$apartment->id)}}" method="post">
             @method('POST')
             @csrf
             <label for="email">Your email</label>

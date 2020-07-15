@@ -12,41 +12,50 @@
 
     </div>
 
-    <div class="user-usermenu">
-      <ul class="nav flex-nowrap">
-        <li class="active">
-          <a href="{{route('create_apartment')}}">
-          <i class="glyphicon glyphicon-home"></i>
-          Inserisci nuovo appartamento </a>
-        </li>
-        <li>
-          <a href="#">
-          <i class="glyphicon glyphicon-user"></i>
-          Leggi messaggi</a>
-        </li>
-      </ul>
-    </div>
+      <div class="user-usermenu">
+          <ul class="nav flex-nowrap">
+              <li class="active">
+                  <a href="{{route('create_apartment')}}">
+                      <i class="glyphicon glyphicon-home"></i>
+                      Inserisci nuovo appartamento </a>
+              </li>
+              <li>
+                  <a href="{{route('showMessages')}}">
+                      <i class="glyphicon glyphicon-user"></i>
+                      Leggi messaggi</a>
+              </li>
+          </ul>
+      </div>
 
 
       <div class="view light bordered">
 
           <div class="row list-separated user-stat">
-            <div class="col-md-6 col-sm-6 col-xs-6">
-                <div class="uppercase user-stat-title"> 3 </div>
-                <div class="uppercase user-stat-text"> Appartamenti </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6">
-                <div class="uppercase user-stat-title"> 2 </div>
-                <div class="uppercase user-stat-text"> Messaggi </div>
-            </div>
-        </div>
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="uppercase user-stat-title">
+                      @if($user->apartments->count()===0)
+                          0
+                      @else{{$user->apartments->count()}}
+                      @endif
+                  </div>
+                  <div class="uppercase user-stat-text"> Appartamenti</div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="uppercase user-stat-title">
+
+                      {{$user->messages->where('is_read', 0)->count()}}
+
+                  </div>
+                  <div class="uppercase user-stat-text"> Messaggi</div>
+              </div>
+          </div>
 
           <div>
-            <h4 class="user-desc-title">Cosa si dice di {{$user['name']}}</h4>
-            <span class="user-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
-            <div class="margin-top-20 user-desc-link">
-                <i class="fa fa-globe"></i>
-                <a href="#">alegro.com</a>
+              <h4 class="user-desc-title">Cosa si dice di {{$user['name']}}</h4>
+              <span class="user-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
+              <div class="margin-top-20 user-desc-link">
+                  <i class="fa fa-globe"></i>
+                  <a href="#">alegro.com</a>
             </div>
               <div class="margin-top-20 user-desc-link">
                   <i class="fa fa-twitter"></i>

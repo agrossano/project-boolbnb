@@ -20,8 +20,8 @@ class CreateMessagesTable extends Migration
             $table->boolean('is_read');
             $table->bigInteger('apartment_id')-> unsigned()-> index();
             $table->timestamps();
-            //come fa il messaggio inviato a riferirsi ad uno specifico appartamento? Non bisognerebbe relazionarlo all'appartamento?
-          
+
+
         });
     }
 

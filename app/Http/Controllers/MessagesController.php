@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Apartment;
 use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller
 
@@ -14,17 +16,20 @@ class MessagesController extends Controller
     }
 
 //---Visualizzazione Msg relativi all'appartamento------------------------------
-    public function showMessages($id)
+    public function showMessages()
     {
-        $messages = Message::where('apartment_id', $id)->get();
-        return view('Messages.showMessages', compact('messages'));
+        $user = Auth::user();
+        $messages = $user->messages()->orderBy('created_at', 'desc')->get();
+        Message::where('is_read', 0)->update(['is_read' => 1]);
+        return view('Messages.showMessages', compact('messages', 'user'));
     }
 
 //---Creazione nuovo msg relativo all'appartamento------------------------------
     public function createMessage($id)
     {
-        $apartment_id = $id;
-        return view('Messages.createMessage', compact('apartment_id'));
+        $user = Auth::user();
+        $apartment = Apartment::findOrFail($id);
+        return view('Messages.createMessage', compact('apartment', 'user'));
     }
 
     public function storeMessage(Request $request, $id)
@@ -44,6 +49,6 @@ class MessagesController extends Controller
 
         $message->save();
 
-        return redirect()->route('createMessage', $id)->withSuccess('Message Send');
+        return redirect()->route('home')->withSuccess('Message Send');
     }
 }

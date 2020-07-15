@@ -77,13 +77,10 @@
           <div class="form-group">
 
               <label for="address">Indirizzo:</label>
-              <input type="text" class="form-control" placeholder="Indirizzo" name="address"
+              <input type="text" id="address" class="form-control" placeholder="Indirizzo" name="address"
                      value="{{ old('address') }}">
 
           </div>
-
-      {{--     <input type="hidden" name="lat" value="10000">
-          <input type="hidden" name="lon" value="20000"> --}}
 
           <input type="hidden" id="lat-app" name="lat" value=""><br>
           <input type="hidden" id="lon-app" name="lon" value=""><br>
