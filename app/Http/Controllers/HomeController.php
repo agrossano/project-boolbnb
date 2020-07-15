@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Partnership;
 use Carbon\Carbon;
+use App\Service;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,8 @@ class HomeController extends Controller
     {
         $now = Carbon::now()->toDateTimeString();
         $sponsored_apartments = Partnership::with('apartment')->inRandomOrder()->where('end_date', '>', $now)->get();
-        return view('index', compact('sponsored_apartments'));
+        $services = Service::all();
+        return view('index', compact('sponsored_apartments', 'services'));
     }
 
 
