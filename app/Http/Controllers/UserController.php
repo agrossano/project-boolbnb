@@ -33,7 +33,7 @@ class UserController extends Controller
   public function store_apartment(Request $request){
 
     $validateData = $request -> validate([
-      'title' => 'required|alpha',
+      'title' => 'required',
       'description' => 'required',
       'rooms_number'=>'required|integer',
       'toilets_number' => 'required|integer',

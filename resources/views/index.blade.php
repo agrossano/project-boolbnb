@@ -18,7 +18,40 @@
             </div>
             ​
         </div>
-        ​
+
+        {{-- form ricerca appartamento, ale perdonami --}}
+        <div class="">
+          <form  class="search-form" method="post" action="{{route('apartment-selected')}}">
+          @csrf
+          @method('POST')
+          <input type="search" id="search-app" name="address" placeholder="Dove vuoi andare?">
+          <input type="hidden" id="lat" name="lat" value="">
+          <input type="hidden" id="lon" name="lon" value="">
+
+          <br>
+          <label for="">Numero stanze</label>
+          <input type="number" name="rooms_number" value="">
+          <br>
+
+          <label for="">Numero letti</label>
+          <input type="number" name="beds_number" value="">
+          <br>
+
+          <label for="">Raggio di km</label>
+          <input type="number" name="radius" value="">
+          <br>
+
+          <label for="services[]">SERVIZI</label> <br>
+          @foreach ($services as $service)
+          <input type="checkbox" name="services[]" value="{{$service -> id}}">
+          {{$service -> type}} <br>
+          @endforeach
+          <br>
+
+          <input type="submit" value="Cerca">
+          </form>
+        </div>
+        {{-- ​fine form ricerca appartamenti --}}
         <div class="main-search">
             ​
             <form class="search-form">
