@@ -31,8 +31,10 @@ Route::post('/apartment/store', 'UserController@store_apartment')->name('store_a
 Route::get('/apartment/edit/{id}', 'UserController@edit_apartment')->name('edit_apartment');
 Route::post('/apartment/update/{id}', 'UserController@update_apartment')->name('update_apartment');
 Route::get('/apartment/delete/{id}', 'UserController@delete_apartment')->name('delete_apartment');
-// Rotta ricerca appartamenti-------------
+// Rotta ricerca appartamenti da home-------------
 Route::post('/apartment/selected', 'ApartmentController@apartmentList')->name('apartment-selected');
+// Show apartment con mappa
+Route::get('/showApartment/{id}', 'ApartmentController@showApartment')->name('showApartment');
 //Rotte Pacchetti------------------
 Route::get('/Packages/showPackages/{id}', 'PackagesController@showPackages')->name('showPackages');
 Route::get('/Packages/detailsPackage/{id}/{id_apartment}', 'PackagesController@detailsPackage')->name('detailsPackage');

@@ -13,6 +13,11 @@ class ApartmentController extends Controller
     return view('index', compact('services'));
   }
 
+  public function showApartment($id) {
+    $apartment = Apartment::findOrFail($id);
+    return view('show-apartment', compact('apartment'));
+  }
+
   public function apartmentList(Request $request)
   {
     $services = Service::all();

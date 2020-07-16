@@ -18,8 +18,8 @@ $factory->define(Apartment::class, function (Faker $faker) {
       'price_per_day' => $faker -> numberBetween($min = 50, $max = 900),
       'image' => $faker -> imageUrl($width = 640, $height = 480),
       'address' => $faker -> address(),
-      'lat' => $faker -> latitude($min = -90, $max = 90),
-      'lon' => $faker -> longitude($min = -180, $max = 180),
+      'lat' => $faker -> latitude(),
+      'lon' => $faker -> longitude(),
       'is_visible' => $faker ->  boolean()
     ];
 });

@@ -125,6 +125,9 @@
                         </div>
                         <a href="{{route('createMessage', $apartment_selected->apartment->id)}}"
                            class="btn btn-primary">Invia un messaggio</a>
+
+                        <a href="{{route('showApartment', $apartment_selected->apartment ->id)}}"
+                             class="btn btn-primary">Mostra appartamento</a>
                     </div>
                 @endforeach
 

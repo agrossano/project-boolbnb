@@ -37231,6 +37231,7 @@ function init() {
   expandCard();
   apartmentCoordinates();
   searchApartment();
+  showMap();
   $(document).on("click", ".remove", rimuoviEl);
 } //espansione card
 
@@ -37355,6 +37356,48 @@ function searchApartment() {
         console.log(results[0]["position"]);
       }
     });
+  });
+}
+
+function showMap() {
+  var input = $('#indirizzo').html();
+  console.log(input);
+  $.ajax({
+    url: "https://api.tomtom.com/search/2/geocode/" + input + ".json",
+    method: "GET",
+    data: {
+      key: "LXS830AiWeCA3ogV5iiftuD8GgwteTOE"
+    },
+    success: function success(data) {
+      var results = data["results"];
+      var lat = results[0]["position"]["lat"];
+      var lon = results[0]["position"]["lon"];
+      var coordinates = [lat, lon];
+      console.log(coordinates);
+      var map = tt.map({
+        container: 'map',
+        key: 'LXS830AiWeCA3ogV5iiftuD8GgwteTOE',
+        style: 'tomtom://vector/1/basic-main',
+        center: coordinates,
+        zoom: 15
+      });
+      var marker = new tt.Marker().setLngLat(coordinates).addTo(map);
+      var popupOffsets = {
+        top: [0, 0],
+        bottom: [0, -70],
+        'bottom-right': [0, -70],
+        'bottom-left': [0, -70],
+        left: [25, -35],
+        right: [-25, -35]
+      };
+      var popup = new tt.Popup({
+        offset: popupOffsets
+      }).setHTML("Sei qui");
+      marker.setPopup(popup).togglePopup();
+      var popup = new tt.Popup({
+        offset: popupOffsets
+      }).setHTML("Appartamento");
+    }
   });
 }
 
