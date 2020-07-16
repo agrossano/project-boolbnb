@@ -4,6 +4,7 @@ function init() {
     expandCard();
     apartmentCoordinates();
     searchApartment();
+    showMap();
     $(document).on("click", ".remove", rimuoviEl);
 }
 
@@ -143,6 +144,35 @@ function searchApartment() {
         });
     });
 }
+
+function showMap() {
+  var latitude = $('#current-lat').val();
+  var longitude = $('#current-lon').val();
+  var coordinates = [longitude, latitude];
+  console.log(coordinates);
+  var map = tt.map({
+    container: 'map',
+    key: 'LXS830AiWeCA3ogV5iiftuD8GgwteTOE',
+    style: 'tomtom://vector/1/basic-main',
+    center: coordinates,
+    zoom: 15
+  });
+  var marker = new tt.Marker().setLngLat(coordinates).addTo(map);
+  var popupOffsets = {
+    top: [0, 0],
+    bottom: [0, -70],
+    'bottom-right': [0, -70],
+    'bottom-left': [0, -70],
+    left: [25, -35],
+    right: [-25, -35]
+  }
+
+  var popup = new tt.Popup({offset: popupOffsets}).setHTML("Sei qui");
+  marker.setPopup(popup).togglePopup();
+  var popup = new tt.Popup({offset: popupOffsets}).setHTML("Appartamento");
+}
+
+
 
 
 $(document).ready(init);

@@ -4680,7 +4680,7 @@ module.exports = {
     for (var i = 0, len = elements.length; i < len; i++) {
       var _ret = _loop(i);
 
-      if (_ret === "continue")
+      if (_ret === "continue") continue;
     }
 
     return createdDocument.body.innerHTML;
@@ -37293,28 +37293,29 @@ $(window).scroll(function () {
   var scroll = $(window).scrollTop();
   $('.text').css('transform', 'translate3d(0, ' + $(this).scrollTop() * -0.3 + 'px, 0)');
   $('.main-search').css('transform', 'translate3d(0, ' + $(this).scrollTop() * -0.5 + 'px, 0)');
-    $('.img-scroll-right').css('transform', 'translate3d(0, ' + $(this).scrollTop() * 0.5 + 'px, 0)');
-    $('.img-scroll-left').css('transform', 'translate3d(0, ' + $(this).scrollTop() * -0.3 + 'px, 0)');
-    $('.illustra').css('transform', 'translate3d(0, ' + $(this).scrollTop() * 0.06 + 'px, 0)');
-    $(".home").css({
-        width: 100 + scroll / 5 + "%"
-    });
+  $('.img-scroll-right').css('transform', 'translate3d(0, ' + $(this).scrollTop() * 0.5 + 'px, 0)');
+  $('.img-scroll-left').css('transform', 'translate3d(0, ' + $(this).scrollTop() * -0.3 + 'px, 0)');
+  $('.illustra').css('transform', 'translate3d(0, ' + $(this).scrollTop() * 0.06 + 'px, 0)');
+  $(".home").css({
+    width: 100 + scroll / 5 + "%"
+  });
 }).scroll(); // rimuovi elemento animaz
 
-            function rimuoviEl() {
-                console.log('ca');
-                var element = $(this).closest(".card");
-                element.animate({
-                    opacity: '0'
-                }, 150, function () {
-                    element.animate({
-                        height: '0px'
-                    }, 150, function () {
-                        element.remove();
-                    });
-                });
-            } // funzione ricerca coordinate appartamento
+function rimuoviEl() {
+  console.log('ca');
+    var element = $(this).closest(".card");
+    element.animate({
+        opacity: '0'
+    }, 150, function () {
+        element.animate({
+            height: '0px'
+        }, 150, function () {
+            element.remove();
+        });
+    });
+}
 
+            // funzione ricerca coordinate appartamento
 
             function apartmentCoordinates() {
                 $('#address').keyup(function () {
@@ -37332,19 +37333,20 @@ $(window).scroll(function () {
                             $("#lat-app").val(lat);
                             $("#lon-app").val(lon);
                         }
-                    });
-                });
-            } // funzione ricerca appartamenti dalla barra search home
+    });
+  });
+}
 
+            // funzione ricerca appartamenti dalla barra search home
 
-            function searchApartment() {
-                $('#search-app').keyup(function () {
-                    var input = $('#search-app').val();
-                    $.ajax({
-                        url: "https://api.tomtom.com/search/2/search/" + input + ".json",
-                        method: "GET",
-                        data: {
-                            key: "LXS830AiWeCA3ogV5iiftuD8GgwteTOE"
+function searchApartment() {
+  $('#search-app').keyup(function () {
+    var input = $('#search-app').val();
+    $.ajax({
+      url: "https://api.tomtom.com/search/2/search/" + input + ".json",
+      method: "GET",
+      data: {
+        key: "LXS830AiWeCA3ogV5iiftuD8GgwteTOE"
       },
       success: function success(data) {
           var results = data["results"];
@@ -37423,7 +37425,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
   \*************************************************************/
 /*! no static exports found */
-/***/ (function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
             __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\js\app.js */"./resources/js/app.js");
             module.exports = __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
