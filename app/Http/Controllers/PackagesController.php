@@ -38,15 +38,34 @@ class PackagesController extends Controller
             'privateKey' => env('BRAINTREE_PRIVATE_KEY')
         ]);
 
-        $clientToken = $gateway->clientToken()->generate();
+        if (!$user->customer_id) {
+            $result = $gateway->customer()->create([
+                'firstName' => $user->name,
+                'lastName' => $user->lastname,
+                'email' => $user->email,
+            ]);
+            {
+            }
+            if ($result->success) {
+                $user->customer_id = $result->customer->id;
+                $user->save();
+            }
+        }
+
+        $clientToken = $gateway->clientToken()->generate([
+                'customerId' => $user->customer_id
+            ]
+
+        );
         $url = route('buyPackage', ['id' => $id, 'id_apartment' => $id_apartment]);
         return view('Packages.detailsPackage', compact('package', 'clientToken', 'url', 'user'));
     }
 
 
-    //Instanzio connessione con Braintree
     public function buyPackage(Request $request, $id, $id_apartment)
     {
+
+        //Instanzio connessione con Braintree
         $user = Auth::user();
         $gateway = new Braintree\Gateway([
             'environment' => env('BRAINTREE_ENVIRONMENT'),
@@ -61,11 +80,14 @@ class PackagesController extends Controller
         $result = $gateway->transaction()->sale([
             'amount' => $package->price_of_package,
             'paymentMethodNonce' => $nonce,
-            'options' => ['submitForSettlement' => true]
+            'options' => [
+                'submitForSettlement' => True
+            ]
+
         ]);
+
         if ($result->success) {
             $message = "Transazione eseguita con successo";
-
             $transaction = new Partnership();
             $transaction->package_id = $id;
             //salvo l'id dell'appartamento
@@ -80,8 +102,8 @@ class PackagesController extends Controller
 
             $transaction->save();
 
-        } else {
-            $message = "Esecuzione errata";
+        } else foreach ($result->errors->deepAll() as $error) {
+            $message = 'Errore numero: ' . $error->code . 'Transazione non esegiuta!';
         }
         return view('Packages.ok', compact('message', 'user'));
     }

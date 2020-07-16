@@ -16,10 +16,10 @@ class ApartmentController extends Controller
   public function apartmentList(Request $request)
   {
     $request -> validate([
-      'address' => 'required'
-      'rooms_number' => 'integer|nullable',
-      'beds_number' => 'integer|nullable',
-      'radius' => 'integer|nullable'
+        'address' => 'required',
+        'rooms_number' => 'integer|nullable',
+        'beds_number' => 'integer|nullable',
+        'radius' => 'integer|nullable'
     ]);
 
     $services = Service::all();
