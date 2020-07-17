@@ -104,8 +104,8 @@ function rimuoviEl() {
 
 // funzione ricerca coordinate appartamento
 function apartmentCoordinates() {
-    $('#address').keyup(function () {
-        var address = $('#address').val();
+    $('.address').keyup(function () {
+        var address = $('.address').val();
         $.ajax({
             url: "https://api.tomtom.com/search/2/geocode/" + address + ".json",
             method: "GET",
@@ -116,8 +116,8 @@ function apartmentCoordinates() {
                 var results = data["results"];
                 var lat = results[0]["position"]["lat"];
                 var lon = results[0]["position"]["lon"];
-                $("#lat-app").val(lat);
-                $("#lon-app").val(lon);
+                $(".lat-app").val(lat);
+                $(".lon-app").val(lon);
             }
         });
     });
@@ -167,7 +167,7 @@ function showMap() {
     right: [-25, -35]
   }
 
-  var popup = new tt.Popup({offset: popupOffsets}).setHTML("Sei qui");
+  var popup = new tt.Popup({offset: popupOffsets}).setHTML("Siamo qui");
   marker.setPopup(popup).togglePopup();
   var popup = new tt.Popup({offset: popupOffsets}).setHTML("Appartamento");
 }

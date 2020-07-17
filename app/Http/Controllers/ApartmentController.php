@@ -20,6 +20,10 @@ class ApartmentController extends Controller
 
   public function apartmentList(Request $request)
   {
+    $validateData = $request -> validate([
+      'address' => 'required'
+    ]);
+
     $services = Service::all();
     $servicesSelected = $request['services'];
     $latCity = $request['lat'];
@@ -31,6 +35,12 @@ class ApartmentController extends Controller
       $radius= $request['radius'] * 1000;
     } else {
       $radius = 20000;
+    }
+
+    if($request['services']){
+      $servicesSelected = $request['services'];
+    } else {
+      $servicesSelected = [];
     }
 
     $apartments= Apartment::all() -> where('beds_number', '>=', $bedsNumber)

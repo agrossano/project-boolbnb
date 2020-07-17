@@ -20,11 +20,21 @@
         </div>
 
         {{-- form ricerca appartamento, ale perdonami --}}
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
         <div class="">
           <form  class="search-form" method="post" action="{{route('apartment-selected')}}">
           @csrf
           @method('POST')
-          <input type="search" id="search-app" name="address" placeholder="Dove vuoi andare?">
+          <input type="search" id="search-app" name="address" placeholder="Dove vuoi andare?" value="">
           <input type="hidden" id="lat" name="lat" value="">
           <input type="hidden" id="lon" name="lon" value="">
 

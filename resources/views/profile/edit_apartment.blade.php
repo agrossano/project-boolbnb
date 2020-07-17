@@ -33,7 +33,7 @@
       </div>
 
       <div class="form-group">
-        
+
         <label for="rooms_number">NUMERO DI STANZE</label>
         <input type="text" class="form-control" name="rooms_number" value="{{$apartment -> rooms_number}}">
 
@@ -73,15 +73,12 @@
       <div class="form-group">
 
         <label for="address">INDIRIZZO</label>
-        <input type="text" class="form-control" name="address" value="{{$apartment -> address}}"">
+        <input type="text" class="form-control address" name="address" value="{{$apartment -> address}}">
 
       </div>
 
-      <label for="lat"></label>
-        <input type="hidden" name="lat" value="10000">
-
-      <label for="lon"></label>
-      <input type="hidden" name="lon" value="20000">
+      <input type="hidden" class="lat-app" name="lat" value="">
+      <input type="hidden" class="lon-app" name="lon" value="">
 
       <div class="user_hide">
         <label for="user_id">USER</label>
@@ -95,18 +92,18 @@
         <input type="file" id="image" name="image" accept="image/*"> <br>
 
       </div>
-    
+
       <label for="services">SERVIZI</label><br>
       <div class="form-check">
       @foreach ($services as $service)
       <input type="checkbox" class="form-check-input" name="services[]" value="{{$service -> id}}"
         @foreach ($apartment -> services as $apartment_service)
-          @if ($service -> id == $apartment_service -> id) 
+          @if ($service -> id == $apartment_service -> id)
             checked
           @endif
-        @endforeach   
+        @endforeach
         >
-        {{$service['type']}} <br> 
+        {{$service['type']}} <br>
       @endforeach
     </div>
 
