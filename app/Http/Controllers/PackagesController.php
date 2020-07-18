@@ -44,8 +44,7 @@ class PackagesController extends Controller
                 'lastName' => $user->lastname,
                 'email' => $user->email,
             ]);
-            {
-            }
+
             if ($result->success) {
                 $user->customer_id = $result->customer->id;
                 $user->save();

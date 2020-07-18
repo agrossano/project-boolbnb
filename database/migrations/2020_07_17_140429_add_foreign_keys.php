@@ -38,20 +38,20 @@ class AddForeignKeys extends Migration
             -> onDelete('cascade');
         });
         Schema::table('apartment_service', function (Blueprint $table) {
-            $table -> foreign('apartment_id', 'apartment_service')
-            -> references('id')
-            -> on('apartments')
-            -> onDelete('cascade');
-            $table -> foreign('service_id', 'service_apartment')
-            -> references('id')
-            -> on('services')
-            -> onDelete('cascade');
+            $table->foreign('apartment_id', 'apartment_service')
+                ->references('id')
+                ->on('apartments')
+                ->onDelete('cascade');
+            $table->foreign('service_id', 'service_apartment')
+                ->references('id')
+                ->on('services')
+                ->onDelete('cascade');
         });
-        Schema::table('sessions', function (Blueprint $table) {
-            $table -> foreign('apartment_id', 'apartment_session')
-            -> references('id')
-            -> on('apartments')
-            -> onDelete('cascade');
+        Schema::table('views', function (Blueprint $table) {
+            $table->foreign('apartment_id', 'apartment_view')
+                ->references('id')
+                ->on('apartments')
+                ->onDelete('cascade');
         });
 
     }
@@ -67,7 +67,7 @@ class AddForeignKeys extends Migration
             $table ->dropForeign('user');
         });
         Schema::table('messages', function (Blueprint $table){
-            $table ->dropForeign('aparment_message');
+            $table->dropForeign('apartment_message');
         });
         Schema::table('partnerships', function (Blueprint $table){
             $table ->dropForeign('apartment');
@@ -78,7 +78,7 @@ class AddForeignKeys extends Migration
             $table -> dropForeign('service_apartment');
         });
         Schema::table('sessions', function (Blueprint $table){
-            $table ->dropForeign('apartment_session');
+            $table->dropForeign('apartment_view');
         });
 
     }

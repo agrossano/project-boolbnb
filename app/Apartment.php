@@ -21,7 +21,7 @@ class Apartment extends Model
     }
 
     public function sessions() {
-      return $this -> hasMany(Session::class);
+      return $this->hasMany(Views::class);
     }
 
     public function services() {

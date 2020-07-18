@@ -16,10 +16,9 @@ class UserController extends Controller
   }
 
   public function show_profile(){
-
-  $user = Auth::user();
-  $apartments = Apartment::with(['services']) -> get();
-  $services = Service::all();
+      $user = Auth::user();
+      $apartments = Apartment::with(['services'])->get();
+      $services = Service::all();
       return view('profile.user_profile', compact('user', 'apartments', 'services'));
   }
 
