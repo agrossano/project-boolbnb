@@ -1,19 +1,21 @@
 @extends('layouts.app')
 @section('panel_main')
 
-  <div class="form col-md-12">
 
+<div class="row-panel">
+
+  <div class="form col-md-12">
     @if ($errors->any())
     <div class="alert alert-danger">
       <ul>
         @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
       </ul>
     </div>
     @endif
 
-    <form  action="{{route('update_apartment', $apartment -> id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('update_apartment', $apartment -> id)}}" method="post" enctype="multipart/form-data">
       @csrf
       @method('POST')
 
@@ -91,31 +93,37 @@
         <label for="image">Modifica Immagine</label>
         <input type="file" id="image" name="image" accept="image/*"> <br>
 
+
+        {{--       <input type="text" name="image" value="{{$apartment -> image}}" style="display:none">
+        --}}
       </div>
 
       <label for="services">SERVIZI</label><br>
       <div class="form-check">
-      @foreach ($services as $service)
-      <input type="checkbox" class="form-check-input" name="services[]" value="{{$service -> id}}"
-        @foreach ($apartment -> services as $apartment_service)
-          @if ($service -> id == $apartment_service -> id)
-            checked
-          @endif
+        @foreach ($services as $service)
+        <input type="checkbox" class="form-check-input" name="services[]" value="{{$service -> id}}" @foreach
+          ($apartment -> services as $apartment_service)
+        @if ($service -> id == $apartment_service -> id)
+        checked
+        @endif
         @endforeach
         >
         {{$service['type']}} <br>
-      @endforeach
-    </div>
+        @endforeach
+      </div>
 
-    <select class="custom-select custom-select-lg mb-5 mt-5" name="is_visible">
-      <label for="services">SERVIZI</label><br>
-      <option selected>Seleziona la visibilità dell'annuncio</option>
-      <option value="1">APPARTAMENTO VISIBILE</option>
-      <option value="0">APPARTAMENTO NON VISIBILE</option>
-    </select>
+      <select class="custom-select custom-select-lg mb-5 mt-5" name="is_visible">
+        <label for="services">SERVIZI</label><br>
+        <option selected>Seleziona la visibilità dell'annuncio</option>
+        <option value="1">APPARTAMENTO VISIBILE</option>
+        <option value="0">APPARTAMENTO NON VISIBILE</option>
+      </select>
 
       <input type="submit" name="submit" value="MODIFICA">
 
     </form>
   </div>
+
+</div>
+
 @endsection

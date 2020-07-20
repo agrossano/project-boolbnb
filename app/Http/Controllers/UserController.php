@@ -80,13 +80,21 @@ class UserController extends Controller
     $user = Auth::user();
     $services = Service::all();
     $apartment = Apartment::findOrFail($id);
+    
+
 
     return view('profile.edit_apartment', compact('user', 'services','apartment'));
   }
 
   public function update_apartment(Request $request, $id){
 
+
+    
+
     $validateData = $request -> validate([
+
+      
+      
         'title' => 'required',
         'description' => 'required',
         'rooms_number' => 'required|integer',
@@ -138,7 +146,8 @@ class UserController extends Controller
     $apartment = Apartment::findOrFail($id);
     $apartment -> delete();
 
-    return redirect() -> route('show_profile') ;
+    return redirect()->back();
+    //return redirect() -> route('show_profile') ;
   }
 
 }

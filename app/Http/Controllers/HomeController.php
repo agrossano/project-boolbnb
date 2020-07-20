@@ -22,4 +22,27 @@ class HomeController extends Controller
     }
 
 
+    public function ajaxRequest()
+
+    {
+
+      return view('ajaxRequest');
+
+    }
+
+    public function ajaxRequestPost(Request $request)
+
+    {
+
+      $response = array(
+      'status' => 'success',
+      'msg' => $request->message,
+      );
+      return response()->json($response);
+
+    }
+
 }
+
+
+

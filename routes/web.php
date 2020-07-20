@@ -39,3 +39,6 @@ Route::get('/showApartment/{id}', 'ApartmentController@showApartment')->name('sh
 Route::get('/Packages/showPackages/{id}', 'PackagesController@showPackages')->name('showPackages');
 Route::get('/Packages/detailsPackage/{id}/{id_apartment}', 'PackagesController@detailsPackage')->name('detailsPackage');
 Route::get('/Packages/buyPackage/{id}/{id_apartment}', 'PackagesController@buyPackage')->name('buyPackage');
+//Rotte chiamate ajax
+Route::get('ajax', 'HomeController@ajaxRequest');
+Route::post('ajax', 'HomeController@ajaxResponse');

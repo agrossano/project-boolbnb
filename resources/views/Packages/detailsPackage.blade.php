@@ -1,24 +1,35 @@
 @extends('layouts.app')
 @section('panel_main')
 
-    <ul>
-        <li>Tipo: {{$package->name}}</li>
-        <li>Numero di ore: {{$package->number_of_hours}}</li>
-        <li>Prezzo: {{$package->price_of_package}}</li>
+<ul>
+  <div class="packages packages-modifier">
+    @if ($package->name == "basic")
+    <li>
+    <li class="pack-title">{{$package->name}} Pack</li>
+    <li>€ {{$package->price_of_package}}/{{$package->number_of_hours}} ore</li><img src="/assets/images/bronze.png"
+      alt="">{{$package->name}}</li>
+    @elseif ($package->name == "medium")
+    <li>
+    <li class="pack-title">{{$package->name}} Pack</li><img src="/assets/images/silver.png" alt=""></li>
+    @elseif ($package->name == "gold")
+    <li>
+    <li class="pack-title">{{$package->name}} Pack</li>
+    <li>€ {{$package->price_of_package}}/{{$package->number_of_hours}} ore</li><img src="/assets/images/gold.png"
+      alt=""></li>
+    @endif
+  </div>
+  <li>
+    <div id="dropin-container"></div>
+  </li>
 
+  <li class="text-center">
+    <a id="submit-button" class="btn btn-primary btn-pack">Acquista</a></li>
+  <br><br>
+</ul>
 
-        <li>
-            <div id="dropin-container"></div>
-        </li>
-
-        <li><a id="submit-button">Acquista</a></li>
-        <br><br>
-    </ul>
-
-    <script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.min.js"></script>
-    <script>
-
-        var button = document.querySelector('#submit-button');
+<script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.min.js"></script>
+<script>
+  var button = document.querySelector('#submit-button');
 
         braintree.dropin.create({
             authorization: '{{$clientToken}}',
@@ -35,5 +46,5 @@
                 });
             });
         });
-    </script>
+</script>
 @endsection

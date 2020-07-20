@@ -90,7 +90,7 @@ class ApartmentController extends Controller
 
     // verificare array dentro array
     function in_array_all($needles, $haystack) {
-       return empty(array_diff($needles, $haystack));
+      return empty(array_diff($needles, $haystack));
     }
 
     $apartmentSelected = [];

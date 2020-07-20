@@ -1,0 +1,75 @@
+.navbar {
+    transition: all 0.4s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    height: 7rem;
+}
+
+.logo {
+    width: 9rem;
+    height: auto;
+}
+
+.navbar .nav-link {
+    color: #28b485;
+    font-weight: 700;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+.navbar.active {
+    background: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.active .nav-link {
+    color: #555;
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #555;
+}
+
+.dropdown-menu {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+}
+
+.user-name span img {
+    width: 41px;
+    height: auto;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    box-sizing: content-box;
+    //width: 100%;
+    display: inline-block;
+    border-radius: 50%;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.user-name .userimg:after {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    background-color: #38b653;
+    display: block;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    bottom: -6px;
+    right: 4px;
+}
