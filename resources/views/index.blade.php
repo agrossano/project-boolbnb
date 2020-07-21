@@ -8,55 +8,39 @@
   </video>
   <div class="video-background-content container h-100">
     <div class="d-flex h-100 text-center align-items-center">
+
       <div class="w-100 text-white">
         <div class="text">
-          <h1 id="bottoneInvio">Non devi andare lontano <br> per trovare ciò che conta.</h1>
+          <h1 id="">Non devi andare lontano <br> per trovare ciò che conta.</h1>
+
         </div>
 
-        <section class="search-sec">
-          <div class="container">
-
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <form action="{{route('apartment-selected')}}" method="post" novalidate="novalidate">
-                      @if ($errors->any())
-                      <div class="alert alert-danger">
-                        <ul>
-                          @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                          @endforeach
-                        </ul>
-                      </div>
-                      @endif
-                      @csrf
-                      @method('POST')
-                      <input type="search" id="search-app" name="address" class="form-control search-slt"
-                        placeholder="Dove vuoi andare?" value="">
-                      <input type="hidden" id="lat" name="lat" value="">
-                      <input type="hidden" id="lon" name="lon" value="">
+        <div class="home-form">
+          <form action="{{route('apartment-selected')}}" method="post" novalidate="novalidate" class="form-search">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+            @csrf
+            @method('POST')
+            <fieldset>
+              <legend>Dove vuoi andare?</legend>
+              <div class="inner-form">
+                <div class="input-field">
+                  <div id="search-app">
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <input type="number" class="form-control search-slt" placeholder="Numero stanze">
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <input type="number" class="form-control search-slt" name="beds_number" placeholder="Numero letti"
-                      value="">
-                  </div>
-
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <button type="submit" class="btn btn-danger wrn-btn">Cerca</button>
-                  </div>
+                  <input type="hidden" id="lat" name="lat" value="">
+                  <input type="hidden" id="lon" name="lon" value="">
                 </div>
               </div>
-            </div>
-
-            </form>
-
-          </div>
-        </section>
-
+            </fieldset>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -68,10 +52,6 @@
       d="M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z">
     </path>
   </svg>
-
-  <div class="main-search">
-
-  </div>
 
   <div class="outer">
     <div class="bg">
@@ -145,7 +125,6 @@
         </div>
       </div>
       @endforeach
-
 
     </div>
   </div>

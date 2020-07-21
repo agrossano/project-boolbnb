@@ -3,50 +3,26 @@
 namespace App\Http\Controllers;
 use App\Apartment;
 use App\Service;
-use App\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
-    public function index()
-    {
-        $services = Service::all();
-        return view('index', compact('services'));
-    }
+  public function index()
+  {
+    $services = Service::all();
+    return view('index', compact('services'));
+  }
 
-    public function showApartment($id)
-    {
+  public function showApartment($id) {
+    $apartment = Apartment::findOrFail($id);
+    return view('show-apartment', compact('apartment'));
+  }
 
-        $user = Auth::user();
+  public function apartmentList(Request $request)
+  {
 
-        $clientIP = \Request::getClientIp(true);
-        $number_of_visualization = View::all()
-            ->where('ip_address', $clientIP)
-            ->where('apartment_id', $id)
-            //controllo che lo user id(se esite) non sia lo stesso user proprietario dell'appartamento
-            ->count();
-
-        if ($number_of_visualization == 0) {
-            $view = new View;
-
-            $view->ip_address = $clientIP;
-            $view->apartment_id = $id;
-            $view->save();
-        }
-
-        $apartment = Apartment::findOrFail($id);
-        return view('show-apartment', compact('apartment'));
-    }
-
-    public function apartmentList(Request $request)
-    {
-        $validateData = $request->validate([
-            'address' => 'required'
-        ]);
-
-        $services = Service::all();
-        $servicesSelected = $request['services'];
+    $services = Service::all();
+    $servicesSelected = $request['services'];
     $latCity = $request['lat'];
     $lonCity = $request['lon'];
     $radius = $request['radius'];
@@ -90,7 +66,7 @@ class ApartmentController extends Controller
 
     // verificare array dentro array
     function in_array_all($needles, $haystack) {
-      return empty(array_diff($needles, $haystack));
+       return empty(array_diff($needles, $haystack));
     }
 
     $apartmentSelected = [];

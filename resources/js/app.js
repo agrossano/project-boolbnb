@@ -4,13 +4,14 @@ function init() {
   expandCard();
   apartmentCoordinates();
   searchApartment();
+
   if ($('#map').length > 0) {
     showMap();
   }
+
   if ($('#cover').length > 0) {
     window.onload = choosePic;;
   }
-
 
   $(document).on("click", ".remove", rimuoviEl);
 }
@@ -49,8 +50,8 @@ function choosePic() {
 //effetti parallasse scroll home page
 $(window).scroll(function () {
   var scroll = $(window).scrollTop();
-  $('.text').css('transform', 'translate3d(0, ' + $(this).scrollTop() * -0.3 + 'px, 0)');
-  $('.search-sec').css('transform', 'translate3d(0, ' + $(this).scrollTop() * 0.5 + 'px, 0)');
+  $('.text').css('transform', 'translate3d(0, ' + $(this).scrollTop() * -0.8 + 'px, 0)');
+  $('.home-form').css('transform', 'translate3d(0, ' + $(this).scrollTop() * -0.4 + 'px, 0)');
   $('.img-scroll-right').css('transform', 'translate3d(0, ' + $(this).scrollTop() * 0.5 + 'px, 0)');
   $('.img-scroll-left').css('transform', 'translate3d(0, ' + $(this).scrollTop() * -0.3 + 'px, 0)');
   $('.illustra').css('transform', 'translate3d(0, ' + $(this).scrollTop() * 0.06 + 'px, 0)');
@@ -58,6 +59,9 @@ $(window).scroll(function () {
     width: (100 + scroll / 4) + "%"
   })
 }).scroll();
+
+
+
 
 
 // rimuovi elemento animaz
@@ -70,10 +74,6 @@ function rimuoviEl() {
     });
   });
 }
-
-
-
-
 
 
 // funzione ricerca coordinate appartamento
@@ -97,10 +97,81 @@ function apartmentCoordinates() {
   });
 }
 
+
+
 // funzione ricerca appartamenti dalla barra search home
+
+
 function searchApartment() {
-  $('#search-app').keyup(function () {
-    var input = $('#search-app').val();
+  // opzioni per ricerca
+  var searchOptions = {
+    key: 'LXS830AiWeCA3ogV5iiftuD8GgwteTOE',
+    language: 'it-IT',
+    limit: 5
+  };
+  // opzione autocomplete
+  var autocompleteOptions = {
+    key: 'LXS830AiWeCA3ogV5iiftuD8GgwteTOE',
+    language: 'it-IT'
+  };
+  var searchBoxOptions = {
+    minNumberOfCharacters: 0,
+    searchOptions: searchOptions,
+    autocompleteOptions: autocompleteOptions
+  };
+
+  var ttSearchBox = new tt.plugins.SearchBox(tt.services, searchBoxOptions);
+  var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+  $('#search-app').append(searchBoxHTML);
+
+  //invio risultati form-homepage
+  $('input').on('keydown', function (e) {
+    var key = (e.keyCode || e.which);
+    if (key == 13 || key == 3) {
+      $('.form-search').submit();
+    }
+  });
+
+  $(".home-form form .inner-form .input-field #search-app svg").click(function () {
+    $('.form-search').submit();
+  });
+
+
+  // prendo il risultato selezionato salvo i dati di lat e lon
+  ttSearchBox.on('tomtom.searchbox.resultselected', function (data) {
+    var position = data['data']['result']['position'];
+    console.log(position);
+    var latitudine = position['lat'];
+    var longitudine = position['lng'];
+    console.log(latitudine, longitudine);
+    $("#lat").val(latitudine);
+    $("#lon").val(longitudine);
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* function searchApartment() {
+  $('#search').keyup(function () {
+    var input = $('#search').val();
     $.ajax({
       url: "https://api.tomtom.com/search/2/search/" + input + ".json",
       method: "GET",
@@ -117,7 +188,7 @@ function searchApartment() {
       }
     });
   });
-}
+} */
 
 function showMap() {
   var latitude = $('#current-lat').val();

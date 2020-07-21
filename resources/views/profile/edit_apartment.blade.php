@@ -101,8 +101,8 @@
       <label for="services">SERVIZI</label><br>
       <div class="form-check">
         @foreach ($services as $service)
-        <input type="checkbox" class="form-check-input" name="services[]" value="{{$service -> id}}" @foreach
-          ($apartment -> services as $apartment_service)
+        <input type="checkbox" class="form-check-input" name="services[]" value="{{$service -> id}}" @foreach ($apartment
+          -> services as $apartment_service)
         @if ($service -> id == $apartment_service -> id)
         checked
         @endif
