@@ -1,9 +1,10 @@
 <footer>
-  <svg viewBox="0 0 1440 120" class="footer-svg">
+
+{{--   <svg viewBox="0 0 1440 120" class="footer-svg">
     <path transform="scale(1, -1) translate(0, -100) "
       d="M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z">
     </path>
-  </svg>
+  </svg> --}}
 
   <div class="container">
     <div class="row">
@@ -96,4 +97,17 @@
     </div>
   </div>
 
-</footer>
+  <div class="footer-logo-container">
+    </div>
+    <div class="moving-logo">
+      <img class="footer-img footer-logo" src="/assets/images/logo.svg" alt="">
+      <img class="footer-img"  src="/assets/images/houses-animate.svg" alt="">
+     
+  </div>
+
+
+
+{{--   <img class="footer-img" src="/assets/images/footer.png" alt="">
+ --}}</footer>
+
+

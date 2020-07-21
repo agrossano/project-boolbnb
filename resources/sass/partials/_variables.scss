@@ -35,3 +35,14 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+    background: #f1f3f5;
+    border-left: 1px solid darken(#f1f3f5, 10%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: darken(#f1f3f5, 20%);
+}
