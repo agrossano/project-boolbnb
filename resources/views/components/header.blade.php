@@ -35,13 +35,17 @@
                   <span class="userimg">
                     <img src="/assets/images/placeholder.png" alt="">
                   </span>
-                  Ciao, {{ Auth::user()->name }}! <span class="caret"></span>
+                  {{ Auth::user()->name }} <span class="caret"></span>
                 </div>
               </div>
 
             </a>
 
             {{-- metto ul link al profilo --}}
+
+            
+
+
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{route('show_profile')}}">My profile</a>
@@ -65,6 +69,8 @@
   </div>
   </div>
 </nav>
+
+
 @yield('scripts')
 
 {{-- @section('scripts')

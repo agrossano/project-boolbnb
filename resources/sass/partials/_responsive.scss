@@ -1,0 +1,55 @@
+@media screen and (max-width: 700px) {
+    .text h1 {
+        font-size: 4rem !important;
+        padding-top: 67px;
+    }
+}
+
+.show-resp {
+    display: none;
+}
+
+@media screen and (max-width: 1140px) {
+    .show-block-cover {
+        -webkit-clip-path: none !important;
+        clip-path: none !important;
+    }
+
+    .show-block-cover h1 {
+        font-size: 3rem;
+        margin-top: 88px;
+    }
+
+    .show-block-cover.inner-page-cover,
+    .show-block-cover.inner-page-cover {
+        min-height: 535px;
+    }
+
+    .user-usermenu ul li a {
+        font-size: 11px !important;
+    }
+}
+
+@media screen and (max-width: 846px) {
+    .apt-block {
+        display: none !important;
+    }
+    .show-resp {
+        display: inline-block !important;
+    }
+
+    .show-block-cover.inner-page-cover,
+    .show-block-cover.inner-page-cover {
+        min-height: 654px;
+    }
+
+    .show-block-cover p {
+        padding-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .user-usermenu ul li a {
+        font-size: 23px !important;
+    }
+}

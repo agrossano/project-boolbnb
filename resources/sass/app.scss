@@ -11,6 +11,7 @@
 @import "partials/mainform";
 @import "partials/showapt";
 @import "partials/formhome";
+@import "partials/responsive";
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
@@ -29,8 +30,8 @@ html {
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    /*font-size: 16px;*/
     line-height: 1.7;
+    font-size: 2rem;
 }
 
 h1,
@@ -82,13 +83,6 @@ ol li {
     list-style: none;
 }
 
-body {
-    //min-height: 110vh; //debug
-    line-height: 1.7;
-    font-size: 2rem;
-    //padding: 0 2.3rem;
-}
-
 .logo {
     width: 17rem;
 }
@@ -136,11 +130,22 @@ label {
     left: 27px;
 }
 
+.dropdown-menu {
+    width: 100%;
+}
+
 .dropdown-item {
     padding: 6px 15px;
     line-height: 22px;
     color: #696969;
     font-size: 1.5rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #28b484;
 }
 
 .user-menu {
@@ -971,7 +976,7 @@ input[type="search"] {
 
 // FORM
 .form-control {
-    font-size: 2.3rem;
+    font-size: 1.8rem;
 }
 
 .form {

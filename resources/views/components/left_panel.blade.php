@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-4 col-lg-3">
   <div class="user-sidebar">
 
     <div class="user-userpic">

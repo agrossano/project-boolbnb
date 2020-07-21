@@ -1832,6 +1832,7 @@ button.btn-settings:active {
 }
 
 .apt-block {
+  display: flex;
   position: relative;
   background: white;
   margin-top: -100px;
@@ -1914,6 +1915,63 @@ input[type=search] {
 .flex-form input[type=submit] {
   background: #f05;
   color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .text h1 {
+    font-size: 4rem !important;
+    padding-top: 67px;
+  }
+}
+
+.show-resp {
+  display: none;
+}
+
+@media screen and (max-width: 1140px) {
+  .show-block-cover {
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+  }
+
+  .show-block-cover h1 {
+    font-size: 3rem;
+    margin-top: 88px;
+  }
+
+  .show-block-cover.inner-page-cover,
+  .show-block-cover.inner-page-cover {
+    min-height: 535px;
+  }
+
+  .user-usermenu ul li a {
+    font-size: 11px !important;
+  }
+}
+
+@media screen and (max-width: 846px) {
+  .apt-block {
+    display: none !important;
+  }
+
+  .show-resp {
+    display: inline-block !important;
+  }
+
+  .show-block-cover.inner-page-cover,
+  .show-block-cover.inner-page-cover {
+    min-height: 654px;
+  }
+
+  .show-block-cover p {
+    padding-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .user-usermenu ul li a {
+    font-size: 23px !important;
+  }
 }
 
 /*!
@@ -15896,8 +15954,8 @@ html {
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  /*font-size: 16px;*/
   line-height: 1.7;
+  font-size: 2rem;
 }
 
 h1,
@@ -15949,11 +16007,6 @@ ol li {
   list-style: none;
 }
 
-body {
-  line-height: 1.7;
-  font-size: 2rem;
-}
-
 .logo {
   width: 17rem;
 }
@@ -16001,11 +16054,22 @@ label {
   left: 27px;
 }
 
+.dropdown-menu {
+  width: 100%;
+}
+
 .dropdown-item {
   padding: 6px 15px;
   line-height: 22px;
   color: #696969;
   font-size: 1.5rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #28b484;
 }
 
 .user-menu {
@@ -16838,7 +16902,7 @@ input[type=search] {
 }
 
 .form-control {
-  font-size: 2.3rem;
+  font-size: 1.8rem;
 }
 
 .form {
