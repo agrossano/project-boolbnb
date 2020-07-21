@@ -4,7 +4,14 @@ function init() {
   expandCard();
   apartmentCoordinates();
   searchApartment();
-  showMap();
+  if ($('#map').length > 0) {
+    showMap();
+  }
+  if ($('#cover').length > 0) {
+    window.onload = choosePic;;
+  }
+
+
   $(document).on("click", ".remove", rimuoviEl);
 }
 
@@ -30,7 +37,7 @@ $(function () {
 });
 
 
-window.onload = choosePic;
+
 var myCover = ["/assets/video/cover1.mp4", "/assets/video/cover2.mp4", "/assets/video/cover3.mp4", "/assets/video/cover4.mp4", "/assets/video/cover5.mp4", "/assets/video/cover6.mp4", "/assets/video/cover7.mp4"];
 
 function choosePic() {
