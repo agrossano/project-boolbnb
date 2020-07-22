@@ -59,7 +59,7 @@
   <div class="row filter">
     <div class="col-md-6 contacts">
       <div>
-        <h2 class="pt-3 pb-3 pb-3 green">Contatta l'host:</h2>
+        <h2 class="pt-5 pb-3 pb-3 green">Contatta l'host:</h2>
       </div>
       <form action="{{route('storeMessage',$apartment->id)}}" method="post" autocomplete="on">
         @method('POST')
@@ -69,8 +69,8 @@
           <input type="text" name="email" class="form-control" placeholder="Email*">
         </div>
         <label for="text"></label>
-        <textarea class="form-control" name="text" placeholder="Message" rows="5" data-form-field="Message"></textarea>
-        <input type="submit" value="Send Message">
+        <textarea class="form-control" name="text" placeholder="Messaggio" rows="5" data-form-field="Message"></textarea>
+        <input type="submit" value="Invia Messaggio">
       </form>
     </div>
     <div class="col-md-6 title-room">

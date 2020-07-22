@@ -1878,6 +1878,10 @@ button.btn-settings:active {
 
 .apt-block .text-show ul li {
   margin-bottom: 10px;
+  background-color: #28b484;
+  color: #3a3434;
+  width: 99%;
+  padding-left: 13px;
 }
 
 .green {
@@ -1886,7 +1890,7 @@ button.btn-settings:active {
 
 #map {
   width: 100%;
-  height: 432px;
+  height: 449px;
   top: 11px;
   left: -8px;
 }
@@ -1897,9 +1901,10 @@ button.btn-settings:active {
 }
 
 .contacts {
-  outline: 1.5rem solid #28b485;
   padding-bottom: 223px;
   background-color: #fff;
+  outline: 5rem dashed #28b485;
+  outline-offset: -7px;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
           clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
 }
@@ -2047,6 +2052,12 @@ button.btn-settings:active {
 
 #selected-modifier {
   height: auto;
+}
+
+.box {
+  box-sizing: border-box;
+  border: 3px solid transparent;
+  background-clip: padding-box;
 }
 
 @media screen and (max-width: 700px) {
@@ -16786,7 +16797,7 @@ input[type=search] {
   left: 50%;
   top: 0%;
   outline: 0.2rem dashed #28b485;
-  outline-offset: -12px;
+  outline-offset: -5px;
 }
 
 .user-userpic img {
