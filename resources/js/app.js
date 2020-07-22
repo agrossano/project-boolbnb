@@ -1,26 +1,5 @@
 require('./bootstrap');
 
-function init() {
-  autocompleteMailAddress();
-    expandCard();
-  apartmentCoordinates();
-  ajaxCallViews();
-  ajaxCallMessages();
-  searchApartment();
-
-
-  if ($('#map').length > 0) {
-    showMap();
-  }
-
-  if ($('#cover').length > 0) {
-      window.onload = choosePic;
-  }
-
-  $(document).on("click", ".remove", rimuoviEl);
-}
-
-
 //espansione card
 function expandCard() {
   $('.card_apt').click(function () {
@@ -28,7 +7,6 @@ function expandCard() {
     $(this).find('.text_info_shade').toggleClass('active_shd');
   });
 }
-
 
 //cambio header on scroll
 $(function () {
@@ -41,15 +19,12 @@ $(function () {
   });
 });
 
-
-
 var myCover = ["/assets/video/cover1.mp4", "/assets/video/cover2.mp4", "/assets/video/cover3.mp4", "/assets/video/cover4.mp4", "/assets/video/cover5.mp4", "/assets/video/cover6.mp4", "/assets/video/cover7.mp4"];
 
 function choosePic() {
   var randomNum = Math.floor(Math.random() * myCover.length);
   document.getElementById("cover").src = myCover[randomNum];
 }
-
 
 //effetti parallasse scroll home page
 $(window).scroll(function () {
@@ -64,10 +39,6 @@ $(window).scroll(function () {
   })
 }).scroll();
 
-
-
-
-
 // rimuovi elemento animaz
 function rimuoviEl() {
   console.log('ca');
@@ -78,7 +49,6 @@ function rimuoviEl() {
     });
   });
 }
-
 
 // funzione ricerca coordinate appartamento
 function apartmentCoordinates() {
@@ -101,7 +71,6 @@ function apartmentCoordinates() {
   });
 }
 
-
 function ajaxCallViews() {
   var id = $("#id").val();
   var url = '/statistics/ajaxviews/' + id;
@@ -123,7 +92,6 @@ function ajaxCallViews() {
   })
 }
 
-
 function ajaxCallMessages() {
   var id = $("#id").val();
   var url = '/statistics/ajaxmessages/' + id;
@@ -144,7 +112,6 @@ function ajaxCallMessages() {
     }
   })
 }
-
 
 function viewChartLine(jData) {
   var ctx = $('#views-line');
@@ -226,6 +193,7 @@ function viewChartBar(jData) {
     }
   });
 }
+
 //Grafico a linea per i messaggi
 function messaggesChartLine(mData) {
   var ctx = $('#messages-line');
@@ -309,10 +277,7 @@ function messagesChartBar(mData) {
 }
 
 
-
 // funzione ricerca appartamenti dalla barra search home
-
-
 function searchApartment() {
   // opzioni per ricerca
   var searchOptions = {
@@ -350,57 +315,55 @@ function searchApartment() {
 
   // prendo il risultato selezionato salvo i dati di lat e lon
   ttSearchBox.on('tomtom.searchbox.resultselected', function (data) {
-      var position = data['data']['result']['position'];
-      console.log(position);
-      var latitudine = position['lat'];
-      var longitudine = position['lng'];
-      console.log(latitudine, longitudine);
-      $("#lat").val(latitudine);
-      $("#lon").val(longitudine);
+    var position = data['data']['result']['position'];
+    console.log(position);
+    var latitudine = position['lat'];
+    var longitudine = position['lng'];
+    console.log(latitudine, longitudine);
+    $("#lat").val(latitudine);
+    $("#lon").val(longitudine);
   });
 }
 
 //funzione di autocomplete x gli indirizzi mail nei mess
 function autocompleteMailAddress() {
-    $('#mail').keyup(function () {
-        var value = $('#mail').val();
-        console.log(value)
-        if (!value) {
+  $('#mail').keyup(function () {
+    var value = $('#mail').val();
+    console.log(value)
+    if (!value) {
+      $('#mailList').html('');
+      return;
+    }
+    $.ajax({
+      'method': 'get',
+      'url': '/api/User/autocompleteMailAddress',
+      'data': {
+        'input': value
+      },
+      'success': function (data) {
+        console.log(data)
+
+        $('#mailList').html('');
+        for (var i = 0; i < data.length; i++) {
+          var html = '<li class="mail">' + data[i]['email'] + '</li>';
+          $('#mailList').append(html);
+          $('ul#mailList').on('click', 'li', function () {
+            var input_value = $(this).text();
+            $('#mail').val(input_value);
             $('#mailList').html('');
-            return;
+          })
         }
-        $.ajax({
-            'method': 'get',
-            'url': '/api/User/autocompleteMailAddress',
-            'data': {
-                'input': value
-            },
-            'success': function (data) {
-                console.log(data)
-
-                $('#mailList').html('');
-                for (var i = 0; i < data.length; i++) {
-                    var html = '<li class="mail">' + data[i]['email'] + '</li>';
-                    $('#mailList').append(html);
-                    $('ul#mailList').on('click', 'li', function () {
-                        var input_value = $(this).text();
-                        $('#mail').val(input_value);
-                        $('#mailList').html('');
-                    })
-                }
-            }
-        })
-
-
-    });
+      }
+    })
+  });
 }
 
 function showMap() {
-    var latitude = $('#current-lat').val();
+  var latitude = $('#current-lat').val();
 
-    var longitude = $('#current-lon').val();
-    var coordinates = [longitude, latitude];
-    console.log(coordinates);
+  var longitude = $('#current-lon').val();
+  var coordinates = [longitude, latitude];
+  console.log(coordinates);
   var map = tt.map({
     container: 'map',
     key: 'LXS830AiWeCA3ogV5iiftuD8GgwteTOE',
@@ -426,5 +389,33 @@ function showMap() {
   var popup = new tt.Popup({ offset: popupOffsets }).setHTML("Appartamento");
 }
 
+
+
+function init() {
+  autocompleteMailAddress();
+  expandCard();
+  apartmentCoordinates();
+  if ($('#messages-line').length > 0) {
+    ajaxCallMessages();
+  }
+
+  if ($('#views-line').length > 0) {
+    ajaxCallViews();
+  }
+
+  if ($('#cover').length > 0) {
+    window.onload = choosePic;
+  }
+
+  if ($('#search-app').length > 0) {
+    searchApartment();
+  }
+
+  if ($('#map').length > 0) {
+    showMap();
+  }
+
+  $(document).on("click", ".remove", rimuoviEl);
+}
 
 $(document).ready(init);
