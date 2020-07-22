@@ -4680,7 +4680,7 @@ module.exports = {
     for (var i = 0, len = elements.length; i < len; i++) {
       var _ret = _loop(i);
 
-      if (_ret === "continue")
+      if (_ret === "continue") continue;
     }
 
     return createdDocument.body.innerHTML;
@@ -9364,7 +9364,7 @@ function nodeName( elem, name ) {
 
   return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-}
+};
 var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 
 
@@ -37228,18 +37228,20 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 function init() {
-    autocompleteMailAddress();
-    expandCard();
-    apartmentCoordinates();
-    searchApartment();
+  autocompleteMailAddress();
+  expandCard();
+  apartmentCoordinates();
+  ajaxCallViews();
+  ajaxCallMessages();
+  searchApartment();
 
-    if ($('#map').length > 0) {
-        showMap();
-    }
+  if ($('#map').length > 0) {
+    showMap();
+  }
 
-    if ($('#cover').length > 0) {
-        window.onload = choosePic;
-    }
+  if ($('#cover').length > 0) {
+    window.onload = choosePic;
+  }
 
   $(document).on("click", ".remove", rimuoviEl);
 } //espansione card
@@ -37315,6 +37317,153 @@ function apartmentCoordinates() {
       }
     });
   });
+}
+
+function ajaxCallViews() {
+  var id = $("#id").val();
+  var url = '/statistics/ajaxviews/' + id;
+  $.ajax({
+    headers: {
+      'X-CSRF-Token': '{{ csrf_token() }}'
+    },
+    url: url,
+    method: "GET",
+    dataType: 'json',
+    success: function success(data) {
+      var data = data;
+      var jData = JSON.stringify(data);
+      console.log(jData);
+      viewChartLine(data);
+      viewChartBar(data);
+    }
+  });
+}
+
+function ajaxCallMessages() {
+  var id = $("#id").val();
+  var url = '/statistics/ajaxmessages/' + id;
+  $.ajax({
+    headers: {
+      'X-CSRF-Token': '{{ csrf_token() }}'
+    },
+    url: url,
+    method: "GET",
+    dataType: 'json',
+    success: function success(data) {
+      var data = data;
+      var mData = JSON.stringify(data);
+      console.log(mData);
+      messaggesChartLine(data);
+      messagesChartBar(data);
+    }
+  });
+}
+
+function viewChartLine(jData) {
+  var ctx = $('#views-line');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: jData.months,
+      datasets: [{
+        label: 'Visite',
+        data: jData.views_count_data,
+        backgroundColor: ['#62CB76', '#62CB76', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['#62CB76', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+} //Grafico a barre per le views
+
+
+function viewChartBar(jData) {
+  var ctx = $('#views-bar');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: jData.months,
+      datasets: [{
+        label: 'Visite',
+        data: jData.views_count_data,
+        backgroundColor: ['#62CB76', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['#62CB76', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+} //Grafico a linea per i messaggi
+
+
+function messaggesChartLine(mData) {
+  var ctx = $('#messages-line');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: mData.months,
+      datasets: [{
+        label: 'Messaggi',
+        data: mData.messages_count_data,
+        backgroundColor: ['#62CB76', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['#62CB76', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+} // Grafico a barre per i messaggi
+
+
+function messagesChartBar(mData) {
+  var ctx = $('#messages-bar');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: mData.months,
+      datasets: [{
+        label: 'Messaggi',
+        data: mData.messages_count_data,
+        backgroundColor: ['#62CB76', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['#62CB76', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 } // funzione ricerca appartamenti dalla barra search home
 
 
@@ -37340,61 +37489,61 @@ function searchApartment() {
   $('#search-app').append(searchBoxHTML); //invio risultati form-homepage
 
   $('input').on('keydown', function (e) {
-      var key = e.keyCode || e.which;
+    var key = e.keyCode || e.which;
 
-      if (key == 13 || key == 3) {
-          $('.form-search').submit();
-      }
+    if (key == 13 || key == 3) {
+      $('.form-search').submit();
+    }
   });
-    $(".home-form form .inner-form .input-field #search-app svg").click(function () {
-        $('.form-search').submit();
-    }); // prendo il risultato selezionato salvo i dati di lat e lon
+  $(".home-form form .inner-form .input-field #search-app svg").click(function () {
+    $('.form-search').submit();
+  }); // prendo il risultato selezionato salvo i dati di lat e lon
 
-    ttSearchBox.on('tomtom.searchbox.resultselected', function (data) {
-        var position = data['data']['result']['position'];
-        console.log(position);
-        var latitudine = position['lat'];
-        var longitudine = position['lng'];
-        console.log(latitudine, longitudine);
-        $("#lat").val(latitudine);
-        $("#lon").val(longitudine);
-    });
+  ttSearchBox.on('tomtom.searchbox.resultselected', function (data) {
+    var position = data['data']['result']['position'];
+    console.log(position);
+    var latitudine = position['lat'];
+    var longitudine = position['lng'];
+    console.log(latitudine, longitudine);
+    $("#lat").val(latitudine);
+    $("#lon").val(longitudine);
+  });
 } //funzione di autocomplete x gli indirizzi mail nei mess
 
 
-            function autocompleteMailAddress() {
-                $('#mail').keyup(function () {
-                    var value = $('#mail').val();
-                    console.log(value);
+function autocompleteMailAddress() {
+  $('#mail').keyup(function () {
+    var value = $('#mail').val();
+    console.log(value);
 
-                    if (!value) {
-                        $('#mailList').html('');
-                        return;
-                    }
+    if (!value) {
+      $('#mailList').html('');
+      return;
+    }
 
-                    $.ajax({
-                        'method': 'get',
-                        'url': '/api/User/autocompleteMailAddress',
-                        'data': {
-                            'input': value
-                        },
-                        'success': function success(data) {
-                            console.log(data);
-                            $('#mailList').html('');
+    $.ajax({
+      'method': 'get',
+      'url': '/api/User/autocompleteMailAddress',
+      'data': {
+        'input': value
+      },
+      'success': function success(data) {
+        console.log(data);
+        $('#mailList').html('');
 
-                            for (var i = 0; i < data.length; i++) {
-                                var html = '<li class="mail">' + data[i]['email'] + '</li>';
-                                $('#mailList').append(html);
-                                $('ul#mailList').on('click', 'li', function () {
-                                    var input_value = $(this).text();
-                                    $('#mail').val(input_value);
-                                    $('#mailList').html('');
-                                });
-                            }
-                        }
-                    });
+        for (var i = 0; i < data.length; i++) {
+          var html = '<li class="mail">' + data[i]['email'] + '</li>';
+          $('#mailList').append(html);
+          $('ul#mailList').on('click', 'li', function () {
+            var input_value = $(this).text();
+            $('#mail').val(input_value);
+            $('#mailList').html('');
+          });
+        }
+      }
+    });
   });
-            }
+}
 
 function showMap() {
   var latitude = $('#current-lat').val();
@@ -37493,13 +37642,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
   \*************************************************************/
 /*! no static exports found */
-/***/ (function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-            __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\js\app.js */"./resources/js/app.js");
-            module.exports = __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/asaac/Documents/project-boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/asaac/Documents/project-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
-            /***/
-        })
+/***/ })
 
 /******/ });

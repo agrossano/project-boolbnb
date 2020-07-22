@@ -65,7 +65,7 @@
 
     <img src="/assets/images/scroll-home-l.png" class="img-scroll-right" alt="">
 
-    <img class="animated img-scroll-left" id="freepik_stories-house-searching" src="/assets/images/left_home_scroll.svg"
+    <img class="animated img-scroll-left" id="" src="/assets/images/left_home_scroll.svg"
       alt="">
 
   </div>

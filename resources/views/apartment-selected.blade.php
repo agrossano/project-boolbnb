@@ -75,7 +75,6 @@
                 @endif
               </div>
             </div>
-
               <div class="row">
                 @foreach($apartmentSelected as $eachApartment)
                 {{-- <div class="row"> --}}
@@ -104,13 +103,10 @@
                     <div class="icon room">
                       <i class="fa fa-bed" aria-hidden="true"></i>{{$eachApartment->beds_number}}
                     </div>
-
                     <div class="icon bath">
                       <i class="fa fa-bath" aria-hidden="true"></i>{{$eachApartment->toilets_number}}
                     </div>
-
                     <div class="card-buttons d-flex">
-
                       <div class="mb-2">
                         <a href="{{route('showApartment', $eachApartment ->id)}}" class="btn btn-primary">Mostra
                           appartamento</a>
@@ -128,9 +124,6 @@
   </div>
   </div>
 </main>
-
-
-
 
 
 <script>

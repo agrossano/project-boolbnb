@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Apartment;
 use App\Service;
+use App\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -14,7 +16,27 @@ class ApartmentController extends Controller
   }
 
   public function showApartment($id) {
+
+    $user = Auth::user();
+    $user_id = $user['id'];
     $apartment = Apartment::findOrFail($id);
+
+    $clientIP = \Request::getClientIp(true);
+    $number_of_visualization = View::all()
+        ->where('ip_address', $clientIP)
+        ->where('apartment_id', $id)
+        ->where('user_id', $user_id, 'null')
+        ->count();
+      // if ($number_of_visualization == 0 && $apartment -> user_id != $user_id)
+      // {
+        $view = new View;
+
+        $view->ip_address = $clientIP;
+        $view->apartment_id = $id;
+        $view -> user_id = $user_id;
+        $view->save();
+
+          // }
     return view('show-apartment', compact('apartment'));
   }
 

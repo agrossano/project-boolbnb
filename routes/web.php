@@ -42,3 +42,8 @@ Route::get('/Packages/buyPackage/{id}/{id_apartment}', 'PackagesController@buyPa
 //Rotte chiamate ajax
 Route::get('ajax', 'HomeController@ajaxRequest');
 Route::post('ajax', 'HomeController@ajaxResponse');
+
+
+Route::get('/statistics/{id}', 'StatisticsController@show_views')->name('show_statistics');
+Route::get('/statistics/ajaxviews/{id}', 'StatisticsController@getMonthlyViewData')->name('views_statistics');
+Route::get('/statistics/ajaxmessages/{id}', 'StatisticsController@getMonthlyMessagesData')->name('messages_statistics');

@@ -13,12 +13,13 @@ class CreateViewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('views', function (Blueprint $table) {
-            $table->id();
-            $table->string('ip_address', 45)->nullable();
-            $table->bigInteger('apartment_id')->unsigned()->index();
-            $table->timestamps();
-        });
+      Schema::create('views', function (Blueprint $table) {
+        $table->id();
+        $table->string('ip_address', 45)->nullable();
+        $table->bigInteger('apartment_id')->unsigned()->index();
+        $table->foreignId('user_id')->nullable()->constrained();
+        $table->timestamps();
+    });
     }
 
     /**

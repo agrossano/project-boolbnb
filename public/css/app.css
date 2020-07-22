@@ -2125,10 +2125,8 @@ button.btn-settings:active {
 
 .moving-logo {
   top: -266px;
-  left: -30%;
+  left: 65%;
   position: absolute;
-  -webkit-animation: move 30s linear 1s infinite;
-  animation: move 30s linear 1s infinite;
   width: 150px;
 }
 
@@ -2156,6 +2154,37 @@ footer {
   margin-top: 300px;
   padding-top: 65px;
   /* height: 519px; */
+  background-size: 400% 400%;
+  -webkit-animation: bg 20s infinite;
+          animation: bg 20s infinite;
+}
+
+@-webkit-keyframes bg {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bg {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .footer-img {

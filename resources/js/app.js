@@ -4,7 +4,10 @@ function init() {
   autocompleteMailAddress();
     expandCard();
   apartmentCoordinates();
+  ajaxCallViews();
+  ajaxCallMessages();
   searchApartment();
+
 
   if ($('#map').length > 0) {
     showMap();
@@ -95,6 +98,213 @@ function apartmentCoordinates() {
         $(".lon-app").val(lon);
       }
     });
+  });
+}
+
+
+function ajaxCallViews() {
+  var id = $("#id").val();
+  var url = '/statistics/ajaxviews/' + id;
+  $.ajax({
+    headers: {
+      'X-CSRF-Token': '{{ csrf_token() }}',
+    },
+    url: url,
+    method: "GET",
+    dataType: 'json',
+
+    success: function success(data) {
+      var data = data;
+      var jData = JSON.stringify(data);
+      console.log(jData);
+      viewChartLine(data);
+      viewChartBar(data);
+    }
+  })
+}
+
+
+function ajaxCallMessages() {
+  var id = $("#id").val();
+  var url = '/statistics/ajaxmessages/' + id;
+  $.ajax({
+    headers: {
+      'X-CSRF-Token': '{{ csrf_token() }}',
+    },
+    url: url,
+    method: "GET",
+    dataType: 'json',
+
+    success: function success(data) {
+      var data = data;
+      var mData = JSON.stringify(data);
+      console.log(mData);
+      messaggesChartLine(data);
+      messagesChartBar(data);
+    }
+  })
+}
+
+
+function viewChartLine(jData) {
+  var ctx = $('#views-line');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: jData.months,
+      datasets: [{
+        label: 'Visite',
+        data: jData.views_count_data,
+        backgroundColor: [
+          '#62CB76',
+          '#62CB76',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          '#62CB76',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
+
+//Grafico a barre per le views
+function viewChartBar(jData) {
+  var ctx = $('#views-bar');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: jData.months,
+      datasets: [{
+        label: 'Visite',
+        data: jData.views_count_data,
+        backgroundColor: [
+          '#62CB76',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          '#62CB76',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
+//Grafico a linea per i messaggi
+function messaggesChartLine(mData) {
+  var ctx = $('#messages-line');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: mData.months,
+      datasets: [{
+        label: 'Messaggi',
+        data: mData.messages_count_data,
+        backgroundColor: [
+          '#62CB76',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          '#62CB76',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
+
+// Grafico a barre per i messaggi
+function messagesChartBar(mData) {
+  var ctx = $('#messages-bar');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: mData.months,
+      datasets: [{
+        label: 'Messaggi',
+        data: mData.messages_count_data,
+        backgroundColor: [
+          '#62CB76',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          '#62CB76',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
   });
 }
 
