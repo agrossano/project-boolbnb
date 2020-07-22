@@ -223,7 +223,7 @@ header .container {
     -webkit-text-fill-color: transparent;
     z-index: 4;
     margin-bottom: 30px;
-    margin-top: -150px;
+    margin-top: -40px;
 }
 
 .text h1 {
@@ -609,6 +609,8 @@ input[type="search"] {
     background: #fff;
     left: 50%;
     top: 0%;
+    outline: 0.2rem dashed #28b485;
+    outline-offset: -12px;
 }
 
 .user-userpic img {

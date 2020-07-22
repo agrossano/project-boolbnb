@@ -12,9 +12,7 @@
       <div class="w-100 text-white">
         <div class="text">
           <h1 id="">Non devi andare lontano <br> per trovare ciò che conta.</h1>
-
         </div>
-
         <div class="home-form">
           <form action="{{route('apartment-selected')}}" method="post" novalidate="novalidate" class="form-search">
             @if ($errors->any())
@@ -130,3 +128,7 @@
   </div>
 
   @endsection
+
+
+
+  

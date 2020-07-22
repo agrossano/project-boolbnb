@@ -24,7 +24,7 @@
                 @endforeach</strong></li>
           </ul>
         </div>
-        
+
       </div>
     </div>
 
@@ -36,8 +36,10 @@
   <div class="apt-block">
     <div class="image" style="background-image: url('{{$apartment['image']}}')"></div>
     <div class="text-show">
+
       <h2>Descrizione</h2>
-      <p class="mb-5">{{$apartment['description']}}</p>
+      <div class="boxback"></div>
+      <p class="mb-3">{{$apartment['description']}}</p>
       <ul class="property-list-details mb-5">
         <li class="text-black">Indirizzo: <strong class="text-black">{{$apartment['address']}}</strong></li>
         <li>Metri quadrati: <strong>{{$apartment['square_metres']}}</strong></li>
@@ -54,15 +56,8 @@
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 title-room">
-      <div id='map'></div>
-      <input id="current-lat" type="hidden" name="" value="{{$apartment['lat']}}">
-      <input id="current-lon" type="hidden" name="" value="{{$apartment['lon']}}">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 contacts">
+  <div class="row filter">
+    <div class="col-md-6 contacts">
       <div>
         <h2 class="pt-3 pb-3 pb-3 green">Contatta l'host:</h2>
       </div>
@@ -78,6 +73,14 @@
         <input type="submit" value="Send Message">
       </form>
     </div>
+    <div class="col-md-6 title-room">
+      <div id='map'></div>
+      <input id="current-lat" type="hidden" name="" value="{{$apartment['lat']}}">
+      <input id="current-lon" type="hidden" name="" value="{{$apartment['lon']}}">
+    </div>
+  </div>
+  <div class="row">
+
   </div>
 </div>
 @endsection

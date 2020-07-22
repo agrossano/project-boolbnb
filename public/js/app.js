@@ -37392,8 +37392,10 @@ function showMap() {
     key: 'LXS830AiWeCA3ogV5iiftuD8GgwteTOE',
     style: 'tomtom://vector/1/basic-main',
     center: coordinates,
-    zoom: 18
+    zoom: 15,
+    pitch: 45
   });
+  map.addControl(new tt.NavigationControl());
   var marker = new tt.Marker().setLngLat(coordinates).addTo(map);
   var popupOffsets = {
     top: [0, 0],
