@@ -37225,26 +37225,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-function init() {
-  autocompleteMailAddress();
-  expandCard();
-  apartmentCoordinates();
-  ajaxCallViews();
-  ajaxCallMessages();
-  searchApartment();
-
-  if ($('#map').length > 0) {
-    showMap();
-  }
-
-  if ($('#cover').length > 0) {
-    window.onload = choosePic;
-  }
-
-  $(document).on("click", ".remove", rimuoviEl);
-} //espansione card
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //espansione card
 
 
 function expandCard() {
@@ -37575,6 +37556,34 @@ function showMap() {
   var popup = new tt.Popup({
     offset: popupOffsets
   }).setHTML("Appartamento");
+}
+
+function init() {
+  autocompleteMailAddress();
+  expandCard();
+  apartmentCoordinates();
+
+  if ($('#messages-line').length > 0) {
+    ajaxCallMessages();
+  }
+
+  if ($('#views-line').length > 0) {
+    ajaxCallViews();
+  }
+
+  if ($('#cover').length > 0) {
+    window.onload = choosePic;
+  }
+
+  if ($('#search-app').length > 0) {
+    searchApartment();
+  }
+
+  if ($('#map').length > 0) {
+    showMap();
+  }
+
+  $(document).on("click", ".remove", rimuoviEl);
 }
 
 $(document).ready(init);

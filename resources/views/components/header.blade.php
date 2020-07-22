@@ -1,11 +1,9 @@
 @include('components.login')
 @include('components.register')
-
-
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <a href="/"><img class="logo" src="/assets/images/logo.png" alt="logo"></a>
-    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button type="button" data-toggle="dropdown" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
       class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
 
@@ -69,8 +67,6 @@
   </div>
   </div>
 </nav>
-
-
 @yield('scripts')
 
 {{-- @section('scripts')

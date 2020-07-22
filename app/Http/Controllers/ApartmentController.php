@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 use App\Apartment;
 use App\Service;
-use App\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -16,27 +14,7 @@ class ApartmentController extends Controller
   }
 
   public function showApartment($id) {
-
-    $user = Auth::user();
-    $user_id = $user['id'];
     $apartment = Apartment::findOrFail($id);
-
-    $clientIP = \Request::getClientIp(true);
-    $number_of_visualization = View::all()
-        ->where('ip_address', $clientIP)
-        ->where('apartment_id', $id)
-        ->where('user_id', $user_id, 'null')
-        ->count();
-      // if ($number_of_visualization == 0 && $apartment -> user_id != $user_id)
-      // {
-        $view = new View;
-
-        $view->ip_address = $clientIP;
-        $view->apartment_id = $id;
-        $view -> user_id = $user_id;
-        $view->save();
-
-          // }
     return view('show-apartment', compact('apartment'));
   }
 
@@ -44,7 +22,6 @@ class ApartmentController extends Controller
   {
 
     $services = Service::all();
-    $servicesSelected = $request['services'];
     $latCity = $request['lat'];
     $lonCity = $request['lon'];
     $radius = $request['radius'];
@@ -62,6 +39,7 @@ class ApartmentController extends Controller
       $servicesSelected = [];
     }
 
+    // seleziono gli appartamenti per num stanze, letti e visibilità
     $apartments= Apartment::all() -> where('beds_number', '>=', $bedsNumber)
                                   -> where('rooms_number', '>=', $roomNumber)
                                   -> where('is_visible', '1');
@@ -91,22 +69,26 @@ class ApartmentController extends Controller
        return empty(array_diff($needles, $haystack));
     }
 
+    // inizializzazione array vuoto di appartamenti che appariranno in pag
     $apartmentSelected = [];
-    $allServices = [];
-
+    // ciclo gli appartamenti e faccio un array dei servizi di ogni appartamento
     foreach ($apartments as $apartment) {
-      foreach ($services as $service) {
-        $serviceId = $service['id'];
-        $allServices[] = $serviceId;
+      $allServices = [];
+      foreach ($apartment -> services as $service) {
+        $allServices[] = $service['id'];
       }
-
+      // calcolo la distanza da lat e lon indicata con formula di vincenty
       $distance = vincentyGreatCircleDistance(
-      $latCity, $lonCity, $apartment['lat'], $apartment['lon'], $earthRadius = 6371000);
+        $latCity, $lonCity, $apartment['lat'], $apartment['lon'], $earthRadius = 6371000);
+        // faccio un array di appartamenti che hanno i filtri indicati dall'utente (e aggiungo la chiave distanza)
+        if($distance <= $radius && in_array_all($servicesSelected, $allServices)){
+          $apartmentSelected[$distance]= $apartment;
+        }
 
-      if($distance <= $radius && in_array_all($servicesSelected, $allServices)){
-        $apartmentSelected[]= $apartment;
-      }
     }
+
+    // per ordinare per distanza da lat e lon inserita gli appartamenti
+    ksort($apartmentSelected);
 
     return view('apartment-selected', compact('services', 'apartmentSelected'));
   }

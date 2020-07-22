@@ -136,15 +136,18 @@ class UserController extends Controller
     $apartment -> lon = $validateData['lon'];
     $apartment -> image = $validateData['image'];
     $apartment -> is_visible = $validateData['is_visible'];
-    $image = $request -> file('image');
-    $extension = $image -> getClientOriginalExtension();
-    $name = Str::slug($request -> input('title'). '_'. time());
-    $folder = '/uploads/images/';
-    $filePath = $folder . $name . '.' .  $extension;
-    $apartment -> image = $filePath;
 
-    $image -> storeAs($folder , $name .'.'. $extension , 'public');
-
+    if ($request -> hasFile('image')) {
+       $image = $request -> file('image');
+       $extension = $image -> getClientOriginalExtension();
+       $name = Str::slug($request -> input('title'). '_'. time());
+       $folder = '/uploads/images/';
+       $filePath = $folder . $name . '.' .  $extension;
+       $apartment -> image = $filePath;
+       $image -> storeAs($folder , $name .'.'. $extension , 'public');
+     }else {
+        $image = $apartment -> image;
+      }
     $apartment -> save();
     $apartment -> services() -> sync($validateData['services']);
 

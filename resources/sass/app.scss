@@ -789,6 +789,8 @@ input[type="search"] {
     box-shadow: 1px 1px 15px -5px #333;
     background-size: contain;
     background-size: 100%;
+    max-height: 373px;
+    max-width: 495px;
 }
 
 .imgpanel {
@@ -908,6 +910,7 @@ input[type="search"] {
 .apt-options {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .panel-header {

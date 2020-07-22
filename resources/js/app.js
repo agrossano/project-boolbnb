@@ -390,7 +390,6 @@ function showMap() {
 }
 
 
-
 function init() {
   autocompleteMailAddress();
   expandCard();

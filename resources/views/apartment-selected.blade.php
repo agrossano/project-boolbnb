@@ -27,6 +27,7 @@
                       </div>
                       <input type="hidden" id="lat" name="lat" value="">
                       <input type="hidden" id="lon" name="lon" value="">
+                    </form>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12 pb-3">
                     <p>Stanze</p>
@@ -53,7 +54,6 @@
                     {{$service -> type}} <br>
                     @endforeach
                   </div>
-
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 p-2">
                   <button type="submit" class="btn btn-danger wrn-btn">Cerca</button>
@@ -75,47 +75,46 @@
                 @endif
               </div>
             </div>
-              <div class="row">
-                @foreach($apartmentSelected as $eachApartment)
-                {{-- <div class="row"> --}}
-                <div class="card_apt col-md-12 col-lg-4 box" id="selected-modifier">
-                  <div class="card_apt_header" style="background: url({{$eachApartment->image}}) 50% 0% no-repeat">
+            <div class="row">
+              @foreach($apartmentSelected as $eachApartment)
+              {{-- <div class="row"> --}}
+              <div class="card_apt col-md-12 col-lg-4 box" id="selected-modifier">
+                <div class="card_apt_header" style="background: url({{$eachApartment->image}}) 50% 0% no-repeat">
+                </div>
+                <div class="card_apt_content" id="selected-modifier">
+                  <div class="address">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    {{$eachApartment-> title}}
                   </div>
-                  <div class="card_apt_content" id="selected-modifier">
-                    <div class="address">
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      {{$eachApartment-> title}}
-                    </div>
-                    <div class="text_info">
-                      {{$eachApartment-> description}}
-                      <div class="text_info_shade"></div>
-                    </div>
+                  <div class="text_info">
+                    {{$eachApartment-> description}}
+                    <div class="text_info_shade"></div>
                   </div>
-                  <div class="price_info">
-                    <span class="price_w">Prezzo:</span>
-                    <span class="price_v">€ {{$eachApartment->price_per_day}}</span>
+                </div>
+                <div class="price_info">
+                  <span class="price_w">Prezzo:</span>
+                  <span class="price_v">€ {{$eachApartment->price_per_day}}</span>
+                </div>
+                <div class="card_apt_footer">
+                  <div class="icon area">
+                    <i class="fa fa-home" aria-hidden="true"></i>{{$eachApartment->square_metres}}
+                    <sup>2</sup>
                   </div>
-                  <div class="card_apt_footer">
-                    <div class="icon area">
-                      <i class="fa fa-home" aria-hidden="true"></i>{{$eachApartment->square_metres}}
-                      <sup>2</sup>
-                    </div>
-                    <div class="icon room">
-                      <i class="fa fa-bed" aria-hidden="true"></i>{{$eachApartment->beds_number}}
-                    </div>
-                    <div class="icon bath">
-                      <i class="fa fa-bath" aria-hidden="true"></i>{{$eachApartment->toilets_number}}
-                    </div>
-                    <div class="card-buttons d-flex">
-                      <div class="mb-2">
-                        <a href="{{route('showApartment', $eachApartment ->id)}}" class="btn btn-primary">Mostra
-                          appartamento</a>
-                      </div>
+                  <div class="icon room">
+                    <i class="fa fa-bed" aria-hidden="true"></i>{{$eachApartment->beds_number}}
+                  </div>
+                  <div class="icon bath">
+                    <i class="fa fa-bath" aria-hidden="true"></i>{{$eachApartment->toilets_number}}
+                  </div>
+                  <div class="card-buttons d-flex">
+                    <div class="mb-2">
+                      <a href="{{route('showApartment', $eachApartment ->id)}}" class="btn btn-primary">Mostra
+                        appartamento</a>
                     </div>
                   </div>
                 </div>
-                @endforeach
               </div>
+              @endforeach
             </div>
           </div>
         </div>
@@ -123,9 +122,8 @@
     </div>
   </div>
   </div>
+  </div>
 </main>
-
-
 <script>
   var slider = document.getElementById("myRange");
   var output = document.getElementById("actualRange");
@@ -135,10 +133,4 @@
     output.innerHTML = this.value;
   }
 </script>
-
-
-
-
-
-
 @endsection

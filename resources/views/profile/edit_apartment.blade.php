@@ -22,21 +22,21 @@
 
       <div class="form-group">
 
-        <label for="title">TITOLO</label>
+        <label for="title">Titolo</label>
         <input type="text" class="form-control" name="title" value="{{$apartment -> title}}">
 
       </div>
 
       <div class="form-group">
 
-        <label for="description">DESCRIZIONE</label>
+        <label for="description">Descrizione</label>
         <textarea class="form-control" rows="4" name="description">{{$apartment -> description}}</textarea>
 
       </div>
 
       <div class="form-group">
 
-        <label for="rooms_number">NUMERO DI STANZE</label>
+        <label for="rooms_number">Numero di stanze</label>
         <input type="text" class="form-control" name="rooms_number" value="{{$apartment -> rooms_number}}">
 
       </div>
@@ -44,21 +44,21 @@
 
       <div class="form-group">
 
-        <label for="toilets_number">NUMERO DI BAGNI</label>
+        <label for="toilets_number">Numero di bagni</label>
         <input type="text" class="form-control" name="toilets_number" value="{{$apartment -> toilets_number}}">
 
       </div>
 
       <div class="form-group">
 
-        <label for="beds_number">NUMERO DI LETTI</label>
+        <label for="beds_number">Numero di letti</label>
         <input type="text" class="form-control" name="beds_number" value="{{$apartment -> beds_number}}">
 
       </div>
 
       <div class="form-group">
 
-        <label for="square_metres">METRI QUADRATI</label>
+        <label for="square_metres">Metri quadrati</label>
         <input type="text" class="form-control" name="square_metres" value="{{$apartment -> square_metres}}">
 
       </div>
@@ -66,7 +66,7 @@
 
       <div class="form-group">
 
-        <label for="price_per_day">PREZZO</label>
+        <label for="price_per_day">Prezzo</label>
         <input type="text" class="form-control" name="price_per_day" value="{{$apartment -> price_per_day}}">
 
       </div>
@@ -74,7 +74,7 @@
 
       <div class="form-group">
 
-        <label for="address">INDIRIZZO</label>
+        <label for="address">Indirizzo</label>
         <input type="text" class="form-control address" name="address" value="{{$apartment -> address}}">
 
       </div>
@@ -91,14 +91,14 @@
 
         <img class="edit-image" src="{{$apartment -> image}}" alt=""> <br>
         <label for="image">Modifica Immagine</label>
-        <input type="file" id="image" name="image" accept="image/*"> <br>
+        <input type="file" id="image" name="image"  accept="image/*"> <br>
+
+        <input type="text" enctype="multipart/form-data" name="image" value="{{$apartment -> image}}" style="display:none">
 
 
-        {{--       <input type="text" name="image" value="{{$apartment -> image}}" style="display:none">
-        --}}
       </div>
 
-      <label for="services">SERVIZI</label><br>
+      <label for="services">Servizi</label><br>
       <div class="form-check">
         @foreach ($services as $service)
         <input type="checkbox" class="form-check-input" name="services[]" value="{{$service -> id}}" @foreach ($apartment

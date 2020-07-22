@@ -5,7 +5,7 @@
   @foreach ($apartments as $apartment)
   @if ($user['id'] == $apartment['user_id'])
   <div class="card card-block mb-3 item-card col-md-12 col-lg-6">
-    <div class="imgpanel">
+    <div class="imgpanel text-center">
       <img class="img_panel" src="{{asset($apartment -> image)}}" alt="">
     </div>
 
@@ -34,7 +34,7 @@
       <a href="{{route('showPackages',$apartment['id'])}}" class="btn btn-primary">Promuovi l'appartamento</a>
       <a href="{{route('edit_apartment', $apartment['id'])}}" class="btn btn-primary">Modifica appartamento</a>
       <a href="{{route('delete_apartment', $apartment['id'])}}" class="btn btn-primary">Elimina appartamento</a>
-      <a href="{{route('show_statistics', $apartment['id'])}}" class="btn btn-primary">stat</a>
+      <a href="{{route('show_statistics', $apartment['id'])}}" class="btn btn-primary">Statistiche</a>
 
     </div>
   </div>

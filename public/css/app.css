@@ -2117,6 +2117,32 @@ button.btn-settings:active {
   }
 }
 
+@media screen and (max-width: 991px) {
+  .user-name span img {
+    display: none;
+  }
+
+  .user-name .userimg:after {
+    display: none;
+  }
+
+  .dropdown-menu {
+    margin: -4.875rem 0 0;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .navbarDropdown {
+    display: none;
+  }
+
+  .dropdown-menu {
+    margin: -3.875rem 0 0 !important;
+  }
+}
+
 .footer-logo-container {
   position: absolute;
   overflow: hidden;
@@ -2125,7 +2151,7 @@ button.btn-settings:active {
 
 .moving-logo {
   top: -266px;
-  left: 65%;
+  left: 4%;
   position: absolute;
   width: 150px;
 }
@@ -17012,6 +17038,8 @@ input[type=search] {
   box-shadow: 1px 1px 15px -5px #333;
   background-size: contain;
   background-size: 100%;
+  max-height: 373px;
+  max-width: 495px;
 }
 
 .imgpanel {
@@ -17132,6 +17160,7 @@ input[type=search] {
 .apt-options {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .panel-header {
