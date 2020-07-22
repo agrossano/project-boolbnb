@@ -4681,7 +4681,7 @@ module.exports = {
       var _ret = _loop(i);
 
       if (_ret === "continue")
-          }
+    }
 
     return createdDocument.body.innerHTML;
   }
@@ -37230,16 +37230,16 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 function init() {
     autocompleteMailAddress();
     expandCard();
-  apartmentCoordinates();
-  searchApartment();
+    apartmentCoordinates();
+    searchApartment();
 
-  if ($('#map').length > 0) {
-    showMap();
-  }
+    if ($('#map').length > 0) {
+        showMap();
+    }
 
-  if ($('#cover').length > 0) {
-    window.onload = choosePic;
-  }
+    if ($('#cover').length > 0) {
+        window.onload = choosePic;
+    }
 
   $(document).on("click", ".remove", rimuoviEl);
 } //espansione card
@@ -37340,15 +37340,15 @@ function searchApartment() {
   $('#search-app').append(searchBoxHTML); //invio risultati form-homepage
 
   $('input').on('keydown', function (e) {
-    var key = e.keyCode || e.which;
+      var key = e.keyCode || e.which;
 
-    if (key == 13 || key == 3) {
-      $('.form-search').submit();
-    }
+      if (key == 13 || key == 3) {
+          $('.form-search').submit();
+      }
   });
-  $(".home-form form .inner-form .input-field #search-app svg").click(function () {
-    $('.form-search').submit();
-  }); // prendo il risultato selezionato salvo i dati di lat e lon
+    $(".home-form form .inner-form .input-field #search-app svg").click(function () {
+        $('.form-search').submit();
+    }); // prendo il risultato selezionato salvo i dati di lat e lon
 
     ttSearchBox.on('tomtom.searchbox.resultselected', function (data) {
         var position = data['data']['result']['position'];
@@ -37493,7 +37493,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
   \*************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function (module, exports, __webpack_require__) {
 
             __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\js\app.js */"./resources/js/app.js");
             module.exports = __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
