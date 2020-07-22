@@ -1,7 +1,8 @@
 require('./bootstrap');
 
 function init() {
-  expandCard();
+  autocompleteMailAddress();
+    expandCard();
   apartmentCoordinates();
   searchApartment();
 
@@ -10,7 +11,7 @@ function init() {
   }
 
   if ($('#cover').length > 0) {
-    window.onload = choosePic;;
+      window.onload = choosePic;
   }
 
   $(document).on("click", ".remove", rimuoviEl);
@@ -139,42 +140,57 @@ function searchApartment() {
 
   // prendo il risultato selezionato salvo i dati di lat e lon
   ttSearchBox.on('tomtom.searchbox.resultselected', function (data) {
-    var position = data['data']['result']['position'];
-    console.log(position);
-    var latitudine = position['lat'];
-    var longitudine = position['lng'];
-    console.log(latitudine, longitudine);
-    $("#lat").val(latitudine);
-    $("#lon").val(longitudine);
+      var position = data['data']['result']['position'];
+      console.log(position);
+      var latitudine = position['lat'];
+      var longitudine = position['lng'];
+      console.log(latitudine, longitudine);
+      $("#lat").val(latitudine);
+      $("#lon").val(longitudine);
   });
 }
 
-/* function searchApartment() {
-  $('#search').keyup(function () {
-    var input = $('#search').val();
-    $.ajax({
-      url: "https://api.tomtom.com/search/2/search/" + input + ".json",
-      method: "GET",
-      data: {
-        key: "LXS830AiWeCA3ogV5iiftuD8GgwteTOE"
-      },
-      success: function success(data) {
-        var results = data["results"];
-        var lat = results[0]["position"]["lat"];
-        var lon = results[0]["position"]["lon"];
-        $("#lat").val(lat);
-        $("#lon").val(lon);
-        console.log(results[0]["position"]);
-      }
+//funzione di autocomplete x gli indirizzi mail nei mess
+function autocompleteMailAddress() {
+    $('#mail').keyup(function () {
+        var value = $('#mail').val();
+        console.log(value)
+        if (!value) {
+            $('#mailList').html('');
+            return;
+        }
+        $.ajax({
+            'method': 'get',
+            'url': '/api/User/autocompleteMailAddress',
+            'data': {
+                'input': value
+            },
+            'success': function (data) {
+                console.log(data)
+
+                $('#mailList').html('');
+                for (var i = 0; i < data.length; i++) {
+                    var html = '<li class="mail">' + data[i]['email'] + '</li>';
+                    $('#mailList').append(html);
+                    $('ul#mailList').on('click', 'li', function () {
+                        var input_value = $(this).text();
+                        $('#mail').val(input_value);
+                        $('#mailList').html('');
+                    })
+                }
+            }
+        })
+
+
     });
-  });
-} */
+}
 
 function showMap() {
-  var latitude = $('#current-lat').val();
-  var longitude = $('#current-lon').val();
-  var coordinates = [longitude, latitude];
-  console.log(coordinates);
+    var latitude = $('#current-lat').val();
+
+    var longitude = $('#current-lon').val();
+    var coordinates = [longitude, latitude];
+    console.log(coordinates);
   var map = tt.map({
     container: 'map',
     key: 'LXS830AiWeCA3ogV5iiftuD8GgwteTOE',

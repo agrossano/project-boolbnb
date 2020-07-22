@@ -4680,8 +4680,8 @@ module.exports = {
     for (var i = 0, len = elements.length; i < len; i++) {
       var _ret = _loop(i);
 
-      if (_ret === "continue") continue;
-    }
+      if (_ret === "continue")
+          }
 
     return createdDocument.body.innerHTML;
   }
@@ -9364,7 +9364,7 @@ function nodeName( elem, name ) {
 
   return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-};
+}
 var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 
 
@@ -37228,7 +37228,8 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 function init() {
-  expandCard();
+    autocompleteMailAddress();
+    expandCard();
   apartmentCoordinates();
   searchApartment();
 
@@ -37238,7 +37239,6 @@ function init() {
 
   if ($('#cover').length > 0) {
     window.onload = choosePic;
-    ;
   }
 
   $(document).on("click", ".remove", rimuoviEl);
@@ -37350,37 +37350,51 @@ function searchApartment() {
     $('.form-search').submit();
   }); // prendo il risultato selezionato salvo i dati di lat e lon
 
-  ttSearchBox.on('tomtom.searchbox.resultselected', function (data) {
-    var position = data['data']['result']['position'];
-    console.log(position);
-    var latitudine = position['lat'];
-    var longitudine = position['lng'];
-    console.log(latitudine, longitudine);
-    $("#lat").val(latitudine);
-    $("#lon").val(longitudine);
-  });
-}
-/* function searchApartment() {
-  $('#search').keyup(function () {
-    var input = $('#search').val();
-    $.ajax({
-      url: "https://api.tomtom.com/search/2/search/" + input + ".json",
-      method: "GET",
-      data: {
-        key: "LXS830AiWeCA3ogV5iiftuD8GgwteTOE"
-      },
-      success: function success(data) {
-        var results = data["results"];
-        var lat = results[0]["position"]["lat"];
-        var lon = results[0]["position"]["lon"];
-        $("#lat").val(lat);
-        $("#lon").val(lon);
-        console.log(results[0]["position"]);
-      }
+    ttSearchBox.on('tomtom.searchbox.resultselected', function (data) {
+        var position = data['data']['result']['position'];
+        console.log(position);
+        var latitudine = position['lat'];
+        var longitudine = position['lng'];
+        console.log(latitudine, longitudine);
+        $("#lat").val(latitudine);
+        $("#lon").val(longitudine);
     });
-  });
-} */
+} //funzione di autocomplete x gli indirizzi mail nei mess
 
+
+            function autocompleteMailAddress() {
+                $('#mail').keyup(function () {
+                    var value = $('#mail').val();
+                    console.log(value);
+
+                    if (!value) {
+                        $('#mailList').html('');
+                        return;
+                    }
+
+                    $.ajax({
+                        'method': 'get',
+                        'url': '/api/User/autocompleteMailAddress',
+                        'data': {
+                            'input': value
+                        },
+                        'success': function success(data) {
+                            console.log(data);
+                            $('#mailList').html('');
+
+                            for (var i = 0; i < data.length; i++) {
+                                var html = '<li class="mail">' + data[i]['email'] + '</li>';
+                                $('#mailList').append(html);
+                                $('ul#mailList').on('click', 'li', function () {
+                                    var input_value = $(this).text();
+                                    $('#mail').val(input_value);
+                                    $('#mailList').html('');
+                                });
+                            }
+                        }
+                    });
+  });
+            }
 
 function showMap() {
   var latitude = $('#current-lat').val();
@@ -37481,10 +37495,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/asaac/Documents/project-boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/asaac/Documents/project-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+            __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\js\app.js */"./resources/js/app.js");
+            module.exports = __webpack_require__(/*! C:\Users\Antonella\lavori\project-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
-/***/ })
+            /***/
+        })
 
 /******/ });

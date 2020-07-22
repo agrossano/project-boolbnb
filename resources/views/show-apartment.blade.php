@@ -65,17 +65,19 @@
         @method('POST')
         @csrf
         <div class="form-group">
-          <label for="email"></label>
-          <input type="text" name="email" class="form-control" placeholder="Email*">
+            <label for="email"></label>
+            <input type="text" id="mail" name="email" class="form-control" placeholder="Email*">
+            <ul id="mailList"></ul>
         </div>
-        <label for="text"></label>
-        <textarea class="form-control" name="text" placeholder="Messaggio" rows="5" data-form-field="Message"></textarea>
-        <input type="submit" value="Invia Messaggio">
+          <label for="text"></label>
+          <textarea class="form-control" name="text" placeholder="Messaggio" rows="5"
+                    data-form-field="Message"></textarea>
+          <input type="submit" value="Invia Messaggio">
       </form>
     </div>
-    <div class="col-md-6 title-room">
-      <div id='map'></div>
-      <input id="current-lat" type="hidden" name="" value="{{$apartment['lat']}}">
+      <div class="col-md-6 title-room">
+          <div id='map'></div>
+          <input id="current-lat" type="hidden" name="" value="{{$apartment['lat']}}">
       <input id="current-lon" type="hidden" name="" value="{{$apartment['lon']}}">
     </div>
   </div>

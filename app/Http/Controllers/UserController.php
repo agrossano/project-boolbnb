@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Apartment;
 use App\Service;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Str;
@@ -10,21 +11,33 @@ use Str;
 
 class UserController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
+    public function __construct()
+    {
+        $this->middleware('auth')->except('autocompleteMailAddress');
+    }
 
-  public function show_profile(){
-      $user = Auth::user();
-      $apartments = Apartment::with(['services'])->get();
-      $services = Service::all();
-      return view('profile.user_profile', compact('user', 'apartments', 'services'));
-  }
+    //funzione autocomplite indirizzi mail
+    public function autocompleteMailAddress(Request $request)
+    {
+        $input = $request->input('input');
 
-  public function create_apartment(){
-    $user = Auth::user();
-    $services = Service::all();
+        $mailAddress = User::where('email', 'like', $input . '%')->get('email');
+
+        return $mailAddress;
+    }
+
+    public function show_profile()
+    {
+        $user = Auth::user();
+        $apartments = Apartment::with(['services'])->get();
+        $services = Service::all();
+        return view('profile.user_profile', compact('user', 'apartments', 'services'));
+    }
+
+    public function create_apartment()
+    {
+        $user = Auth::user();
+        $services = Service::all();
 
     return view('profile.create_apartment', compact('user', 'services'));
   }
@@ -80,7 +93,7 @@ class UserController extends Controller
     $user = Auth::user();
     $services = Service::all();
     $apartment = Apartment::findOrFail($id);
-    
+
 
 
     return view('profile.edit_apartment', compact('user', 'services','apartment'));
@@ -89,13 +102,10 @@ class UserController extends Controller
   public function update_apartment(Request $request, $id){
 
 
-    
+      $validateData = $request -> validate([
 
-    $validateData = $request -> validate([
 
-      
-      
-        'title' => 'required',
+          'title' => 'required',
         'description' => 'required',
         'rooms_number' => 'required|integer',
         'toilets_number' => 'required|integer',

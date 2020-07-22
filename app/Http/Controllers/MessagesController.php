@@ -49,6 +49,6 @@ class MessagesController extends Controller
 
         $message->save();
 
-        return redirect()->route('home')->withSuccess('Message Send');
+        return redirect()->route('showApartment', $id)->withSuccess('Message Send');
     }
 }
