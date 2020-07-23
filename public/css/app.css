@@ -16493,7 +16493,7 @@ header .container {
   -webkit-text-fill-color: transparent;
   z-index: 4;
   margin-bottom: 30px;
-  margin-top: -40px;
+  margin-top: -5vh;
 }
 
 .text h1 {
