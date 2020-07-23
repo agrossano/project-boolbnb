@@ -3,6 +3,8 @@
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <a href="/"><img class="logo" src="/assets/images/logo.png" alt="logo"></a>
+    @csrf
+    @method('POST')
     <button type="button" data-toggle="dropdown" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
       class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
@@ -14,13 +16,13 @@
           <!-- Authentication Links -->
           @guest
           <li class="nav-item">
-            <a class="nav-link" style="cursor: pointer" data-toggle="modal" data-target="#loginModal">{{ __('Login') }}
+            <a class="nav-link" style="cursor: pointer" data-toggle="modal" data-target="#loginModal">{{ __('Accedi') }}
             </a>
           </li>
           @if (Route::has('register'))
           <li class="nav-item">
             <a class="nav-link" style="cursor: pointer" data-toggle="modal"
-              data-target="#registerModal">{{ __('Register') }}
+              data-target="#registerModal">{{ __('Registrati') }}
             </a>
           </li>
           @endif
@@ -41,16 +43,12 @@
 
             {{-- metto ul link al profilo --}}
 
-            
-
-
-
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{route('show_profile')}}">My profile</a>
+              <a class="dropdown-item" href="{{route('show_profile')}}">Dashboard</a>
               <a class="dropdown-item" href="{{route('create_apartment')}}">Inserisci nuovo appartamento </a>
+              <a class="dropdown-item" href="{{route('showMessages')}}">Mostra messaggi ricevuti</a>
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">
-
                 {{ __('Logout') }}
               </a>
 
@@ -61,7 +59,6 @@
           </li>
           @endguest
         </ul>
-
       </ul>
     </div>
   </div>

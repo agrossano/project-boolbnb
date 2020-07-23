@@ -29,7 +29,7 @@
     margin-bottom: 17px;
 }
 
-.home-form form .inner-form .input-field #search-app svg {
+.search-app svg {
     fill: #aaebd4;
     width: 30px;
     height: 30px;
@@ -37,14 +37,14 @@
     cursor: pointer;
 }
 
-.home-form form .inner-form .input-field #search-app:hover,
-.home-form form .inner-form .input-field #search-app:focus {
+.search-app:hover,
+.search-app:focus {
     outline: 0;
     box-shadow: none;
 }
 
-.home-form form .inner-form .input-field #search-app:hover svg,
-.home-form form .inner-form .input-field #search-app:focus svg {
+.search-app:hover svg,
+.search-app:focus svg {
     fill: #22d698;
 }
 
@@ -61,7 +61,7 @@
         padding-left: 55px;
         font-size: 16px;
     }
-    .home-form form .inner-form .input-field #search-app svg {
+    .home-form form .inner-form .input-field .search-app svg {
         width: 26px;
         height: 26px;
     }
@@ -82,4 +82,9 @@
 
 .tt-search-box-input {
     font-size: 18px;
+}
+
+.form-nav {
+    position: absolute;
+    left: 0;
 }

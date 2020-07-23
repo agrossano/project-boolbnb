@@ -23,11 +23,10 @@
                       @csrf
                       @method('POST')
                       <p>Dove</p>
-                      <div id="search-app">
+                      <div class="search-app">
                       </div>
-                      <input type="hidden" id="lat" name="lat" value="">
-                      <input type="hidden" id="lon" name="lon" value="">
-                    </form>
+                      <input type="hidden" class="lat" name="lat" value="">
+                      <input type="hidden" class="lon" name="lon" value="">     
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12 pb-3">
                     <p>Stanze</p>
@@ -43,6 +42,7 @@
                     <div class="slidecontainer">
                       <p>Raggio di ricerca: <span id="actualRange"></span> Km</p>
                       <input name="radius" type="range" min="1" max="100" value="20" class="slider" id="myRange">
+                      
                     </div>
                   </div>
                 </div>
@@ -57,6 +57,7 @@
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 p-2">
                   <button type="submit" class="btn btn-danger wrn-btn">Cerca</button>
+                 </form>
                 </div>
               </div>
             </div>
@@ -131,6 +132,8 @@
   
   slider.oninput = function() {
     output.innerHTML = this.value;
+    document.getElementById("myRange").value = this.value;
+
   }
 </script>
 @endsection

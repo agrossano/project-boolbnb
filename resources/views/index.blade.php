@@ -8,7 +8,6 @@
   </video>
   <div class="video-background-content container h-100">
     <div class="d-flex h-100 text-center align-items-center">
-
       <div class="w-100 text-white">
         <div class="text">
           <h1 id="">Non devi andare lontano <br> per trovare ciò che conta.</h1>
@@ -30,10 +29,10 @@
               <legend>Dove vuoi andare?</legend>
               <div class="inner-form">
                 <div class="input-field">
-                  <div id="search-app">
+                  <div class="search-app">
                   </div>
-                  <input type="hidden" id="lat" name="lat" value="">
-                  <input type="hidden" id="lon" name="lon" value="">
+                  <input type="hidden" class="lat" name="lat" value="">
+                  <input type="hidden" class="lon" name="lon" value="">
                 </div>
               </div>
             </fieldset>
@@ -43,8 +42,10 @@
     </div>
   </div>
 </div>
-
+<section class="scroll-anchor"></section>
+<a href="#" class="scroller" address="true"></a>
 <div id="content" class="wrap_content">
+  
   <svg viewBox="0 0 1440 120" class="wave">
     <path
       d="M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z">
@@ -65,8 +66,7 @@
 
     <img src="/assets/images/scroll-home-l.png" class="img-scroll-right" alt="">
 
-    <img class="animated img-scroll-left" id="" src="/assets/images/left_home_scroll.svg"
-      alt="">
+    <img class="animated img-scroll-left" id="" src="/assets/images/left_home_scroll.svg" alt="">
 
   </div>
 
@@ -128,7 +128,3 @@
   </div>
 
   @endsection
-
-
-
-  

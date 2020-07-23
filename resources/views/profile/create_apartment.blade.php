@@ -101,8 +101,9 @@
         {{$service -> type}} <br>
         @endforeach
 
-        <select name="is_visible">
+        <select class="custom-select custom-select-lg mb-5 mt-5" name="is_visible">
           <label for="is_visible">SCEGLI SE RENDERE VISIBILE L'APPARTAMENTO</label>
+          <option selected="">Seleziona la visibilità dell'annuncio</option>
           <option value="1">APPARTAMENTO VISIBILE</option>
           <option value="0">APPARTAMENTO NON VISIBILE</option>
         </select>

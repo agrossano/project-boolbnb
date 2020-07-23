@@ -1,5 +1,42 @@
 require('./bootstrap');
 
+function init() {
+  autocompleteMailAddress();
+  expandCard();
+  apartmentCoordinates();
+  if ($('#messages-line').length > 0) {
+    ajaxCallMessages();
+  }
+
+  if ($('#views-line').length > 0) {
+    ajaxCallViews();
+  }
+
+  if ($('#cover').length > 0) {
+    window.onload = choosePic;
+  }
+
+  if ($('.search-app').length > 0) {
+    searchApartment();
+  }
+
+  if ($('#map').length > 0) {
+    showMap();
+  }
+
+  $(document).on("click", ".remove", rimuoviEl);
+
+
+  $('.slider').on('slide', function (ev) {
+    console.log($('.slider').val());
+
+
+  });
+}
+
+
+
+
 //espansione card
 function expandCard() {
   $('.card_apt').click(function () {
@@ -16,6 +53,13 @@ $(function () {
     } else {
       $('.navbar').removeClass('active');
     }
+  });
+});
+
+$(function () {
+  $('.scroller').click(function () {
+    $('html, body').animate({ scrollTop: $('section.scroll-anchor').offset().top }, 'slow');
+    return false;
   });
 });
 
@@ -298,7 +342,7 @@ function searchApartment() {
 
   var ttSearchBox = new tt.plugins.SearchBox(tt.services, searchBoxOptions);
   var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
-  $('#search-app').append(searchBoxHTML);
+  $('.search-app').append(searchBoxHTML);
 
   //invio risultati form-homepage
   $('input').on('keydown', function (e) {
@@ -308,9 +352,12 @@ function searchApartment() {
     }
   });
 
-  $(".home-form form .inner-form .input-field #search-app svg").click(function () {
+  $(".home-form form .inner-form .input-field .search-app svg").click(function () {
     $('.form-search').submit();
   });
+
+
+
 
 
   // prendo il risultato selezionato salvo i dati di lat e lon
@@ -320,8 +367,8 @@ function searchApartment() {
     var latitudine = position['lat'];
     var longitudine = position['lng'];
     console.log(latitudine, longitudine);
-    $("#lat").val(latitudine);
-    $("#lon").val(longitudine);
+    $(".lat").val(latitudine);
+    $(".lon").val(longitudine);
   });
 }
 
@@ -390,31 +437,6 @@ function showMap() {
 }
 
 
-function init() {
-  autocompleteMailAddress();
-  expandCard();
-  apartmentCoordinates();
-  if ($('#messages-line').length > 0) {
-    ajaxCallMessages();
-  }
 
-  if ($('#views-line').length > 0) {
-    ajaxCallViews();
-  }
-
-  if ($('#cover').length > 0) {
-    window.onload = choosePic;
-  }
-
-  if ($('#search-app').length > 0) {
-    searchApartment();
-  }
-
-  if ($('#map').length > 0) {
-    showMap();
-  }
-
-  $(document).on("click", ".remove", rimuoviEl);
-}
 
 $(document).ready(init);

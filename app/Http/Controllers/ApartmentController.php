@@ -82,13 +82,13 @@ class ApartmentController extends Controller
         $latCity, $lonCity, $apartment['lat'], $apartment['lon'], $earthRadius = 6371000);
         // faccio un array di appartamenti che hanno i filtri indicati dall'utente (e aggiungo la chiave distanza)
         if($distance <= $radius && in_array_all($servicesSelected, $allServices)){
-          $apartmentSelected[$distance]= $apartment;
+          $apartmentSelected[]= $apartment;
         }
 
     }
 
     // per ordinare per distanza da lat e lon inserita gli appartamenti
-    ksort($apartmentSelected);
+    //ksort($apartmentSelected);
 
     return view('apartment-selected', compact('services', 'apartmentSelected'));
   }

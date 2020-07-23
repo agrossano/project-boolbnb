@@ -31,6 +31,7 @@
 
     <div class="apt-options">
 
+
       <a href="{{route('showPackages',$apartment['id'])}}" class="btn btn-primary">Promuovi l'appartamento</a>
       <a href="{{route('edit_apartment', $apartment['id'])}}" class="btn btn-primary">Modifica appartamento</a>
       <a href="{{route('delete_apartment', $apartment['id'])}}" class="btn btn-primary">Elimina appartamento</a>

@@ -17,7 +17,7 @@
           </div>
           <div class="messages-header">
             <i class="fa fa-reply" aria-hidden="true"></i>
-            Da: <strong>{{$message->email}}</strong>
+            <span>Da: <strong>{{$message->email}}</strong><span>
           </div>
         </a>
       </div>

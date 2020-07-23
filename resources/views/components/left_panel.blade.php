@@ -14,18 +14,30 @@
 
     <div class="user-usermenu">
       <ul class="nav flex-nowrap">
-        <li class="">
-          <a href="{{route('show_profile')}}">
+
+
+        <div class="dash-buttons">
+          <button><a class="btn btn-primary" href="{{route('show_profile')}}">
+            Lista appartamenti</a></button>
+          <button><a class="btn btn-primary" href="{{route('create_apartment')}}">
+            Inserisci nuovo appartamento</a></button>
+          <button><a class="btn btn-primary" href="{{route('showMessages')}}">
+            Leggi messaggi</a></button>
+        </div>
+
+
+{{--         <li class="">
+          <a class="btn btn-primary" href="{{route('show_profile')}}">
             Lista appartamenti </a>
         </li>
         <li class="">
-          <a href="{{route('create_apartment')}}">
+          <a class="btn btn-primary" href="{{route('create_apartment')}}">
             Inserisci nuovo appartamento </a>
         </li>
         <li>
-          <a href="{{route('showMessages')}}">
+          <a  class="btn btn-primary" href="{{route('showMessages')}}">
             Leggi messaggi</a>
-        </li>
+        </li> --}}
       </ul>
     </div>
 

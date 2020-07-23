@@ -1920,6 +1920,12 @@ button.btn-settings:active {
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.16);
 }
 
+.contacts h1 {
+  color: #fff;
+  background-color: #28b484;
+  margin-top: 13px;
+}
+
 .home-form {
   display: flex;
   justify-content: center;
@@ -1948,7 +1954,7 @@ button.btn-settings:active {
   margin-bottom: 17px;
 }
 
-.home-form form .inner-form .input-field #search-app svg {
+.search-app svg {
   fill: #aaebd4;
   width: 30px;
   height: 30px;
@@ -1956,14 +1962,14 @@ button.btn-settings:active {
   cursor: pointer;
 }
 
-.home-form form .inner-form .input-field #search-app:hover,
-.home-form form .inner-form .input-field #search-app:focus {
+.search-app:hover,
+.search-app:focus {
   outline: 0;
   box-shadow: none;
 }
 
-.home-form form .inner-form .input-field #search-app:hover svg,
-.home-form form .inner-form .input-field #search-app:focus svg {
+.search-app:hover svg,
+.search-app:focus svg {
   fill: #22d698;
 }
 
@@ -1982,7 +1988,7 @@ button.btn-settings:active {
     font-size: 16px;
   }
 
-  .home-form form .inner-form .input-field #search-app svg {
+  .home-form form .inner-form .input-field .search-app svg {
     width: 26px;
     height: 26px;
   }
@@ -2003,6 +2009,11 @@ button.btn-settings:active {
 
 .tt-search-box-input {
   font-size: 18px;
+}
+
+.form-nav {
+  position: absolute;
+  left: 0;
 }
 
 .selected .search {
@@ -2069,6 +2080,8 @@ button.btn-settings:active {
 
 .show-resp {
   display: none;
+  background-color: #fff;
+  padding: 20px;
 }
 
 @media screen and (max-width: 1140px) {
@@ -2107,7 +2120,8 @@ button.btn-settings:active {
   }
 
   .show-block-cover p {
-    padding-bottom: 0px;
+    padding: 0px;
+    color: #000;
   }
 }
 
@@ -2141,6 +2155,10 @@ button.btn-settings:active {
   .dropdown-menu {
     margin: -3.875rem 0 0 !important;
   }
+
+  .moving-logo {
+    right: 56% !important;
+  }
 }
 
 .footer-logo-container {
@@ -2151,7 +2169,7 @@ button.btn-settings:active {
 
 .moving-logo {
   top: -266px;
-  left: 4%;
+  right: 25%;
   position: absolute;
   width: 150px;
 }
@@ -2183,6 +2201,10 @@ footer {
   background-size: 400% 400%;
   -webkit-animation: bg 20s infinite;
           animation: bg 20s infinite;
+}
+
+footer a:hover {
+  color: #fff !important;
 }
 
 @-webkit-keyframes bg {
@@ -2299,6 +2321,10 @@ footer .quick-links {
   line-height: 40px;
   margin-bottom: 0;
   text-transform: none;
+}
+
+.list-inline-item a {
+  color: #fff;
 }
 
 /*!
@@ -16487,6 +16513,71 @@ header .container {
   fill: #f8fafc;
 }
 
+.scroller {
+  opacity: 1;
+  transition: all 0.5s ease-in 3s;
+}
+
+.scroller {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -16px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #42c07d;
+  background-size: 14px auto;
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: bounce 2s infinite 2s;
+  animation: bounce 2s infinite 2s;
+  transition: all 0.2s ease-in;
+  transform: scale(1);
+  z-index: 999;
+}
+
+.scroller:before {
+  position: absolute;
+  top: calc(50% - 8px);
+  left: calc(50% - 6px);
+  transform: rotate(-45deg);
+  display: block;
+  width: 12px;
+  height: 12px;
+  content: "";
+  border: 2px solid #42c07d;
+  border-width: 0px 0 2px 2px;
+}
+
+@-webkit-keyframes bounce {
+  0%, 100%, 20%, 50%, 80% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100%, 20%, 50%, 80% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
 .search-sec {
   padding: 2rem;
 }
@@ -16496,12 +16587,13 @@ header .container {
   width: 100%;
   font-size: 0.875rem;
   line-height: 1.5;
-  color: #28b48566;
+  /* color: #2e333266; */
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
   height: 5rem;
   border-radius: 0;
+  padding-left: 38px;
 }
 
 .wrn-btn {
@@ -16914,9 +17006,10 @@ input[type=search] {
 }
 
 .user-usermenu ul li a {
-  color: #366a91;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 400;
+  font-weight: 500;
 }
 
 .user-usermenu ul li a i {
@@ -16943,6 +17036,44 @@ input[type=search] {
 .user-apartment {
   padding: 0 14px;
   border-radius: 3px;
+}
+
+.dash-buttons {
+  display: flex;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 4px 4px;
+}
+
+.dash-buttons button {
+  flex-grow: 1;
+  cursor: pointer;
+  position: relative;
+  padding: calc(1rem / 1.125) 1rem 1rem;
+  border: 0.125rem solid black;
+  color: black;
+  background-color: white;
+  font-size: 1.5rem;
+  font-family: monospace;
+  text-transform: lowercase;
+  text-shadow: rgba(0, 0, 0, 0.1) 2px 2px;
+}
+
+.dash-buttons button + button {
+  border-left: 0.125rem solid black;
+  margin-left: calc(0.125rem * -1);
+}
+
+.dash-buttons button:hover,
+.dash-buttons button:focus {
+  color: white;
+  outline: none;
+  text-shadow: none;
+  background-color: black;
+}
+
+.dash-buttons:hover button:focus:not(:hover) {
+  color: black;
+  background-color: white;
 }
 
 .dashboard-stat,
@@ -16993,7 +17124,7 @@ input[type=search] {
 }
 
 .user-stat-text {
-  color: #366a91;
+  color: #28b485;
   font-size: 10px;
   font-weight: 600;
   text-align: center;
@@ -17121,6 +17252,7 @@ input[type=search] {
   transform: scale(1.05) translateY(-0.5rem);
   box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
   z-index: 20;
+  outline-offset: -15px;
 }
 
 .card::before,
@@ -17161,6 +17293,23 @@ input[type=search] {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+#accordion .messages-header span {
+  color: #383838;
+}
+
+#accordion .card {
+  border-radius: 34px;
+}
+
+#accordion .card-body {
+  background-color: #efefef;
+  cursor: text;
+}
+
+#accordion .card:hover {
+  outline: none;
 }
 
 .panel-header {
@@ -17225,10 +17374,19 @@ input[type=search] {
 
 .form-control {
   font-size: 1.8rem;
+  border-radius: 1.25rem;
 }
 
 .form {
   padding: 30px;
+}
+
+.custom-select-lg {
+  height: calc(1.5em + 1rem + 2px);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
 }
 
 @media (min-width: 600px) {

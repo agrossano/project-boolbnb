@@ -6,7 +6,7 @@
 
 .moving-logo {
     top: -266px;
-    left: 4%;
+    right: 25%;
     position: absolute;
     //-webkit-animation: move 30s linear 1s infinite;
     //animation: move 30s linear 1s infinite;
@@ -37,6 +37,10 @@ footer {
     /* height: 519px; */
     background-size: 400% 400%;
     animation: bg 20s infinite;
+
+    a:hover {
+        color: #fff !important;
+    }
 }
 
 @keyframes bg {
@@ -134,4 +138,8 @@ footer .quick-links {
     line-height: 40px;
     margin-bottom: 0;
     text-transform: none;
+}
+
+.list-inline-item a {
+    color: #fff;
 }

@@ -243,21 +243,85 @@ header .container {
     fill: #f8fafc;
 }
 
+.scroller {
+    opacity: 1;
+    -webkit-transition: all 0.5s ease-in 3s;
+    transition: all 0.5s ease-in 3s;
+}
+
+.scroller {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -16px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #42c07d;
+    background-size: 14px auto;
+    border-radius: 50%;
+    z-index: 2;
+    -webkit-animation: bounce 2s infinite 2s;
+    animation: bounce 2s infinite 2s;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    transform: scale(1);
+    z-index: 999;
+}
+
+.scroller:before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid #42c07d;
+    border-width: 0px 0 2px 2px;
+}
+
+@keyframes bounce {
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    60% {
+        -webkit-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
 .search-sec {
     padding: 2rem;
 }
+
 .search-slt {
     display: block;
     width: 100%;
     font-size: 0.875rem;
     line-height: 1.5;
-    color: #28b48566;
+    /* color: #2e333266; */
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
     height: 5rem;
     border-radius: 0;
+    padding-left: 38px;
 }
+
 .wrn-btn {
     width: 100%;
     font-size: 26px;
@@ -675,9 +739,10 @@ input[type="search"] {
 }
 
 .user-usermenu ul li a {
-    color: #366a91;
+    color: #ffffff;
     font-size: 14px;
     font-weight: 400;
+    font-weight: 500;
 }
 
 .user-usermenu ul li a i {
@@ -704,6 +769,44 @@ input[type="search"] {
 .user-apartment {
     padding: 0 14px;
     border-radius: 3px;
+}
+
+.dash-buttons {
+    display: flex;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 4px 4px;
+}
+
+.dash-buttons button {
+    flex-grow: 1;
+    cursor: pointer;
+    position: relative;
+    padding: calc(1rem / 1.125) 1rem 1rem;
+    border: 0.125rem solid black;
+    color: black;
+    background-color: white;
+    font-size: 1.5rem;
+    font-family: monospace;
+    text-transform: lowercase;
+    text-shadow: rgba(0, 0, 0, 0.1) 2px 2px;
+}
+
+.dash-buttons button + button {
+    border-left: 0.125rem solid black;
+    margin-left: calc(0.125rem * -1);
+}
+
+.dash-buttons button:hover,
+.dash-buttons button:focus {
+    color: white;
+    outline: none;
+    text-shadow: none;
+    background-color: black;
+}
+
+.dash-buttons:hover button:focus:not(:hover) {
+    color: black;
+    background-color: white;
 }
 
 .dashboard-stat,
@@ -746,7 +849,7 @@ input[type="search"] {
 }
 
 .user-stat-text {
-    color: #366a91;
+    color: #28b485;
     font-size: 10px;
     font-weight: 600;
     text-align: center;
@@ -872,6 +975,7 @@ input[type="search"] {
     transform: scale(1.05) translateY(-0.5rem);
     box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
     z-index: 20;
+    outline-offset: -15px;
 }
 
 .card::before,
@@ -911,6 +1015,25 @@ input[type="search"] {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+#accordion {
+    .messages-header span {
+        color: #383838;
+    }
+
+    .card {
+        border-radius: 34px;
+    }
+
+    .card-body {
+        background-color: #efefef;
+        cursor: text;
+    }
+
+    .card:hover {
+        outline: none;
+    }
 }
 
 .panel-header {
@@ -976,10 +1099,19 @@ input[type="search"] {
 // FORM
 .form-control {
     font-size: 1.8rem;
+    border-radius: 1.25rem;
 }
 
 .form {
     padding: 30px;
+}
+
+.custom-select-lg {
+    height: calc(1.5em + 1rem + 2px);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1.5rem;
 }
 
 @media (min-width: 600px) {
