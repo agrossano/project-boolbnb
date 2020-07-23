@@ -37228,7 +37228,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 function init() {
-  autocompleteMailAddress();
+  //autocompleteMailAddress();
   expandCard();
   apartmentCoordinates();
 
@@ -37253,9 +37253,6 @@ function init() {
   }
 
   $(document).on("click", ".remove", rimuoviEl);
-  $('.slider').on('slide', function (ev) {
-    console.log($('.slider').val());
-  });
 } //espansione card
 
 

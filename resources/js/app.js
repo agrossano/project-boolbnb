@@ -1,7 +1,7 @@
 require('./bootstrap');
 
 function init() {
-  autocompleteMailAddress();
+  //autocompleteMailAddress();
   expandCard();
   apartmentCoordinates();
   if ($('#messages-line').length > 0) {
@@ -27,11 +27,6 @@ function init() {
   $(document).on("click", ".remove", rimuoviEl);
 
 
-  $('.slider').on('slide', function (ev) {
-    console.log($('.slider').val());
-
-
-  });
 }
 
 

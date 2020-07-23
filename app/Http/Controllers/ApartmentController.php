@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Apartment;
 use App\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -13,10 +14,11 @@ class ApartmentController extends Controller
     return view('index', compact('services'));
   }
 
-  public function showApartment($id) {
-    $apartment = Apartment::findOrFail($id);
-    return view('show-apartment', compact('apartment'));
-  }
+public function showApartment($id) {
+  $user = Auth::user();
+  $apartment = Apartment::findOrFail($id);
+  return view('show-apartment', compact('apartment','user'));
+}
 
   public function apartmentList(Request $request)
   {

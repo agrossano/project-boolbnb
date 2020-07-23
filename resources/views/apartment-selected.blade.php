@@ -41,7 +41,12 @@
                   <div class="col-lg-12">
                     <div class="slidecontainer">
                       <p>Raggio di ricerca: <span id="actualRange"></span> Km</p>
-                      <input name="radius" type="range" min="1" max="100" value="20" class="slider" id="myRange">
+                    {{--     <div>
+                          <input id="rangeInput" class="slider"type="range" min="0" max="200" oninput="amount.value=rangeInput.value" />
+                          <input id="amount" type="number" value="100" min="0" max="200" oninput="rangeInput.value=amount.value" />
+                        </div>
+                --}}
+                      <input name="radius" type="range" min="1" max="100" value="20" class="slider" id="myRange" oninput="amount.value=myRange.value">
                       
                     </div>
                   </div>
@@ -80,7 +85,7 @@
               @foreach($apartmentSelected as $eachApartment)
               {{-- <div class="row"> --}}
               <div class="card_apt col-md-12 col-lg-4 box" id="selected-modifier">
-                <div class="card_apt_header" style="background: url({{$eachApartment->image}}) 50% 0% no-repeat">
+                <div class="card_apt_header image-selected" style="background: url({{$eachApartment->image}}) 50% 43% no-repeat">
                 </div>
                 <div class="card_apt_content" id="selected-modifier">
                   <div class="address">
@@ -132,6 +137,7 @@
   
   slider.oninput = function() {
     output.innerHTML = this.value;
+    console.log(this.value);
     document.getElementById("myRange").value = this.value;
 
   }

@@ -57,36 +57,41 @@
 
 
 <div class="container">
-    <div class="row filter">
-        <div class="col-md-6 contacts">
-            <div>
-                <h2 class="pt-5 pb-3 pb-3 green">Contatta l'host:</h2>
-            </div>
-            <form action="{{route('storeMessage',$apartment->id)}}" method="post" autocomplete="off">
-                @method('POST')
-                @csrf
-                <div class="form-group">
-                    <label for="email"></label>
-                    <input type="text" id="mail" name="email" class="form-control" placeholder="Email*">
-                    <ul id="mailList"></ul>
-                </div>
-                <label for="text"></label>
-                <textarea class="form-control" name="text" placeholder="Messaggio" rows="5"
-                          data-form-field="Message"></textarea>
-                <input type="submit" value="Invia Messaggio">
-            </form>
-            @if(session('success'))
-                <h1>{{session('success')}}</h1>
-            @endif
+  <div class="row filter">
+    <div class="col-md-6 contacts">
+      <div>
+        <h2 class="pt-5 pb-3 pb-3 green">Contatta l'host:</h2>
+      </div>
+      <form action="{{route('storeMessage',$apartment->id)}}" method="post" autocomplete="off">
+        @method('POST')
+        @csrf
+        <div class="form-group">
+          <label for="email"></label>
+          @if($user)
+          <p>Email</p>
+          <input type="text" id="mail" name="email" class="form-control" placeholder="Email*" value="{{$user->email}}">
+          @else
+          <input type="text" id="mail" name="email" class="form-control" placeholder="Email*" value="">
+          @endif
+          <ul id="mailList"></ul>
         </div>
-        <div class="col-md-6 title-room">
-            <div id='map'></div>
-            <input id="current-lat" type="hidden" name="" value="{{$apartment['lat']}}">
-            <input id="current-lon" type="hidden" name="" value="{{$apartment['lon']}}">
-        </div>
+        <p>Messaggio</p>
+        <textarea class="form-control" name="text" placeholder="Messaggio" rows="5"
+          data-form-field="Message"></textarea>
+        <input type="submit" value="Invia Messaggio">
+      </form>
+      @if(session('success'))
+      <h1>{{session('success')}}</h1>
+      @endif
     </div>
-    <div class="row">
+    <div class="col-md-6 title-room">
+      <div id='map'></div>
+      <input id="current-lat" type="hidden" name="" value="{{$apartment['lat']}}">
+      <input id="current-lon" type="hidden" name="" value="{{$apartment['lon']}}">
+    </div>
+  </div>
+  <div class="row">
 
-    </div>
+  </div>
 </div>
 @endsection
